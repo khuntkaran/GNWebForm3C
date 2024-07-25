@@ -1,0 +1,43 @@
+﻿.modal-lg {
+    width: 85%;
+}
+
+.modal-md {
+    width: 65%;
+}
+
+.modal-sm {
+    width: 40%;
+}
+
+
+.modal-dialog {
+    margin-top: 65px;
+}
+
+.modal-header {
+    background-color: #f0f0f0;
+}
+
+#modal-btn-close {
+    display: inline-block;
+    float: right;
+    padding: 1px 8px;
+    margin-top: 2px;
+    font-size: 15px;
+    color: #fff;
+    background-color: #d9534f;
+    /*border-color: #d43f3a;*/
+    border: none;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+    #modal-btn-close::after {
+        content: '×';
+    }
+
+.bootbox-close-button {
+    display: none;
+}

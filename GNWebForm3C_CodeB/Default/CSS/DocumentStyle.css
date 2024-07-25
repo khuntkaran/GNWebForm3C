@@ -1,0 +1,22 @@
+﻿.GNTable
+{
+    width:100%;
+}
+.GNTable tr td {
+    border: 1px solid #697882;
+}
+
+.GNTable tr {
+    border: 1px solid #697882;
+}
+
+.GNHeaderTR {
+    background-color: #9ba0a4;
+    color: #FFFFFF;
+    font-weight:bold;
+}
+
+body {
+    font-family: Verdana;
+    font-size: 14px;
+}

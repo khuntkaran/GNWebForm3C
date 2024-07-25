@@ -1,0 +1,383 @@
+﻿
+/* Green Color*/
+.font-green {
+    color: #1F897F !important;
+}
+
+.font-green-sharp {
+    color: #4DB3A2 !important;
+}
+
+.btn.green:not(.btn-outline) {
+    background-color: #1c7d74 !important;
+    border-color: #1c7d74 !important;
+}
+
+.green.btn {
+    background-color: #26a69a !important;
+}
+
+.page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li.active > a, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li.active.open > a, .page-sidebar .page-sidebar-menu > li.active > a, .page-sidebar .page-sidebar-menu > li.active.open > a {
+    background: #26a1ab !important;
+}
+
+.table > thead > tr > td.success, .table > thead > tr > th.success, .table > thead > tr.success > td, .table > thead > tr.success > th, .table > tbody > tr > td.success, .table > tbody > tr > th.success, .table > tbody > tr.success > td, .table > tbody > tr.success > th, .table > tfoot > tr > td.success, .table > tfoot > tr > th.success, .table > tfoot > tr.success > td, .table > tfoot > tr.success > th {
+    background: #dff0d8 !important;
+    color: #3c763d;
+}
+
+.badge-success {
+    background-color: #45B6AF !important;
+    background-image: none;
+}
+
+
+.label-success {
+    background-color: #45B6AF !important;
+}
+
+.btn-success {
+    background-color: #45B6AF !important;
+    border-color: #45B6AF !important;
+}
+
+.dashboard-stat.green {
+    background-color: #45B6AF !important;
+}
+/* Green Color END*/
+
+/*Red Color */
+.table > thead > tr > td.danger, .table > thead > tr > th.danger, .table > thead > tr.danger > td, .table > thead > tr.danger > th, .table > tbody > tr > td.danger, .table > tbody > tr > th.danger, .table > tbody > tr.danger > td, .table > tbody > tr.danger > th, .table > tfoot > tr > td.danger, .table > tfoot > tr > th.danger, .table > tfoot > tr.danger > td, .table > tfoot > tr.danger > th {
+    background: #f2dede !important;
+    color: #a94442;
+}
+/*Red Color END*/
+
+.GNTypedText {
+    color: #3598dc !important;
+    font-weight: 600 !important;
+}
+
+.alert-success {
+    background-color: #dff0d8 !important;
+    border-color: #d6e9c6 !important;
+    color: #3c763d !important;
+}
+
+.alert-danger {
+    background-color: #f2dede !important;
+    border-color: #ebccd1 !important;
+    color: #a94442 !important;
+}
+
+
+/* --------------------Time Table------------------- */
+
+.gn-timetable-font-green {
+    color: #1BBC9B !important;
+}
+
+.gn-timetable-font-red{
+    color: #EF4836 !important;
+}
+
+.gn-timetable-font-blue{
+    color: #4B77BE !important;
+}
+
+.gn-timetable-font-yellow{
+    color: #F1C40F !important;
+}
+
+.gn-timetable-font-grey{
+    color: #95A5A6 !important;
+}
+
+
+.gn-timetable-bg-green {
+    background-color: #1BBC9B !important;
+    color:white;
+}
+
+.gn-timetable-bg-red{
+    background-color: #EF4836 !important;
+    color:white;
+}
+
+.gn-timetable-bg-blue{
+    background-color: #4B77BE !important;
+    color:white;
+}
+
+.gn-timetable-bg-yellow{
+    background-color: #F1C40F !important;
+    color:white;
+}
+
+.gn-timetable-bg-grey{
+    background-color: #95A5A6 !important;
+    color:white;
+}
+
+.gn-timetable-bg-silver{
+    background-color: #EBEBEB !important;
+    color:#666;
+}
+
+
+.gn-timetable-badge-md-green {
+    background-color: #1BBC9B !important;
+    color:white;
+    font-size:14px !important;
+    border-radius:12px !important;
+    height: 18px !important;
+    padding:0px 7px 1px 6px !important;
+}
+
+.gn-timetable-badge-md-red{
+    background-color: #EF4836 !important;
+    color:white;
+    font-size:14px !important;
+    border-radius:12px !important;
+    height: 18px !important;
+    padding:0px 7px 1px 6px !important;
+}
+
+.gn-timetable-badge-md-blue{
+    background-color: #4B77BE !important;
+    color:white;
+    font-size:14px !important;
+    border-radius:12px !important;
+    height: 18px !important;
+    padding:0px 7px 1px 6px !important;
+}
+
+.gn-timetable-badge-md-yellow{
+    background-color: #F1C40F !important;
+    color:white;
+    font-size:14px !important;
+    border-radius:12px !important;
+    height: 18px !important;
+    padding:0px 7px 1px 6px !important;
+}
+
+.gn-timetable-badge-md-grey{
+    background-color: #95A5A6 !important;
+    color:white;
+    font-size:14px !important;
+    border-radius:12px !important;
+    height: 18px !important;
+    padding:0px 7px 1px 6px !important;
+}
+
+
+
+
+
+.gn-timetable-badge-sm-green {
+    background-color: #1BBC9B !important;
+    color:white;
+    font-size:12.5px !important;
+    border-radius:12px !important;
+    height: 18px !important;
+    padding:0px 7px 1px 6px !important;
+}
+
+.gn-timetable-badge-sm-red{
+    background-color: #EF4836 !important;
+    color:white;
+    font-size:12.5px !important;
+    border-radius:12px !important;
+    height: 18px !important;
+    padding:0px 7px 1px 6px !important;
+}
+
+.gn-timetable-badge-sm-blue{
+    background-color: #4B77BE !important;
+    color:white;
+    font-size:12.5px !important;
+    border-radius:12px !important;
+    height: 18px !important;
+    padding:0px 7px 1px 6px !important;
+}
+
+.gn-timetable-badge-sm-yellow{
+    background-color: #F1C40F !important;
+    color:white;
+    font-size:12.5px !important;
+    border-radius:12px !important;
+    height: 18px !important;
+    padding:0px 7px 1px 6px !important;
+}
+
+.gn-timetable-badge-sm-grey{
+    background-color: #95A5A6 !important;
+    color:white;
+    font-size:12.5px !important;
+    border-radius:12px !important;
+    height: 18px !important;
+    padding:0px 7px 1px 6px !important;
+}
+
+/* --------------------------------------------------- */
+
+.gn-font-green {
+    color: #1BBC9B !important;
+}
+
+.gn-font-red{
+    color: #EF4836 !important;
+}
+
+.gn-font-blue{
+    color: #4B77BE !important;
+}
+
+.gn-font-yellow{
+    color: #F1C40F !important;
+}
+
+.gn-font-grey{
+    color: #95A5A6 !important;
+}
+
+.gn-font-dark-grey{
+    color: #666 !important;
+}
+
+.gn-bg-green {
+    background-color: #1BBC9B !important;
+    color:white;
+}
+
+.gn-bg-red{
+    background-color: #EF4836 !important;
+    color:white;
+}
+
+.gn-bg-blue{
+    background-color: #4B77BE !important;
+    color:white;
+}
+
+.gn-bg-yellow{
+    background-color: #F1C40F !important;
+    color:white;
+}
+
+.gn-bg-grey{
+    background-color: #95A5A6 !important;
+    color:white;
+}
+ 
+.gn-bg-silver{
+    background-color: #EBEBEB !important;
+    color:#666;
+}
+
+.gn-bg-inverse
+{
+   background-color: #f1f4f7 !important; 
+}
+
+.gn-bg-inverse-box
+{
+   background-color: #f1f4f7 !important; 
+   /*border:1px solid #cacaca !important;*/ 
+   padding:5px  !important;
+}
+
+
+.gn-badge-md-green {
+    background-color: #1BBC9B !important;
+    color:white;
+    font-size:14px !important;
+    border-radius:12px !important;
+    height: 18px !important;
+    padding:0px 7px 1px 6px !important;
+}
+
+.gn-badge-md-red{
+    background-color: #EF4836 !important;
+    color:white;
+    font-size:14px !important;
+    border-radius:12px !important;
+    height: 18px !important;
+    padding:0px 7px 1px 6px !important;
+}
+
+.gn-badge-md-blue{
+    background-color: #4B77BE !important;
+    color:white;
+    font-size:14px !important;
+    border-radius:12px !important;
+    height: 18px !important;
+    padding:0px 7px 1px 6px !important;
+}
+
+.gn-badge-md-yellow{
+    background-color: #F1C40F !important;
+    color:white;
+    font-size:14px !important;
+    border-radius:12px !important;
+    height: 18px !important;
+    padding:0px 7px 1px 6px !important;
+}
+
+.gn-badge-md-grey{
+    background-color: #95A5A6 !important;
+    color:white;
+    font-size:14px !important;
+    border-radius:12px !important;
+    height: 18px !important;
+    padding:0px 7px 1px 6px !important;
+}
+
+
+
+
+
+.gn-badge-sm-green {
+    background-color: #1BBC9B !important;
+    color:white;
+    font-size:12.5px !important;
+    border-radius:12px !important;
+    height: 18px !important;
+    padding:0px 7px 1px 6px !important;
+}
+
+.gn-badge-sm-red{
+    background-color: #EF4836 !important;
+    color:white;
+    font-size:12.5px !important;
+    border-radius:12px !important;
+    height: 18px !important;
+    padding:0px 7px 1px 6px !important;
+}
+
+.gn-badge-sm-blue{
+    background-color: #4B77BE !important;
+    color:white;
+    font-size:12.5px !important;
+    border-radius:12px !important;
+    height: 18px !important;
+    padding:0px 7px 1px 6px !important;
+}
+
+.gn-badge-sm-yellow{
+    background-color: #F1C40F !important;
+    color:white;
+    font-size:12.5px !important;
+    border-radius:12px !important;
+    height: 18px !important;
+    padding:0px 7px 1px 6px !important;
+}
+
+.gn-badge-sm-grey{
+    background-color: #95A5A6 !important;
+    color:white;
+    font-size:12.5px !important;
+    border-radius:12px !important;
+    height: 18px !important;
+    padding:0px 7px 1px 6px !important;
+}

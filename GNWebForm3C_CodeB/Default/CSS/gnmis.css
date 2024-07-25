@@ -1,0 +1,843 @@
+﻿.divWaiting {
+    position: absolute;
+    background-color: #FFFFFF transparent;
+    z-index: 2147483647 !important;
+    opacity: 0.8;
+    overflow: hidden;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    padding-top: 20%;
+}
+
+.THAction {
+    width: 120px !important;
+    text-align: center;
+}
+
+.p_justify {
+    text-align: justify;
+}
+
+.tdaction {
+    width: 100px !important;
+    text-align: center;
+}
+
+/*.TRDark {
+    background-color: #DDD !important;
+    font-size: 14px;
+    font-weight: 400;
+    color: #666;
+}*/
+
+.TRDark {
+    /*background-color: none !important;*/
+    font-size: 14px;
+    font-weight: 400;
+    color: #666;
+    background-color: #EBEBEB !important;
+    /*background: linear-gradient(#F8f8f8,#ececec) !important;*/
+}
+
+.table-bordered, .table-bordered > tbody > tr > td, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > td, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > thead > tr > th {
+    border: 1px solid #DDD;
+}
+
+.TDDarkView {
+    background-color: #DDD !important;
+    border: 1px solid #f9f9f9 !important;
+    font-size: 14px;
+    font-weight: 400;
+    color: #666;
+    width: 30%;
+}
+
+.HR5 {
+    margin: 2px !important;
+}
+
+
+.TD5 {
+    width: 5% !important;
+}
+
+.TD10 {
+    width: 10% !important;
+}
+
+.TD15 {
+    width: 15% !important;
+}
+
+.TD20 {
+    width: 20% !important;
+}
+
+.TD25 {
+    width: 25% !important;
+}
+
+.TD30 {
+    width: 30% !important;
+}
+
+.TDDate {
+    text-align: center;
+    width: 8%;
+}
+
+.GNAddButton {
+    height: auto !important;
+}
+
+.TDRight {
+    text-align: right !important;
+}
+
+.TDCenter {
+    text-align: center !important;
+}
+
+.gn-input-col-md-4 {
+    /*max-width:600px !important;    */
+}
+
+/* Components-rounded.css*/
+
+
+
+.form .form-actions {
+    padding: 10px 0px 0px !important;
+}
+
+.form .form-body {
+    padding: 10px 0px 3px 0px !important;
+}
+
+/*.portlet.light {
+    padding: 5px 20px 15px 20px !important;
+}
+
+.portlet > .portlet-title {
+    margin-bottom: 0px !important;
+}
+
+.portlet {
+    margin-bottom: 0px !important;
+}
+
+.portlet.light > .portlet-title > .caption {
+    padding: 20px 0 5px 0px !important;
+}
+
+.portlet.light > .portlet-title > .tools {
+    padding: 10px 0 5px 0 !important;
+    margin-top: 0px !important;
+}*/
+
+
+
+
+/*layput.css */
+/* Page breadcrumb */
+.page-bar {
+    margin-bottom: 5px !important;
+}
+
+
+
+/*Bootstrap.min.css*/
+.table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+    padding: 5px !important;
+}
+
+.subject.table > tbody > tr > td, .subject.table > tbody > tr > th, .subject.table > tfoot > tr > td, .subject.table > tfoot > tr > th, .subject.table > thead > tr > td, .subject.table > thead > tr > th {
+    padding: 2px !important;
+}
+
+.alert {
+    margin-bottom: 5px !important;
+    padding: 10px !important;
+}
+
+.form-group {
+    margin-bottom: 8px !important;
+}
+
+.pagination > li > a, .pagination > li > span {
+    padding: 6px 6px !important;
+}
+
+/*dataTables.bootstrap.css*/
+div.dataTables_paginate ul.pagination {
+    margin: 0px 0 !important;
+}
+
+div.dataTables_paginate {
+    float: none !important;
+}
+
+/*Style to define maximum height of the university logo image*/
+
+.maxLogoSize {
+    max-height: 120px;
+    max-width: 120px;
+}
+
+
+/* StudentDashboard.aspx*/
+.StudentDashboardSideBar {
+    background-color: #FFFFFF;
+}
+
+.StudentPanel-Page-Container {
+    margin-top: 20px !important;
+    background-color: #F1F3FA !important;
+    padding: 20px 0px 20px 5px !important;
+}
+
+.StudentPanel-SideBar-Nav li a {
+    padding: 7px 15px !important;
+}
+
+/*select2.css*/
+
+.portlet.light.bordered.red-border {
+    border: 1px solid #ff0000 !important;
+    color: #ff0000 !important;
+}
+
+.portlet.light.bordered.green-border {
+    border: 1px solid #26a69a !important;
+    color: #26a69a !important;
+}
+
+
+/*.tiles .tile {
+    margin: 0 auto !important;
+    float: none !important;
+}*/
+
+.P-Padding-Left-10 {
+    padding-left: 10px;
+}
+
+.tile-body p {
+    padding: 0;
+    margin: 0;
+    line-height: 17px !important;
+}
+
+.tiles .tile .tile-body > i {
+    margin-top: 17px;
+    display: !important;
+    font-size: 56px;
+    line-height: 56px;
+    text-align: center !important;
+}
+
+.table .btn {
+    margin-right: 0px !important;
+}
+
+.dataTables_scrollHeadInner {
+    width: inherit !important;
+}
+
+    .dataTables_scrollHeadInner > table {
+        width: inherit !important;
+    }
+
+        .dataTables_scrollHeadInner > table.dataTable {
+            margin-top: 0px !important;
+        }
+
+    .dataTables_scrollHeadInner > .dataTable {
+        margin-top: 0px !important;
+    }
+
+.dataTables_scrollHead {
+    z-index: 2;
+    overflow-y: scroll !important;
+}
+
+
+.dataTables_scrollBody > table > thead {
+    overflow: hidden;
+    visibility: hidden;
+}
+
+.dataTables_scrollBody {
+    position: relative;
+    top: -15px;
+    z-index: 1;
+    overflow-x: hidden !important;
+}
+
+/*For Exam Dashboard Components.css*/
+.tiles .tile .tile-body p {
+    font-size: 15px !important;
+}
+
+.tiles .tile .tile-object > .name {
+    font-size: 16px !important;
+}
+
+
+.tiles .tile .tile-object > .number {
+    font-size: 16px !important;
+}
+
+.tiles .tile .tile-body > i {
+    font-size: 40px !important;
+    margin-top: 13px !important;
+}
+
+
+
+/*For Exam Dashboard*/
+.form-horizontal .checkbox, .form-horizontal .checkbox-inline, .form-horizontal .radio, .form-horizontal .radio-inline {
+    padding-top: 0px !important;
+}
+
+.bg-red-light {
+    border-color: #FFFFFF !important;
+    background-image: none !important;
+    background-color: #FFC1C1 !important;
+    color: #FFFFFF !important;
+}
+
+.fix-height {
+    max-height: 350px !important;
+    overflow-y: auto !important;
+    border: 1px solid rgba(0, 0, 0, 0.40) !important;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+.RedBorder {
+    border: 1px solid red;
+}
+
+.WhiteText {
+    color: white !important;
+}
+
+
+.todo-tasklist-item-border-green {
+    border-left: #3faba4 3px solid !important;
+}
+
+.todo-tasklist-item-border-blue {
+    border-left: #4c87b9 3px solid !important;
+}
+
+.todo-tasklist-item-border-purple {
+    border-left: #8877a9 3px solid !important;
+}
+
+.todo-tasklist-item-border-red {
+    border-left: #d05454 3px solid !important;
+}
+
+.todo-tasklist-item-border-yellow {
+    border-left: #d4ad38 3px solid !important;
+}
+/* Auto Complete in Modal*/
+.fix-height {
+    z-index: 10051 !important;
+}
+
+.table-bordered-black {
+    border: 1px solid #000000 !important;
+}
+
+    .table-bordered-black > thead > tr > th,
+    .table-bordered-black > tbody > tr > th,
+    .table-bordered-black > tfoot > tr > th,
+    .table-bordered-black > thead > tr > td,
+    .table-bordered-black > tbody > tr > td,
+    .table-bordered-black > tfoot > tr > td {
+        border: 1px solid #000000 !important;
+    }
+
+
+.form-control-static {
+    min-height: 34px;
+    padding-top: 0px !important;
+    padding-bottom: 7px;
+    margin-bottom: 0;
+}
+
+.vertical-text {
+    margin-top: 75px;
+    -ms-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    padding: 10px;
+    border: 1px solid #ccc;
+    font-size: 20px;
+    /*text-transform: 1px 1px 0px rgba(0, 0, 0, 0.5);*/
+}
+
+.gnbadge {
+    font-size: 16px !important;
+    /* font-weight: 300; */
+    /* text-align: center; */
+    /* height: 18px; */
+    /* padding: 3px 6px 3px 6px; */
+    -webkit-border-radius: 12px !important;
+    -moz-border-radius: 12px !important;
+    border-radius: 12px !important;
+    text-shadow: none !important;
+    text-align: center;
+    vertical-align: middle;
+    display: inline-block;
+    min-width: 10px;
+    padding: 3px 7px;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    background-color: #777;
+    border-radius: 10px;
+}
+
+.LabelDarkViewBG {
+    background-color: #EEE !important;
+    height: auto !important;
+    min-height: 34px !important;
+    font-weight: 600 !important;
+    /*Added by PAR for Placement View pages*/
+}
+
+
+.treeNode {
+    width: 100%;
+    padding: 4px;
+    border: 1px solid #F4F6F9;
+    border-left: 1px solid #00FF00;
+}
+
+.RecessColor {
+    background-color: #f2f2f2 !important;
+    height: 10px !important;
+}
+
+.hover-cursor {
+    cursor: pointer !important;
+}
+
+.list-separated {
+    margin-top: 0px !important;
+}
+
+.list-separated > div {
+    margin-bottom: 0px !important;
+}
+
+.Width175 {
+    width: 175px !important;
+}
+
+.Width150 {
+    width: 150px !important;
+}
+
+.Width200 {
+    width: 200px !important;
+}
+
+.Width100 {
+    width: 100px !important;
+}
+
+.Width80 {
+    width: 80px !important;
+}
+
+
+.height70 {
+    height: 70px !important;
+}
+
+.font10 {
+    font-size: 10px !important;
+}
+
+.font11 {
+    font-size: 11px !important;
+}
+
+.font12 {
+    font-size: 12px !important;
+}
+
+.font18 {
+    font-size: 18px !important;
+}
+
+.font25 {
+    font-size: 25px !important;
+}
+
+.BackgroundGray {
+    background-color: #e6e6e6 !important;
+}
+
+.text-vertical-center {
+    vertical-align: middle !important;
+}
+
+.vertical-align-middle {
+    vertical-align: middle !important;
+}
+
+.LABColor {
+    background-color: #f2f2f2 !important;
+}
+
+.blog-tags li.active {
+    color: #fff;
+    background: #E84D1C;
+}
+/*Hostel*/
+.portlet-temp {
+    padding: 0 !important;
+}
+
+/*.nav > li > a {
+    padding: 5px 15px 4px !important;
+}
+
+.nav-tabs {
+    margin-bottom: 0px !important;
+}*/
+
+.room-box {
+    min-height: 80px !important;
+    border: solid 1px #e6e6e6 !important;
+    padding: 5px !important;
+}
+
+.RoomTitle {
+    background: linear-gradient(#e6e6e6, #f2f2f2, #e6e6e6) !important; /* Standard syntax (must be last) */
+}
+
+.bed-box {
+    font-size: 25px !important;
+    padding: 10px !important;
+}
+
+.bed-box-2 {
+    font-size: 25px !important;
+}
+
+.panel-body {
+    padding: 5px 15px 0px 15px !important;
+}
+
+.border-grey {
+    border-left: solid 1px #e6e6e6 !important;
+    border-right: solid 1px #e6e6e6 !important;
+    border-bottom: solid 1px #e6e6e6 !important;
+}
+
+.help-text {
+    margin-top: 7px !important;
+    margin-bottom: 5px !important;
+}
+/*Hostel*/
+
+
+/*GN CSS Library*/
+.text-vertical-middle {
+    vertical-align: middle !important;
+}
+
+
+/*GN CSS Library END*/
+
+.margin-top-5 {
+    margin-top: 5px !important;
+}
+
+
+.page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu .sub-menu > li > a, .page-sidebar .page-sidebar-menu .sub-menu > li > a {
+    border-bottom: 1px solid #3d4957;
+}
+
+/*.page-title {
+    color: #777 !important;
+    font-weight: 400 !important;
+}*/
+
+.page-title {
+    box-shadow: 0px 10px 30px 0px rgba(82, 63, 105, 0.08);
+    color: #666 !important;
+    font-size: 26px !important;
+    font-weight: 500 !important;
+}
+
+
+.table td, .table th {
+    font-size: 13px !important;
+}
+
+/*.portlet>.portlet-title>.caption {
+    font-size: 15px !important;
+}
+
+.portlet.light {
+
+    box-shadow: 0rem 0rem 1.5rem rgba(0,0,0,.12) !important;
+}*/
+
+
+.page-content {
+    background-color: #E7e7ec !important;
+}
+
+
+.input-group-addon > i {
+    color: #888 !important;
+}
+
+.select2-rendered__match {
+    text-decoration: underline !important;
+    font-weight: bold;
+    color: #555;
+}
+
+.select2-container--bootstrap .select2-results__option--highlighted[aria-selected] {
+    background-color: #6ea1cc !important;
+    color: #fff;
+}
+
+.btnExportListPage {
+    padding: 5px 10px !important;
+    font-size: 12px !important;
+    line-height: 1.5 !important;
+    border-radius: 25px !important;
+    background-color: #67809F !important;
+    border-color: #67809F !important;
+    color: #FFFFFF !important;
+}
+
+.gn-listpage-result {
+}
+
+.divWaiting {
+    display: none !important;
+}
+
+.label.label-sm {
+    font-size: 11px !important;
+}
+
+.gn-badge-count {
+    font-size: 16px !important;
+    height: 24px !important;
+    padding: 4px 8px !important;
+}
+
+/*.badge {
+    font-size: 16px !important;
+    height: 24px !important;
+    padding:4px 8px !important;
+}*/
+
+.mt-checkbox, .mt-radio {
+    padding-left: 25px !important;
+    margin-bottom: 0px !important;
+}
+
+.mt-checkbox {
+    margin-left: 10px !important;
+}
+
+.mt-checkbox-inline, .mt-radio-inline {
+    padding: 0px 0 !important;
+}
+
+.portlet.light .portlet-body {
+    padding-top: 0px !important;
+}
+
+.portlet > .portlet-title {
+    margin-bottom: 5px !important;
+}
+
+
+.static-info {
+    margin-bottom: 5px !important;
+}
+
+.dashboard-stat2 {
+    border-radius: 3px !important;
+    -webkit-box-shadow: 0px 0px 15px 0px rgba(82, 63, 105, 0.15);
+    box-shadow: 0px 0px 15px 0px rgba(82, 63, 105, 0.15);
+}
+
+.static-info .name {
+    padding-left: 25px !important;
+}
+
+.mt-element-ribbon .ribbon-content {
+    padding: 15px !important;
+}
+
+.login .content {
+    width: 370px !important;
+    padding: 10px 25px 30px !important;
+}
+
+    .login .content h3 {
+        font-size: 20px !important;
+    }
+
+    .login .content .form-control {
+        height: 35px !important;
+    }
+
+.page-header.navbar .page-logo {
+    line-height: 50px;
+    background-color: #2B3643;
+    background-image: none;
+}
+
+.mt-element-ribbon {
+    margin-bottom: 15px !important;
+}
+
+.sweet-alert p {
+    font-size: 14px;
+    text-align: left !important;
+    font-family: verdana !important;
+}
+
+.sweet-alert h2 {
+    font-size: 20px;
+    padding-top: 0px !important;
+    font-weight: 600 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #77777794;
+}
+
+
+.select2-dropdown {
+    z-index: 10060 !important;
+}
+
+
+.gn-col-5-pct {
+    width: 5% !important;
+}
+
+.dashboard-stat2 .progress-info .status {
+    text-transform: none !important;
+}
+
+.feeds li .col2 > .date {
+    padding: 5px 0px 0px 0px !important;
+    font-size: 11px !important;
+}
+
+.GNHeaderHR {
+    margin: 5px 0px 5px 0px !important;
+}
+
+.gn-file-note {
+    font-size: 13px !important;
+}
+
+.gn-file-note-description {
+    font-size: 13px !important;
+}
+
+.gn-file-note-title {
+    background-color: #f1c9c9 !important;
+    border-color: #f1c9c9 !important;
+    color: #a94442 !important;
+    padding: 1px 1px 1px 4px !important;
+}
+
+.gn-autocomplete-list-item {
+    position: relative;
+    display: block;
+    padding: 5px 10px;
+    margin-bottom: -1px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+
+
+
+
+/*******************************************
+    JRD | 2020-01-22 | Making View Better
+********************************************/
+.portlet.light.portlet-view{
+    background-color: white;
+    padding: 0; 
+}
+
+    .portlet.light.portlet-view > .portlet-title {
+        background-color: #efefef;
+        padding: 10px 15px;
+    }
+
+    .portlet.light.portlet-view > .portlet-body {
+        padding: 15px;
+        margin-top: 10px;
+    }
+
+
+div.name-v2 {
+    text-align: right !important;
+    font-weight: 400;
+}
+
+div.name-v2 > i.fa {
+    width: 32px;
+    text-align: center;
+    color: #CCC;
+}
+
+
+.caption > h4 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+div.value > .font-blue-sharp {
+    color: #000000 !important;
+    font-weight: 700;
+}
+
+    div.value > .font-blue-sharp > .font-blue-sharp {
+        color: #000000 !important;
+        font-weight: 700;
+    }
+
+.portlet-view {
+    margin-bottom: 0 !important;
+}
+
+.gn-portlet-subtitle > span {
+    background-color: #e3edf5;
+    padding: 4px 8px;
+}
+
+.gn-table-header-row{
+    background-color: #fafafa;
+}

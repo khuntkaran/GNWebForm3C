@@ -1,0 +1,28 @@
+body
+{
+	font-family:Verdana;
+	font-size:11px;
+}
+.pageheader
+{
+	font-size:small;
+	font-weight:bold;
+	background-color:LightGrey;
+	color:Black;
+	border:solid 1px Gray;
+	padding:5px 5px 5px 5px;
+}
+.bodycontent
+{
+	background-color:#F6F6F6;
+	border:solid 1px Gray;
+}
+HR
+{
+	height:1px;
+	color:#dddddd;
+}
+.imgHover
+{
+	cursor:hand;
+}

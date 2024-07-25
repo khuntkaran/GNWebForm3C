@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34714.143
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "GNWebForm3C_CodeB", "http://localhost:36742", "{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.8"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_36742"
+		Debug.AspNetCompiler.PhysicalPath = "..\GNWebForm3C_CodeB\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_36742\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_36742"
+		Release.AspNetCompiler.PhysicalPath = "..\GNWebForm3C_CodeB\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_36742\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "..\GNForm3C\"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		VisualSVNWorkingCopyRoot = .
+		SolutionGuid = {32D382DB-4D06-4554-9655-650531E70DC2}
+	EndGlobalSection
+EndGlobal

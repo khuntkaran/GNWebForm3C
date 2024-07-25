@@ -1,0 +1,422 @@
+﻿<%--
+Default skin template. The following skins are provided as examples only.
+
+1. Named control skin. The SkinId should be uniquely defined because
+   duplicate SkinId's per control type are not allowed in the same theme.
+
+<asp:GridView runat="server" SkinId="gridviewSkin" BackColor="White" >
+   <AlternatingRowStyle BackColor="Blue" />
+</asp:GridView>
+
+2. Default skin. The SkinId is not defined. Only one default 
+   control skin per control type is allowed in the same theme.
+
+<asp:Image runat="server" ImageUrl="~/images/image1.jpg" />
+--%>
+<asp:GridView runat="server"  CssClass="table table-bordered table-advanced table-striped table-hover"  >
+</asp:GridView>
+
+<asp:GridView runat="server"  CssClass="table table-bordered table-advanced table-hover"  SkinID="gvPlain" >
+</asp:GridView>
+
+<asp:Label SkinID="lblFieldHelp" runat="server"  class="fa fa-info-circle popovers btn-icon-only btn-circle" data-trigger="hover" onclick="return false;" data-container="body" data-html="true" data-placement="bottom"  data-original-title="Help"></asp:Label>
+
+ <asp:TextBox CssClass="form-control input-xsmall" runat="server" SkinID="txtXSmall"></asp:TextBox>
+ <asp:TextBox CssClass="form-control input-small" runat="server" SkinID="txtSmall"></asp:TextBox>
+ <asp:TextBox CssClass="form-control input-medium" runat="server" SkinID="txtMedium"></asp:TextBox>
+ <asp:TextBox CssClass="form-control input-xlarge" runat="server" SkinID="txtXLarge"></asp:TextBox>
+ <asp:TextBox CssClass="form-control input-xxlarge" runat="server" SkinID="txtXXLarge"></asp:TextBox>
+
+<asp:Button SkinID="btnGreen" runat="server" CssClass="btn btn-success" />
+<asp:Button SkinID="btnRed" runat="server" CssClass="btn btn-danger" />
+<asp:Button SkinID="btnBlue" runat="server" CssClass="btn blue" />
+<asp:Button SkinID="btnLock" runat="server" CssClass="btn green GNConfirm" Text="Lock" />
+<asp:Button SkinID="btnUnlock" runat="server" CssClass="btn red GNConfirm"  Text="Unlock" />
+
+<asp:Button SkinID="btnDefault" runat="server" CssClass="btn default" />
+
+<asp:Button SkinID="btnUpdate" runat="server" CssClass="btn blue" Text="Update" />
+
+<asp:Button SkinID="btnSave" runat="server" CssClass="btn green" Text="Save" />
+<asp:Button SkinID="btnEdit" runat="server" CssClass="btn btn-xs btn-circle blue-soft tooltips " Text="Edit"/>
+<asp:Button SkinID="btnCancel" runat="server" CssClass="btn default" Text="Cancel"/>
+<asp:Button SkinID="btnLoad" runat="server" CssClass="btn blue" Text="Load" />
+<asp:Button SkinID="btnShow" runat="server" CssClass="btn green ScrollToSave" Text="Show"/>
+<asp:Button SkinID="btnPDF" runat="server" CssClass="btn red-sunglo" Text="PDF"/>
+<asp:Button SkinID="btnPDF_CustomText" runat="server" CssClass="btn red-sunglo" />
+<asp:Button SkinID="btnExcel" runat="server" CssClass="btn green-meadow" Text="Excel"/>
+<asp:Button SkinID="btnExcel_CustomText" runat="server" CssClass="btn green-meadow" />
+
+<asp:Button SkinID="btnGreenRounded" runat="server" CssClass=" btn green btn-circle btn-sm" />
+
+
+<asp:Label SkinID="lblShowGreenCount" runat="server" CssClass=" badge badge-success tooltips gn-badge-count"  Text="0" data-html="true" data-toggle="tooltip" data-placement="bottom"></asp:Label>
+<asp:Label SkinID="lblShowRedCount" runat="server" CssClass=" badge badge-danger tooltips gn-badge-count"  Text="0" data-html="true" data-toggle="tooltip" data-placement="bottom"></asp:Label>
+<asp:Label SkinID="lblShowYellowCount" runat="server" CssClass=" badge badge-warning tooltips gn-badge-count"  Text="0" data-html="true" data-toggle="tooltip" data-placement="bottom"></asp:Label>
+<asp:Label SkinID="lblShowBlueCount" runat="server" CssClass=" badge badge-primary tooltips gn-badge-count"  Text="0" data-html="true" data-toggle="tooltip" data-placement="bottom"></asp:Label>
+
+<asp:Label SkinID="lblOneColumnFormLabel" runat="server" CssClass="col-md-3 control-label"></asp:Label>
+
+
+
+<asp:Label SkinID="lblStudentIcon" runat="server" CssClass="btn blue btn-xs"> 
+    <i class="fa fa-user"></i>
+</asp:Label>
+
+
+
+
+<asp:HyperLink SkinID="EditPopup" ToolTip="Edit Record" runat="server" CssClass="btn default btn-xs purple modalButton">
+<i class="fa fa-edit"></i>
+</asp:HyperLink>
+
+<asp:HyperLink SkinID="Add" runat="server" CssClass="btn btn-xs btn-success">
+<i class="fa fa-plus""></i>
+</asp:HyperLink>
+
+<asp:HyperLink SkinID="AddPopup" ToolTip="Add Record" runat="server" CssClass="btn btn-sm default blue-stripe modalButton">
+</asp:HyperLink>
+
+
+
+
+
+<asp:HyperLink SkinID="Upload" runat="server" CssClass="btn default btn-xs purple">
+<span class="glyphicon glyphicon-upload"></span>
+</asp:HyperLink>
+
+
+
+
+
+
+
+<asp:HyperLink SkinID="ViewDetail" ToolTip="View Record" runat="server" CssClass="btn default btn-xs blue">
+<i class="fa fa-file-text"></i>
+</asp:HyperLink>
+
+
+
+
+
+<asp:HyperLink SkinID="URL" runat="server" CssClass="text-center">
+<i class="fa fa-link"></i>
+</asp:HyperLink>
+
+<%-- Delete Buttons --%>
+
+<asp:LinkButton runat="server" SkinID="lbtnDelete" CssClass="btn red-sunglo btn-circle btn-xs" ToolTip="Delete Record" >
+<i class="fa fa-trash-o"></i> 
+</asp:LinkButton>
+
+
+<asp:HyperLink  SkinID="hlDeleteGrid"  runat="server"  CssClass="btn red-sunglo btn-circle btn-xs GNModalIFrame" >
+  <i class="fa fa-trash"></i>
+</asp:HyperLink>
+
+<asp:LinkButton runat="server" SkinID="lbtnDeleteMultiple" CssClass="btn btn-transparent red-sunglo btn-outline btn-circle btn-sm active" ToolTip="Delete Record" >
+<i class="fa fa-trash"></i> Delete
+</asp:LinkButton>
+
+<asp:LinkButton runat="server" SkinID="lbtnAdd" CssClass="btn btn-transparent btn-circle btn-sm btn-outline green-jungle active tooltips"  data-html="true" data-toggle="tooltip" data-placement="bottom">
+<i class="fa fa-plus"></i>&nbsp;Add
+</asp:LinkButton>
+
+<asp:LinkButton runat="server" SkinID="lbtnAddMore" CssClass="btn btn-sm btn-circle green-soft tooltips" ToolTip="Add More"  >
+<i class="fa fa-plus"></i> Add More
+</asp:LinkButton>
+
+<asp:LinkButton runat="server" SkinID="lbtnAddRow" CssClass="btn btn-sm btn-circle green-soft tooltips" ToolTip="Add Row"  >
+<i class="fa fa-plus"></i> Add Row
+</asp:LinkButton>
+
+<asp:LinkButton runat="server" SkinID="lbtnUpdate" CssClass="btn btn-sm btn-circle blue-soft tooltips" data-html="true" data-toggle="tooltip" data-placement="bottom"  >
+<i class="fa fa-edit"></i>&nbsp;Update
+</asp:LinkButton>
+
+<asp:LinkButton runat="server" SkinID="lbtnEdit" CssClass="btn btn-xs btn-circle blue-soft tooltips" data-html="true" data-toggle="tooltip" data-placement="bottom"  >
+<i class="fa fa-edit"></i>
+</asp:LinkButton>
+
+<asp:LinkButton runat="server" SkinID="lbtnReceiptCancel" CssClass="btn default btn-xs red" ToolTip="Click Here to Cancel Receipt" >
+<i class="fa fa-times"></i>
+</asp:LinkButton>
+
+<asp:Label runat="server" SkinID="lblCancelled" CssClass="btn default btn-xs red" >
+<i class="fa fa-times"></i>
+</asp:Label>
+
+
+<asp:LinkButton runat="server" SkinID="lbtnBlue" CssClass="btn blue">
+</asp:LinkButton>
+
+<asp:HyperLink SkinID="Chat" ToolTip="View Chat" runat="server" CssClass="btn default btn-xs blue">
+<i class="fa fa-share"></i>
+</asp:HyperLink>
+
+
+
+<asp:Image runat="server" class="loading" SkinID="ModelLoding" ImageUrl="~/Default/assets/global/img/loading-spinner-grey.gif"/>
+<asp:Image runat="server" SkinID="UpdatePanelLoding" Visible="false" ImageAlign="Middle" ImageUrl="~/Default/assets/global/img/input-spinner.gif" Width="25px" />
+
+<%--List Page --%>
+
+<asp:Label SkinID="lblWait" runat="server"  Text="Please Wait..." />
+
+<asp:Button SkinID="btnSearch" runat="server" CssClass="btn blue-soft btn-sm ScrollToSave" Text="Search"/>
+<asp:Button SkinID="btnSearchLarge" runat="server" CssClass="btn blue-soft ScrollToSave" />
+
+<asp:Button SkinID="btnSearchAny" runat="server" CssClass="btn  btn-success btn-sm ScrollToSave" Text="Search Any"/>
+<asp:Button SkinID="btnClear" runat="server" CssClass="btn  btn-metal btn-sm" Text="Clear"/>
+
+
+<asp:HyperLink SkinID="hlAddNew" runat="server" CssClass="btn btn-transparent btn-circle btn-sm btn-outline green-jungle active"><i class="fa fa-plus"></i> Add New (F9)</asp:HyperLink>
+<asp:HyperLink SkinID="hlAddNewText" runat="server" CssClass="btn btn-transparent btn-circle btn-sm btn-outline green-jungle active"></asp:HyperLink>
+<asp:HyperLink SkinID="hlAddMany" runat="server" CssClass="btn btn-transparent btn-circle btn-sm btn-outline green-jungle active GNAddButton"><i class="fa fa-plus"></i> Add Many</asp:HyperLink>
+<asp:HyperLink SkinID="hlAddMore" runat="server" CssClass="btn btn-transparent btn-circle btn-sm btn-outline green-jungle active GNAddButton"><i class="fa fa-plus"></i> Add More</asp:HyperLink>
+<asp:HyperLink SkinID="hlAddManyCSV" runat="server" CssClass="btn btn-transparent btn-circle btn-sm btn-outline green-jungle active">
+<i class="fa fa-plus"></i> Add Many CSV
+</asp:HyperLink>
+<asp:HyperLink SkinID="hlAdd" runat="server" CssClass="btn btn-transparent btn-circle btn-sm btn-outline green-jungle active GNAddButton"><i class="fa fa-plus"></i> Add New</asp:HyperLink>
+
+<asp:LinkButton SkinID="lbtnMultipleDelete" runat="server" CssClass="btn btn-circle btn-sm red"><i class="fa fa-trash-o"></i> Delete</asp:LinkButton>
+
+
+<asp:HyperLink SkinID="View" ToolTip="View Record" runat="server" CssClass="btn grey-cascade btn-xs btn-circle modalButton">
+<i class="fa fa-file-o"></i>
+</asp:HyperLink>
+
+<asp:HyperLink SkinID="Copy" ToolTip="Copy Record" runat="server" CssClass="btn btn-xs btn-circle green-meadow tooltips" data-html="true" data-toggle="tooltip" data-placement="bottom">
+<i class="fa fa-files-o"></i>
+</asp:HyperLink>
+
+<asp:HyperLink SkinID="Edit" ToolTip="Edit Record" runat="server" CssClass="btn btn-xs btn-circle blue-soft tooltips" data-html="true" data-toggle="tooltip" data-placement="bottom">
+<i class="fa fa-edit"></i>
+</asp:HyperLink>
+
+<asp:LinkButton SkinID="Delete" ToolTip="Delete Record"  runat="server"  CssClass="btn red-sunglo btn-circle btn-xs tooltips"  data-html="true" data-toggle="tooltip" data-placement="bottom" >
+<i class="fa fa-trash-o"></i> 
+</asp:LinkButton>
+
+<asp:LinkButton SkinID="Cancel" runat="server"  CssClass="btn red-sunglo btn-circle btn-xs tooltips"  data-html="true" data-toggle="tooltip" data-placement="bottom" >
+<i class="fa fa-times"></i>
+</asp:LinkButton>
+
+<asp:LinkButton SkinID="lbtnApprove" CssClass="btn green btn-circle btn-xs tooltips" runat="server" data-html="true" data-toggle="tooltip" data-placement="bottom" >
+<i class="fa fa-check"></i>
+</asp:LinkButton>
+
+<asp:LinkButton SkinID="Notification" runat="server"  CssClass="btn blue-soft btn-circle btn-xs tooltips"  data-html="true" data-toggle="tooltip" data-placement="bottom" >
+ <i class="fa fa-bell"></i> 
+</asp:LinkButton>
+
+<asp:LinkButton SkinID="Email" runat="server"  CssClass="btn blue-soft btn-circle btn-xs tooltips"  data-html="true" data-toggle="tooltip" data-placement="bottom" >
+ <i class="fa fa-envelope"></i>  
+</asp:LinkButton>
+
+<asp:LinkButton SkinID="lbtnPrint" runat="server" CssClass="btn yellow btn-circle btn-xs tooltips" data-html="true" data-toggle="tooltip" data-placement="bottom">
+<i class="fa fa-print"></i></asp:LinkButton>
+
+<asp:LinkButton SkinID="lbtnBlankPrint" runat="server" CssClass="btn blue-soft btn-circle btn-xs tooltips " data-html="true" data-toggle="tooltip" data-placement="bottom">
+<i class="fa fa-print"></i></asp:LinkButton>
+
+<asp:HyperLink SkinID="hlPrint"  runat="server" CssClass="btn blue-soft btn-circle btn-xs tooltips" data-html="true" data-toggle="tooltip" data-placement="bottom">
+<i class="fa fa-print"></i>
+</asp:HyperLink>
+
+<asp:HyperLink SkinID="hlAddIconInList" runat="server" CssClass="btn green btn-circle btn-xs tooltips " data-html="true" data-toggle="tooltip" data-placement="bottom">
+<i class="fa fa-plus""></i>
+</asp:HyperLink>
+
+<asp:HyperLink SkinID="hlChat" runat="server" CssClass="btn blue btn-circle btn-xs tooltips " data-html="true" data-toggle="tooltip" data-placement="bottom">
+<i class="fa fa-share"></i>
+</asp:HyperLink>
+
+<asp:HyperLink SkinID="hlCancellationModal" CssClass="btn red btn-circle btn-xs GNModalIFrame" runat="server" ToolTip="Cancel Record">
+<i class="fa fa-times"></i>
+</asp:HyperLink>
+
+<asp:HyperLink SkinID="hlReceiptCancellation"  CssClass="btn red btn-circle btn-xs GNModalIFrame" runat="server" ToolTip="Cancel Record" data-target="#viewiFrameLG" data-toggle="modal">
+<i class="fa fa-times"></i>
+</asp:HyperLink>
+
+
+
+<asp:Label SkinID="lblStatusInGrid" runat="server" CssClass="label label-sm btn-cirlce"></asp:Label>
+
+<asp:LinkButton runat="server" SkinID="lbtnDownload" CssClass="btn btn-xs btn-circle blue-soft blue">
+<i class="fa fa-download"></i> 
+</asp:LinkButton>
+
+<asp:Label SkinID="lblLockIcon" runat="server" CssClass="btn red btn-xs btn-circle tooltips" data-html="true" data-toggle="tooltip" data-placement="bottom">
+    <i class="fa fa-lock"></i>
+</asp:Label>
+
+<asp:Label SkinID="lblLockIcon_TooltipRight" runat="server" CssClass="btn red btn-xs btn-circle tooltips" data-html="true" data-toggle="tooltip" data-placement="right">
+    <i class="fa fa-lock"></i>
+</asp:Label>
+
+<asp:Label SkinID="lblUnlockIcon" runat="server" CssClass="btn yellow btn-xs"> 
+    <i class="fa fa-unlock-alt"></i>
+</asp:Label>
+
+<%--List Page --%>
+
+<%--View Page --%>
+<asp:HyperLink SkinID="hlEditButtonViewPage" runat="server" CssClass="btn blue-soft" Style="height:auto;" visible="false"><i class="fa fa-pencil"></i> Edit</asp:HyperLink>
+<asp:HyperLink SkinID="hlDeleteButtonViewPage" runat="server" CssClass="btn red" Style="height:auto;"><i class="fa fa-trash"></i> Delete</asp:HyperLink>
+<asp:HyperLink SkinID="hlCloseButtonViewPage" runat="server" CssClass="remove btn red" data-dismiss="modal" aria-hidden="true" style="height:auto;width:auto;" ><i class="fa fa-times"></i> Close</asp:HyperLink>
+
+<%--
+<asp:HyperLink SkinID="hlClosemymodal" runat="server" onclick="parent.closemyModal();" data-placement="bottom" data-original-title="Close" CssClass="remove btn red" style="height:auto;width:auto;" >
+<i class="fa fa-times"></i> Close
+</asp:HyperLink>--%>
+
+<asp:HyperLink SkinID="hlClosemymodal" runat="server" onclick="parent.closemyModal();"  data-placement="bottom" data-original-title="Close" CssClass="btn btn-sm red" style="height:auto;width:auto;"  data-dismiss="modal">
+<i class="fa fa-times"></i> 
+</asp:HyperLink>
+
+<asp:HyperLink SkinID="hlPrintFeedback" runat="server" data-placement="bottom" data-original-title="Print" CssClass="btn yellow" style="height:auto;width:auto;" ><i class="fa fa-print"></i> Print</asp:HyperLink>
+
+<asp:HyperLink SkinID="hlClosemymodalNew" runat="server" onclick="parent.closemyModal();" CssClass="btn btn-icon-only btn-circle btn red expand"> <i class="fa fa-close"></i></asp:HyperLink>
+
+<asp:ValidationSummary SkinID="VS" CssClass="alert alert-danger" runat="server" />
+
+<asp:Label SkinID="lblFormHeaderIcon" runat="server">
+    <i class="fa fa-cogs font-green-sharp"></i>
+</asp:Label>
+
+<asp:Label SkinID="lblViewFormHeaderIcon" runat="server">
+    <i class="fa fa-file-text font-green-sharp"></i>
+</asp:Label>
+
+<%--List Page --%>
+<asp:Label SkinID="lblSearchHeaderIcon" runat="server">
+        <i class="fa fa-cogs font-green-sharp"></i>
+</asp:Label>
+
+<asp:Label SkinID="lblPortletHeaderText" runat="server" CssClass="caption-subject font-green-sharp bold uppercase"></asp:Label>
+<asp:Label SkinID="lblSearchHeaderText" runat="server" CssClass="caption-subject font-green-sharp bold uppercase" Text="SEARCH"></asp:Label>
+<asp:Label SkinID="lblResultHeaderText" runat="server" CssClass="caption-subject font-green-sharp bold uppercase" Text="RESULT"></asp:Label>
+<asp:Label SkinID="lblSearchResultHeaderText" runat="server" CssClass="caption-subject font-green-sharp bold uppercase" Text="SEARCH RESULT"></asp:Label>
+<asp:Label SkinID="lblStaffHeader" runat="server" CssClass="caption-subject font-green-sharp bold uppercase"></asp:Label>
+ <asp:Label CssClass="text-danger" runat="server" SkinID="lblInfoMessage"></asp:Label>
+
+<asp:Label SkinID="lblSearchResultHeaderIcon" runat="server">
+    <i class="fa fa-search font-green-sharp"></i>
+</asp:Label>
+
+<asp:Label SkinID="lblHelp" runat="server"  >
+    <span class="label label-primary">F7 </span> <span class="label label-info">To Search </span> &nbsp;&nbsp;
+    <span class="label label-primary">F8 </span> <span class="label label-info">First Control </span>&nbsp;&nbsp;
+    <span class="label label-primary">F9 </span> <span class="label label-info">Add New  </span>
+</asp:Label>
+
+
+<asp:HyperLink SkinID="hlRed_Grid" runat="server" CssClass="btn red-sunglo btn-circle btn-xs tooltips"  data-toggle="tooltip" data-placement="bottom">
+</asp:HyperLink>
+
+<asp:HyperLink SkinID="hlBlue_Grid" runat="server" CssClass="btn blue btn-circle btn-xs tooltips"  data-toggle="tooltip" data-placement="bottom">
+</asp:HyperLink>
+
+<asp:HyperLink SkinID="hlGreen_Grid" runat="server" CssClass="btn green btn-circle btn-xs tooltips"  data-toggle="tooltip" data-placement="bottom">
+</asp:HyperLink>
+
+<asp:HyperLink SkinID="hlYellow_Grid" runat="server" CssClass="btn yellow btn-circle btn-xs tooltips"  data-toggle="tooltip" data-placement="bottom">
+</asp:HyperLink>
+
+<asp:HyperLink SkinID="hlPurple_Grid" runat="server" CssClass="btn purple btn-circle btn-xs tooltips"  data-toggle="tooltip" data-placement="bottom">
+</asp:HyperLink>
+
+<%--List Page End--%>
+
+ <asp:HyperLink runat="server" SkinID="hlCancel" CssClass="btn default" Text="Cancel"></asp:HyperLink>
+ <asp:HyperLink runat="server" SkinID="hlCancelRed" CssClass="btn red" Text="Cancel" Height="100%"></asp:HyperLink>
+
+
+<asp:LinkButton runat="server" SkinID="lbtnLock" CssClass="btn default btn-xs green" >
+ <i class="fa fa-lock"></i>
+</asp:LinkButton>
+
+<asp:LinkButton runat="server" SkinID="lbtnUnLock" CssClass="btn default btn-xs red" ToolTip="UnLock Record" >
+  <i class="fa fa-unlock"></i>
+</asp:LinkButton>
+
+<asp:HyperLink runat="server" onclick="ShowHelp()"  NavigateUrl="javascript:"  SkinID="hlShowHelp" CssClass="btn btn-icon-only btn-circle btn btn-info expand g-mt-minus-15"><i class="fa fa-info"></i></asp:HyperLink>
+
+ <asp:LinkButton SkinID="lbtnExportPDF" runat="server">
+      <i class="fa fa-file-pdf-o"></i> PDF
+ </asp:LinkButton>
+
+  <asp:LinkButton SkinID="lbtnExportExcel" runat="server" >
+      <i class="fa fa-file-excel-o"></i> Excel
+ </asp:LinkButton>
+
+
+  <asp:LinkButton SkinID="lbtnExportExcelAll" runat="server" >
+      <i class="fa fa-file-excel-o"></i> Excel All
+ </asp:LinkButton>
+
+ <asp:LinkButton runat="server" SkinID="lbtnDownLoadInView" CssClass="btn btn-primary btn-sm" >
+    <i class="fa fa-download"></i>&nbsp;Download
+</asp:LinkButton>
+
+<asp:Label SkinID="lblTooltip_Bottom" runat="server"   CssClass="tooltips" data-toggle="tooltip" data-placement="bottom"  ></asp:Label>
+<asp:HyperLink SkinID="hlTooltip_Bottom" runat="server" CssClass="tooltips" data-toggle="tooltip" data-placement="bottom" ></asp:HyperLink>
+
+
+<asp:HyperLink SkinID="hlPassenger" ToolTip="Passenger" runat="server" CssClass="btn btn-xs btn-circle  green-meadow " data-html="true" data-toggle="tooltip" data-placement="bottom" >
+<i class="fa fa-user"></i>
+</asp:HyperLink>
+
+<asp:HyperLink SkinID="hlVehicle" ToolTip="Vehicle" runat="server" CssClass="btn btn-xs btn-circle btn-info tooltips" data-html="true" data-toggle="tooltip" data-placement="bottom">
+<i class="fa fa-bus"></i>
+</asp:HyperLink>
+
+
+<%-- View --%>
+
+<asp:HyperLink SkinID="hlView_400" TabIndex="-1" data-target="#viewExtraSmall" CssClass="modalButton" data-toggle="modal" runat="server">
+</asp:HyperLink>
+
+<asp:HyperLink SkinID="hlView_650" TabIndex="-1" data-target="#viewSmall" CssClass="modalButton" data-toggle="modal" runat="server">
+</asp:HyperLink>
+
+<asp:HyperLink SkinID="hlView_900" TabIndex="-1" data-target="#viewMedium" CssClass="modalButton" data-toggle="modal" runat="server">
+</asp:HyperLink>
+
+<asp:HyperLink SkinID="hlView_1100" TabIndex="-1" data-target="#viewLarge" CssClass="modalButton" data-toggle="modal" runat="server">
+</asp:HyperLink>
+
+<asp:HyperLink SkinID="hlView_1300" TabIndex="-1" data-target="#viewFull" CssClass="modalButton" data-toggle="modal" runat="server">
+</asp:HyperLink>
+
+<asp:HyperLink SkinID="hlViewIcon_400" TabIndex="-1" data-target="#viewExtraSmall" data-toggle="modal" CssClass="btn grey-cascade btn-xs btn-circle modalButton" ToolTip="View Record" runat="server" >
+<i class="fa fa-file-o"></i>
+</asp:HyperLink>
+
+<asp:HyperLink SkinID="hlViewIcon_650" TabIndex="-1" data-target="#viewSmall" data-toggle="modal" CssClass="btn grey-cascade btn-xs btn-circle modalButton" ToolTip="View Record" runat="server" >
+<i class="fa fa-file-o"></i>
+</asp:HyperLink>
+
+<asp:HyperLink SkinID="hlViewIcon_900" TabIndex="-1" data-target="#viewMedium" data-toggle="modal" CssClass="btn grey-cascade btn-xs btn-circle modalButton" ToolTip="View Record" runat="server" >
+<i class="fa fa-file-o"></i>
+</asp:HyperLink>
+
+<asp:HyperLink SkinID="hlViewIcon_1100" TabIndex="-1" data-target="#viewLarge" data-toggle="modal" CssClass="btn grey-cascade btn-xs btn-circle modalButton" ToolTip="View Record" runat="server" >
+<i class="fa fa-file-o"></i>
+</asp:HyperLink>
+
+<asp:HyperLink SkinID="hlViewIcon_1300" TabIndex="-1" data-target="#viewFull" data-toggle="modal" CssClass="btn grey-cascade btn-xs btn-circle modalButton" ToolTip="View Record" runat="server" >
+<i class="fa fa-file-o"></i>
+</asp:HyperLink>
+
+
+<%-- View --%>
+
+<%-- View With IFrame--%>
+
+<asp:HyperLink SkinID="hlViewIFrame_650" TabIndex="-1" data-target="#viewIFrameSmall" CssClass="GNModalIFrame" data-toggle="modal" runat="server">
+</asp:HyperLink>
+
+<%-- View With IFrame--%>

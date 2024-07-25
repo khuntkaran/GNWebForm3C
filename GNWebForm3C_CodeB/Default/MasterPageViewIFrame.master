@@ -1,0 +1,136 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPageViewIFrame.master.cs" Inherits="Default_MasterPageViewIFrame" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
+
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+
+    <link href="<%=ResolveClientUrl("~/Default/assets/global/plugins/font-awesome/css/font-awesome.min.css?V=2_20191022") %>" rel="stylesheet" type="text/css" />
+    <link href="<%=ResolveClientUrl("~/Default/assets/global/plugins/simple-line-icons/simple-line-icons.min.css?V=2_20191022") %>" rel="stylesheet" type="text/css" />
+    <link href="<%=ResolveClientUrl("~/Default/assets/global/plugins/bootstrap/css/bootstrap.min.css?V=2_20191022") %>" rel="stylesheet" type="text/css" />
+    <link href="<%=ResolveClientUrl("~/Default/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css?V=2_20191022") %>" rel="stylesheet" type="text/css" />
+
+    <!-- END GLOBAL MANDATORY STYLES -->
+
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+
+    <link href="<%=ResolveClientUrl("~/Default/assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css?V=2_20191022") %>" rel="stylesheet" type="text/css" />
+
+    <link href="<%=ResolveClientUrl("~/Default/assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css?V=2_20191022") %>" rel="stylesheet" type="text/css" />
+    <link href="<%=ResolveClientUrl("~/Default/assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css?V=2_20191022") %>" rel="stylesheet" type="text/css" />
+    <link href="<%=ResolveClientUrl("~/Default/assets/global/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css?V=2_20191022") %>" rel="stylesheet" type="text/css" />
+    <link href="<%=ResolveClientUrl("~/Default/assets/global/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css?V=2_20191022") %>" rel="stylesheet" type="text/css" />
+
+    <link href="<%=ResolveClientUrl("~/Default/assets/global/plugins/select2/css/select2.min.css?V=2_20191022") %>" rel="stylesheet" type="text/css" />
+    <link href="<%=ResolveClientUrl("~/Default/assets/global/plugins/select2/css/select2-bootstrap.min.css?V=2_20191022") %>" rel="stylesheet" type="text/css" />
+
+    <link href="<%=ResolveClientUrl("~/Default/assets/global/plugins/datatables/datatables.min.css?V=2_20191022") %>" rel="stylesheet" type="text/css" />
+    <link href="<%=ResolveClientUrl("~/Default/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css?V=2_20191022") %>" rel="stylesheet" type="text/css" />
+    <link href="<%=ResolveClientUrl("~/Default/assets/global/plugins/animate/animate.css?V=2_20191022") %>" rel="stylesheet" />
+    <!-- END PAGE LEVEL PLUGINS -->
+
+
+    <!-- BEGIN THEME GLOBAL STYLES -->
+    <link href="<%=ResolveClientUrl("~/Default/assets/global/css/components.min.css?V=2_20191022") %>" rel="stylesheet" id="style_components" type="text/css" />
+    <link href="<%=ResolveClientUrl("~/Default/assets/global/css/plugins.min.css?V=2_20191022") %>" rel="stylesheet" type="text/css" />
+    <!-- END THEME GLOBAL STYLES -->
+
+    <!-- BEGIN THEME LAYOUT STYLES -->
+    <link href="<%=ResolveClientUrl("~/Default/assets/layouts/layout/css/layout.min.css?V=2_20191022") %>" rel="stylesheet" type="text/css" />
+    <link href="<%=ResolveClientUrl("~/Default/assets/layouts/layout/css/themes/darkblue.min.css?V=2_20191022") %>" rel="stylesheet" type="text/css" id="style_color" />
+    <link href="<%=ResolveClientUrl("~/Default/assets/layouts/layout/css/custom.min.css?V=2_20191022") %>" rel="stylesheet" type="text/css" />
+    <!-- END THEME LAYOUT STYLES -->
+
+    <!-- BEGIN CUSTOM STYLES -->
+    <link href="<%=ResolveClientUrl("~/Default/CSS/gn-globals.css?V=2_20191022") %>" rel="stylesheet" type="text/css" />
+   <link href="<%=ResolveClientUrl("~/Default/CSS/GNCustom.css?V=2_20191022?V=2") %>" rel="stylesheet" type="text/css" />
+    <link href="<%=ResolveClientUrl("~/Default/CSS/gnmis.css?V=2_20191022?V=2") %>" rel="stylesheet" type="text/css" />
+    <link href="<%=ResolveClientUrl("~/Default/CSS/_modal.css?V=2_20191022") %>" rel="stylesheet" type="text/css" />
+    <link href="<%=ResolveClientUrl("~/Default/CSS/GNColor.css?V=2_20191022") %>" rel="stylesheet" type="text/css" />
+    <!-- END CUSTOM STYLES -->
+
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body style="background-color: transparent">
+    <form id="form1" runat="server">
+        <asp:ContentPlaceHolder ID="cphPageContent" runat="server">
+        </asp:ContentPlaceHolder>
+    </form>
+
+
+    <!--[if lt IE 9]>
+<script src="<%=ResolveClientUrl("~/Default/assets/global/plugins/respond.min.js?V=2_20191022") %>"></script>
+<script src="<%=ResolveClientUrl("~/Default/assets/global/plugins/excanvas.min.js?V=2_20191022") %>"></script> 
+<script src="<%=ResolveClientUrl("~/Default/assets/global/plugins/ie8.fix.min.js?V=2_20191022") %>"></script> 
+<![endif]-->
+    <!-- BEGIN CORE PLUGINS -->
+
+    <script src="<%=ResolveClientUrl("~/Default/assets/global/plugins/jquery.min.js?V=2_20191022") %>" type="text/javascript"></script>
+    <script src="<%=ResolveClientUrl("~/Default/assets/global/plugins/bootstrap/js/bootstrap.min.js?V=2_20191022") %>" type="text/javascript"></script>
+    <script src="<%=ResolveClientUrl("~/Default/assets/global/plugins/js.cookie.min.js?V=2_20191022") %>" type="text/javascript"></script>
+    <script src="<%=ResolveClientUrl("~/Default/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js?V=2_20191022") %>" type="text/javascript"></script>
+    <script src="<%=ResolveClientUrl("~/Default/assets/global/plugins/jquery.blockui.min.js?V=2_20191022") %>" type="text/javascript"></script>
+    <script src="<%=ResolveClientUrl("~/Default/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js?V=2_20191022") %>" type="text/javascript"></script>
+
+    <!-- END CORE PLUGINS -->
+
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    <script src="<%=ResolveClientUrl("~/Default/assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js?V=2_20191022") %>" type="text/javascript"></script>
+    <!-- END PAGE LEVEL PLUGINS -->
+
+    <script src="<%=ResolveClientUrl("~/Default/assets/global/plugins/jquery-ui/jquery-ui.min.js?V=2_20191022") %>" type="text/javascript"></script>
+
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    <script src="<%=ResolveClientUrl("~/Default/assets/global/plugins/select2/js/select2.full.min.js?V=2_20191022") %>" type="text/javascript"></script>
+    <script src="<%=ResolveClientUrl("~/Default/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js?V=2_20191022") %>" type="text/javascript"></script>
+    <script src="<%=ResolveClientUrl("~/Default/assets/global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js?V=2_20191022") %>" type="text/javascript"></script>
+    <script src="<%=ResolveClientUrl("~/Default/assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js?V=2_20191022") %>" type="text/javascript"></script>
+
+    <script src="<%=ResolveClientUrl("~/Default/assets/global/scripts/datatable.js?V=2_20191022") %>" type="text/javascript"></script>
+    <script src="<%=ResolveClientUrl("~/Default/assets/global/plugins/datatables/datatables.min.js?V=2_20191022") %>" type="text/javascript"></script>
+    <script src="<%=ResolveClientUrl("~/Default/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js?V=2_20191022") %>" type="text/javascript"></script>
+    <script src="<%=ResolveClientUrl("~/Default/assets/global/plugins/bootbox/bootbox.min.js?V=2_20191022") %>"></script>
+    <!-- END PAGE LEVEL PLUGINS -->
+
+
+
+    <!-- BEGIN THEME GLOBAL SCRIPTS -->
+    <script src="<%=ResolveClientUrl("~/Default/assets/global/scripts/app.min.js?V=2_20191022") %>" type="text/javascript"></script>
+    <script src="<%=ResolveClientUrl("~/Default/assets/pages/scripts/components-date-time-pickers.min.js?V=2_20191022") %>" type="text/javascript"></script>
+    <!-- END THEME GLOBAL SCRIPTS -->
+
+
+
+    <!-- BEGIN THEME LAYOUT SCRIPTS -->
+
+    <script src="<%=ResolveClientUrl("~/Default/assets/layouts/layout/scripts/layout.min.js?V=2_20191022") %>" type="text/javascript"></script>
+    <script src="<%=ResolveClientUrl("~/Default/assets/layouts/layout/scripts/demo.min.js?V=2_20191022") %>" type="text/javascript"></script>
+    <script src="<%=ResolveClientUrl("~/Default/assets/layouts/global/scripts/quick-sidebar.min.js?V=2_20191022") %>" type="text/javascript"></script>
+    <script src="<%=ResolveClientUrl("~/Default/assets/layouts/global/scripts/quick-nav.min.js?V=2_20191022") %>" type="text/javascript"></script>
+
+    <!-- END THEME LAYOUT SCRIPTS -->
+
+    <!-- BEGIN CUSTOM SCRIPTS -->
+
+    <script src="<%=ResolveClientUrl("~/Default/JS/UI_Select2.js?V=2_20191022") %>" type="text/javascript"></script>
+    <script src="<%=ResolveClientUrl("~/Default/JS/GN_UI.js?V=2_20191022") %>" type="text/javascript"></script>
+    <script src="<%=ResolveClientUrl("~/Default/JS/CommonValidation.js?V=2_20191022") %>" type="text/javascript"></script>
+    <script src="<%=ResolveClientUrl("~/Default/JS/CommonJSFunctions.js?V=2_20191022") %>" type="text/javascript"></script>
+    <script src="<%=ResolveClientUrl("~/Default/JS/UI_ModalEvents.js?V=2_20191022") %>" type="text/javascript"></script>
+    <script src="<%=ResolveClientUrl("~/Default/JS/UI_BlockUI.js?V=2_20191022") %>" type="text/javascript"></script>
+    <script src="<%=ResolveClientUrl("~/Default/JS/GN_InitMain.js?V=2_20191022") %>" type="text/javascript"></script>
+
+    <!-- END CUSTOM SCRIPTS -->
+
+    <asp:ContentPlaceHolder ID="cphScripts" runat="server">
+       
+    </asp:ContentPlaceHolder>
+</body>
+</html>

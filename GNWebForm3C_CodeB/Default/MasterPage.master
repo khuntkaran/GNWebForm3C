@@ -1,0 +1,690 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="Default_MasterPage" %>
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
+
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+
+    <link href="<%=ResolveClientUrl("~/Default/assets/global/plugins/font-awesome/css/font-awesome.min.css?V=2_20200225") %>" rel="stylesheet" type="text/css" />
+    <link href="<%=ResolveClientUrl("~/Default/assets/global/plugins/simple-line-icons/simple-line-icons.min.css?V=2_20200225") %>" rel="stylesheet" type="text/css" />
+    <link href="<%=ResolveClientUrl("~/Default/assets/global/plugins/bootstrap/css/bootstrap.min.css?V=2_20200225") %>" rel="stylesheet" type="text/css" />
+    <link href="<%=ResolveClientUrl("~/Default/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css?V=2_20200225") %>" rel="stylesheet" type="text/css" />
+
+    <!-- END GLOBAL MANDATORY STYLES -->
+
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+
+    <link href="<%=ResolveClientUrl("~/Default/assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css?V=2_20200225") %>" rel="stylesheet" type="text/css" />
+
+    <link href="<%=ResolveClientUrl("~/Default/assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css?V=2_20200225") %>" rel="stylesheet" type="text/css" />
+    <link href="<%=ResolveClientUrl("~/Default/assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css?V=2_20200225") %>" rel="stylesheet" type="text/css" />
+    <link href="<%=ResolveClientUrl("~/Default/assets/global/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css?V=2_20200225") %>" rel="stylesheet" type="text/css" />
+    <link href="<%=ResolveClientUrl("~/Default/assets/global/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css?V=2_20200225") %>" rel="stylesheet" type="text/css" />
+
+    <link href="<%=ResolveClientUrl("~/Default/assets/global/plugins/select2/css/select2.min.css?V=2_20200225") %>" rel="stylesheet" type="text/css" />
+    <link href="<%=ResolveClientUrl("~/Default/assets/global/plugins/select2/css/select2-bootstrap.min.css?V=2_20200225") %>" rel="stylesheet" type="text/css" />
+
+    <link href="<%=ResolveClientUrl("~/Default/assets/global/plugins/datatables/datatables.min.css?V=2_20200225") %>" rel="stylesheet" type="text/css" />
+    <link href="<%=ResolveClientUrl("~/Default/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css?V=2_20200225") %>" rel="stylesheet" type="text/css" />
+    <link href="<%=ResolveClientUrl("~/Default/assets/global/plugins/animate/animate.css?V=2_20200225") %>" rel="stylesheet" />
+
+    <!-- END PAGE LEVEL PLUGINS -->
+
+
+    <!-- BEGIN THEME GLOBAL STYLES -->
+    <link href="<%=ResolveClientUrl("~/Default/assets/global/css/components.min.css?V=2_20200225") %>" rel="stylesheet" id="style_components" type="text/css" />
+    <link href="<%=ResolveClientUrl("~/Default/assets/global/css/plugins.min.css?V=2_20200225") %>" rel="stylesheet" type="text/css" />
+    <!-- END THEME GLOBAL STYLES -->
+
+    <!-- BEGIN THEME LAYOUT STYLES -->
+    <link href="<%=ResolveClientUrl("~/Default/assets/layouts/layout/css/layout.min.css?V=2_20200225") %>" rel="stylesheet" type="text/css" />
+    <link href="<%=ResolveClientUrl("~/Default/assets/layouts/layout/css/themes/darkblue.min.css?V=2_20200225") %>" rel="stylesheet" type="text/css" id="style_color" />
+    <link href="<%=ResolveClientUrl("~/Default/assets/layouts/layout/css/custom.min.css?V=2_20200225") %>" rel="stylesheet" type="text/css" />
+    <!-- END THEME LAYOUT STYLES -->
+
+    <!-- BEGIN CUSTOM STYLES -->
+    <link href="<%=ResolveClientUrl("~/Default/CSS/gn-globals.css?V=2_20200225") %>" rel="stylesheet" type="text/css" />
+    <link href="<%=ResolveClientUrl("~/Default/CSS/GNCustom.css?V=2_20200225?V=2") %>" rel="stylesheet" type="text/css" />
+    <link href="<%=ResolveClientUrl("~/Default/CSS/gnmis.css?V=2_20200225") %>" rel="stylesheet" type="text/css" />
+    <link href="<%=ResolveClientUrl("~/Default/CSS/_modal.css?V=2_20200225") %>" rel="stylesheet" type="text/css" />
+    <link href="<%=ResolveClientUrl("~/Default/CSS/GNColor.css?V=2_20200225") %>" rel="stylesheet" type="text/css" />
+    <!-- END CUSTOM STYLES -->
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <style>
+        .page-header.navbar .menu-toggler.sidebar-toggler {
+            float: right;
+            margin: 0 0 0 0 !important;
+        }
+    </style>
+
+
+</head>
+<!-- END HEAD -->
+<!-- BEGIN BODY -->
+
+
+<body class=" page-header-fixed page-quick-sidebar-over-content page-sidebar-closed-hide-logo page-header-fixed-mobile page-footer-fixed-mobile page-footer-fixed">
+
+    <form id="form1" enctype="multipart/form-data" runat="server">
+        <!-- BEGIN HEADER -->
+        <div class="page-header navbar navbar-fixed-top g-pl-0">
+            <!-- BEGIN HEADER INNER -->
+            <div class="page-header-inner">
+                <!-- BEGIN LOGO -->
+                <div class="page-logo">
+
+                    <span class="page-logo-text">
+                        <span class="hidden-md hidden-lg">&nbsp;&nbsp;</span>
+                        <%=GNForm3C.CV.DefaultUniversityNameHTML %>                            
+                    </span>
+                    <span class="page-logo-text-sidebar-closed"><%=GNForm3C.CV.DefaultUniversityShortNameHTML %>  </span>
+
+
+                </div>
+
+                <!-- END LOGO -->
+                <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+                <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span></span>
+                </a>
+
+                <!-- END RESPONSIVE MENU TOGGLER -->
+
+                <!-- BEGIN TOP NAVIGATION MENU -->
+                <div class="top-menu">
+
+
+                    <ul class="nav navbar-nav pull-right">
+
+                        <li class="dropdown dropdown-extended dropdown-tasks" id="header_inbox_bar">
+                            <asp:HyperLink ID="hlSearchMenu" runat="server" TabIndex="-1" CssClass="dropdown-toggle" data-hover="dropdown" Style="padding: 18px 0px 8px 1px" NavigateUrl="~/AdminPanel/Security/SEC_Menu/SearchMenu.aspx" Target="_blank" ToolTip="Click Here to search menu">
+                                 <i class="fa fa-search"></i>
+                            </asp:HyperLink>
+
+                            <ul class="dropdown-menu extended tasks">
+                                <li class="external">
+                                    <h3>Search <span class="bold">Menu</span>
+
+                                    </h3>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="dropdown dropdown-extended dropdown-tasks" id="header_task_bar">
+                            <asp:HyperLink ID="hlSupport" runat="server" TabIndex="-1" CssClass="dropdown-toggle" data-hover="dropdown" Style="padding: 18px 0px 8px 1px" NavigateUrl="http://support.GNForm3C.in/Login.aspx" Target="_blank" ToolTip="Click Here to Report Bug">
+                                 <i class="fa fa-bug"></i>
+                            </asp:HyperLink>
+
+
+                            <ul class="dropdown-menu extended tasks">
+                                <li class="external">
+                                    <h3>Click Here    to report <span class="bold">Bug</span>
+
+                                    </h3>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="dropdown dropdown-user" style="padding: 12px 4px;"></li>
+
+                        <li class="dropdown dropdown-user">
+                            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                <span class="username username-hide-on-mobile">Hi, </span>
+                                <asp:Label ID="lblCurrentUsername" CssClass="username bold username-hide-on-mobile" runat="server" Text="Label"></asp:Label>
+
+                                <i class="fa fa-angle-down pull-right"></i>
+                                <asp:Image ID="imgCurrentUserPhoto" TabIndex="-1" CssClass="img-circle pull-right g-ml-10" runat="server" Visible="true" />
+
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-default">
+                                <li>
+                                    <asp:LinkButton ID="lbtnChangePassword" TabIndex="-1" OnClick="lbtnChangePassword_Click" OnClientClick="document.forms[0].target = '_self';" CausesValidation="false" runat="server"><i class="icon-key"></i>Change Password</asp:LinkButton>
+                                </li>
+
+                                <li>
+                                    <asp:LinkButton ID="lbtnLogout" TabIndex="-1" OnClick="lbtnLogout_Click" CausesValidation="false" runat="server"><i class="icon-lock"></i>Log Out</asp:LinkButton>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- END USER LOGIN DROPDOWN -->
+
+                    </ul>
+                </div>
+                <!-- END TOP NAVIGATION MENU -->
+            </div>
+            <!-- END HEADER INNER -->
+        </div>
+        <!-- END HEADER -->
+        <div class="clearfix">
+        </div>
+        <!-- BEGIN CONTAINER -->
+
+
+        <div class="page-container">
+            <!-- BEGIN SIDEBAR -->
+
+            <div class="page-sidebar-wrapper">
+                <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+                <!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+                <div class="page-sidebar ">
+                    <!-- BEGIN SIDEBAR MENU -->
+
+                    <%--<ul class="page-sidebar-menu  page-header-fixed " data-keep-expanded="true" data-auto-scroll="true" data-slide-speed="200" id="MenuUL" runat="server">
+                        <!-- begin: Header Menu -->
+                        <br />
+                        <br />
+                        <div class="kt-header-menu-wrapper" id="kt_header_menu_wrapper">
+                            <div id="kt_header_menu" class="kt-header-menu kt-header-menu-mobile ">
+                                <ul class="kt-menu__nav ">
+                                    <li class="kt-menu__item kt-menu__item--rel" data-ktmenu-submenu-toggle="click" aria-haspopup="true"><a href="javascript:;" class="kt-menu__link kt-menu__toggle"><span class="kt-menu__link-text">Dashboards</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
+                                        <div class="kt-menu__submenu kt-menu__submenu--classic kt-menu__submenu--left">
+                                            <ul class="kt-menu__subnav">
+                                                <li class="kt-menu__item " aria-haspopup="true"><a href='<%=ResolveClientUrl("~/AdminPanel/Default.aspx") %>' class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-architecture-and-city"></i><span class="kt-menu__link-text">Dashboard</span></a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+
+                                    <br />
+
+                                    <li  class="kt-menu__item kt-menu__item--submenu kt-menu__item--rel" data-ktmenu-submenu-toggle="hover" aria-haspopup="true"><a href="javascript:;" class="kt-menu__link kt-menu__toggle"><span class="kt-menu__link-text">Master</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
+                                        <div class=" kt-menu__submenu--classic kt-menu__submenu--left">
+                                            <ul class=" kt-menu__subnav">
+                                                <li class="kt-menu__item " aria-haspopup="true"><a href='<%=ResolveClientUrl("~/AdminPanel/Master/MST_ExpenseType/MST_ExpenseTypeList.aspx") %>' class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-architecture-and-city"></i><span class="kt-menu__link-text">Expense Type</span></a></li>
+                                                <li class="kt-menu__item " aria-haspopup="true"><a href='<%=ResolveClientUrl("~/AdminPanel/Master/MST_FinYear/MST_FinYearList.aspx") %>' class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-crisp-icons"></i><span class="kt-menu__link-text">Financial Year</span></a></li>
+                                                <li class="kt-menu__item " aria-haspopup="true"><a href='<%=ResolveClientUrl("~/AdminPanel/Master/MST_Hospital/MST_HospitalList.aspx") %>' class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-crisp-icons"></i><span class="kt-menu__link-text">Hospital</span></a></li>
+                                                <li class="kt-menu__item " aria-haspopup="true"><a href='<%=ResolveClientUrl("~/AdminPanel/Master/MST_IncomeType/MST_IncomeTypeList.aspx") %>' class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-crisp-icons"></i><span class="kt-menu__link-text">Income Type</span></a></li>
+                                                <li class="kt-menu__item " aria-haspopup="true"><a href='<%=ResolveClientUrl("~/AdminPanel/Master/MST_SubTreatment/MST_SubTreatmentList.aspx") %>' class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-crisp-icons"></i><span class="kt-menu__link-text">Sub Treatment</span></a></li>
+                                                <li class="kt-menu__item " aria-haspopup="true"><a href='<%=ResolveClientUrl("~/AdminPanel/Master/MST_Treatment/MST_TreatmentList.aspx") %>' class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-crisp-icons"></i><span class="kt-menu__link-text">Treatment</span></a></li>
+                                                <li class="kt-menu__item " aria-haspopup="true"><a href='<%=ResolveClientUrl("~/AdminPanel/Master/MST_ReceiptType/MST_ReceiptTypeList.aspx") %>' class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-crisp-icons"></i><span class="kt-menu__link-text">Receipt Type</span></a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+
+                                    <br />
+                                    <li class="kt-menu__item kt-menu__item--submenu kt-menu__item--rel" data-ktmenu-submenu-toggle="hover" aria-haspopup="true"><a href="javascript:;" class="kt-menu__link kt-menu__toggle"><span class="kt-menu__link-text">Account</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
+                                        <div class="kt-menu__submenu kt-menu__submenu--classic kt-menu__submenu--left">
+                                            <ul class="kt-menu__subnav">
+                                                <li class="kt-menu__item " aria-haspopup="true"><a href='<%=ResolveClientUrl("~/AdminPanel/Account/ACC_Expense/ACC_ExpenseList.aspx") %>' class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-crisp-icons"></i><span class="kt-menu__link-text">Account Expense</span></a></li>
+                                                <li class="kt-menu__item " aria-haspopup="true"><a href='<%=ResolveClientUrl("~/AdminPanel/Account/ACC_Income/ACC_IncomeList.aspx") %>' class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-crisp-icons"></i><span class="kt-menu__link-text">Account Income</span></a></li>
+                                                <li class="kt-menu__item " aria-haspopup="true"><a href='<%=ResolveClientUrl("~/AdminPanel/Account/ACC_Transaction/ACC_TransactionList.aspx") %>' class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-crisp-icons"></i><span class="kt-menu__link-text">Account Transaction</span></a></li>
+                                                <li class="kt-menu__item " aria-haspopup="true"><a href='<%=ResolveClientUrl("~/AdminPanel/Account/ACC_TransactionTran/ACC_TransactionTranList.aspx") %>' class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-crisp-icons"></i><span class="kt-menu__link-text">Account TransactionTran</span></a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    
+                                      <br />
+                                    <li class="kt-menu__item kt-menu__item--submenu kt-menu__item--rel" data-ktmenu-submenu-toggle="hover" aria-haspopup="true"><a href="javascript:;" class="kt-menu__link kt-menu__toggle"><span class="kt-menu__link-text">Configuration</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
+                                        <div class="kt-menu__submenu kt-menu__submenu--classic kt-menu__submenu--left">
+                                            <ul class="kt-menu__subnav">
+                                                <li class="kt-menu__item " aria-haspopup="true"><a href='<%=ResolveClientUrl("~/AdminPanel/Config/CFG_ReportSetting/CFG_ReportSettingList.aspx") %>' class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-crisp-icons"></i><span class="kt-menu__link-text">Report Setting</span></a></li>
+                                                <li class="kt-menu__item " aria-haspopup="true"><a href='<%=ResolveClientUrl("~/AdminPanel/Config/CFG_SoftwareConfiguration/CFG_SoftwareConfigurationList.aspx") %>' class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-crisp-icons"></i><span class="kt-menu__link-text">Software Configuration</span></a></li>
+
+                                            </ul>
+                                        </div>
+                                    </li>
+
+                                    <br />
+                                    <li class="kt-menu__item kt-menu__item--submenu kt-menu__item--rel" data-ktmenu-submenu-toggle="hover" aria-haspopup="true"><a href="javascript:;" class="kt-menu__link kt-menu__toggle"><span class="kt-menu__link-text">Security</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
+                                        <div class="kt-menu__submenu kt-menu__submenu--classic kt-menu__submenu--left">
+                                            <ul class="kt-menu__subnav">
+                                                <li class="kt-menu__item " aria-haspopup="true"><a href='<%=ResolveClientUrl("~/AdminPanel/Security/SEC_Menu/SEC_MenuList.aspx") %>' class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-architecture-and-city"></i><span class="kt-menu__link-text">Menu</span></a></li>
+                                                <li class="kt-menu__item " aria-haspopup="true"><a href='<%=ResolveClientUrl("~/AdminPanel/Security/SEC_User/SEC_UserList.aspx") %>' class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-crisp-icons"></i><span class="kt-menu__link-text">List</span></a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+
+                                    <br />
+
+
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- end: Header Menu -->
+                    </ul>--%>
+
+                    <div class="page-sidebar navbar-collapse collapse ">
+                        <!-- BEGIN SIDEBAR MENU -->
+                        <ul class="page-sidebar-menu  page-header-fixed " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200" style="padding-top: 20px">
+                            <!-- DOC: To remove the sidebar toggler from the sidebar you just need to completely remove the below "sidebar-toggler-wrapper" LI element -->
+                            <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+                            <li class="sidebar-toggler-wrapper hide">
+                                <div class="sidebar-toggler">
+                                    <span></span>
+                                </div>
+                            </li>
+                            <!-- END SIDEBAR TOGGLER BUTTON -->
+                            <!-- DOC: To remove the search box from the sidebar you just need to completely remove the below "sidebar-search-wrapper" LI element -->
+                            <li class="sidebar-search-wrapper"></li>
+                            <li class="nav-item start">
+                                <a href="javascript:;" class="nav-link nav-toggle">
+                                    <i class="icon-home"></i>
+                                    <span class="title">Dashboard</span>
+                                    <span class="arrow"></span>
+                                </a>
+                                <ul class="sub-menu" style="display: none;">
+                                    <li class="nav-item start ">
+                                        <a href='<%=ResolveClientUrl("~/AdminPanel/Default.aspx") %>' class="kt-menu__link ">
+                                            <i class="kt-menu__link-icon flaticon2-architecture-and-city"></i>
+                                            <span class="kt-menu__link-text">Dashboard</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item start ">
+                                        <a href='<%=ResolveClientUrl("~/AdminPanel/MasterDashboard.aspx") %>' class="kt-menu__link ">
+                                            <i class="kt-menu__link-icon flaticon2-architecture-and-city"></i>
+                                            <span class="kt-menu__link-text">Master Dashboard</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="heading">
+                                <h3 class="uppercase">Features</h3>
+                            </li>
+                            <li class="nav-item">
+                                <a href="javascript:;" class="nav-link nav-toggle">
+                                    <i class="icon-layers"></i>
+                                    <span class="title">Master</span>
+                                    <span class="arrow"></span>
+                                </a>
+                                <ul class="sub-menu" style="display: none;">
+                                    <li class="nav-item  ">
+                                        <a href='<%=ResolveClientUrl("~/AdminPanel/Master/MST_ExpenseType/MST_ExpenseTypeList.aspx") %>' class="nav-link ">
+                                            <span class="title">Expense Type</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item  ">
+                                        <a href='<%=ResolveClientUrl("~/AdminPanel/Master/MST_FinYear/MST_FinYearList.aspx") %>' class="nav-link ">
+                                            <span class="title">Financial Year</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item  ">
+                                        <a href='<%=ResolveClientUrl("~/AdminPanel/Master/MST_Hospital/MST_HospitalList.aspx") %>' class="nav-link ">
+                                            <span class="title">Hospital</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item  ">
+                                        <a href='<%=ResolveClientUrl("~/AdminPanel/Master/MST_IncomeType/MST_IncomeTypeList.aspx") %>' class="nav-link ">
+                                            <span class="title">Income Type</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item  ">
+                                        <a href='<%=ResolveClientUrl("~/AdminPanel/Master/MST_SubTreatment/MST_SubTreatmentList.aspx") %>' class="nav-link ">
+                                            <span class="title">Sub Treatment</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item  ">
+                                        <a href='<%=ResolveClientUrl("~/AdminPanel/Master/MST_Treatment/MST_TreatmentList.aspx") %>' class="nav-link ">
+                                            <span class="title">Treatment</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item  ">
+                                        <a href='<%=ResolveClientUrl("~/AdminPanel/Master/MST_ReceiptType/MST_ReceiptTypeList.aspx") %>' class="nav-link ">
+                                            <span class="title">Receipt Type</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a href="javascript:;" class="nav-link nav-toggle">
+                                    <i class="icon-user"></i>
+                                    <span class="title">Account</span>
+                                    <span class="arrow"></span>
+                                </a>
+                                <ul class="sub-menu" style="display: none;">
+                                    <li class="nav-item  ">
+                                        <a href='<%=ResolveClientUrl("~/AdminPanel/Account/ACC_Expense/ExpInm_LedgerList.aspx") %>' class="nav-link ">
+                                            <span class="title">Account Ledger</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item  ">
+                                        <a href='<%=ResolveClientUrl("~/AdminPanel/Account/ACC_Expense/ACC_ExpenseList.aspx") %>' class="nav-link ">
+                                            <span class="title">Account Expense</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item  ">
+                                        <a href='<%=ResolveClientUrl("~/AdminPanel/Account/ACC_Income/ACC_IncomeList.aspx") %>' class="nav-link ">
+                                            <span class="title">Account Income</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item  ">
+                                        <a href='<%=ResolveClientUrl("~/AdminPanel/Account/ACC_Transaction/ACC_TransactionList.aspx") %>' class="nav-link ">
+                                            <span class="title">Account Transaction</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item  ">
+                                        <a href='<%=ResolveClientUrl("~/AdminPanel/Account/ACC_TransactionTran/ACC_TransactionTranList.aspx") %>' class="nav-link ">
+                                            <span class="title">Account TransactionTran</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a href="javascript:;" class="nav-link nav-toggle">
+                                    <i class="icon-settings"></i>
+                                    <span class="title">Configuration</span>
+                                    <span class="arrow"></span>
+                                </a>
+                                <ul class="sub-menu" style="display: none;">
+                                    <li class="nav-item  ">
+                                        <a href='<%=ResolveClientUrl("~/AdminPanel/Config/CFG_ReportSetting/CFG_ReportSettingList.aspx") %>' class="nav-link ">
+                                            <span class="title">Report Setting</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item  ">
+                                        <a href='<%=ResolveClientUrl("~/AdminPanel/Config/CFG_SoftwareConfiguration/CFG_SoftwareConfigurationList.aspx") %>' class="nav-link ">
+                                            <span class="title">Software Configuration</span>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a href="javascript:;" class="nav-link nav-toggle">
+                                    <i class="icon-wrench"></i>
+                                    <span class="title">Security</span>
+                                    <span class="arrow"></span>
+                                </a>
+                                <ul class="sub-menu" style="display: none;">
+                                    <li class="nav-item  ">
+                                        <a href='<%=ResolveClientUrl("~/AdminPanel/Security/SEC_Menu/SEC_MenuList.aspx") %>' class="nav-link ">
+                                            <span class="title">Security Menu</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item  ">
+                                        <a href='<%=ResolveClientUrl("~/AdminPanel/Security/SEC_User/SEC_UserList.aspx") %>' class="nav-link ">
+                                            <span class="title">Security User</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="javascript:;" class="nav-link nav-toggle">
+                                    <i class="icon-user"></i>
+                                    <span class="title">Employee</span>
+                                    <span class="arrow"></span>
+                                </a>
+                                <ul class="sub-menu" style="display: none;">
+                                    <li class="nav-item  ">
+                                        <a href='<%=ResolveClientUrl("~/AdminPanel/Employee/EMP_EmployeeDetail/EMP_EmployeeDetailList.aspx") %>' class="nav-link ">
+                                            <span class="title">Employee Detail</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+
+
+                        </ul>
+                        <!-- END SIDEBAR MENU -->
+                        <!-- END SIDEBAR MENU -->
+                    </div>
+
+                    <!-- END SIDEBAR MENU -->
+                </div>
+            </div>
+            <!-- END SIDEBAR -->
+            <!-- BEGIN CONTENT -->
+            <div class="page-content-wrapper ">
+                <div class="page-content  g-px-0 g-pt-0">
+
+                    <!-- BEGIN PAGE HEADER-->
+                    <h3 class="page-title g-bg-white g-pa-20 g-mb-0">
+                        <asp:ContentPlaceHolder ID="cphPageHeader" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </h3>
+                    <!-- END PAGE HEADER-->
+
+                    <div class="g-pa-20">
+                        <%-- <div class="page-bar" runat="server" visible="false" id="DivBreadComb"--%>
+                        <div class="page-bar">
+                            <ul class="page-breadcrumb">
+                                <asp:ContentPlaceHolder ID="cphBreadcrumb" runat="server">
+                                </asp:ContentPlaceHolder>
+                            </ul>
+                        </div>
+                        <!-- BEGIN PAGE CONTENT-->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <asp:ContentPlaceHolder ID="cphPageContent" runat="server">
+                                </asp:ContentPlaceHolder>
+                            </div>
+                        </div>
+                        <!-- END PAGE CONTENT-->
+                    </div>
+
+                </div>
+            </div>
+            <!-- END CONTENT -->
+
+        </div>
+        <!-- END CONTAINER -->
+        <!-- BEGIN FOOTER -->
+        <div class="page-footer">
+            <div class="page-footer-inner">
+                <%=DateTime.Now.Year %> &copy; <%=GNForm3C.CV.DefaultUniversityName %>
+                <asp:HiddenField ID="hfMenu" ClientIDMode="Static" runat="server" />
+            </div>
+            <div class="scroll-to-top">
+                <i class="icon-arrow-up"></i>
+            </div>
+        </div>
+
+        <div class="modal fade" id="viewiFrameReg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-body">
+                    <iframe class="auto-height" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" oallowfullscreen msallowfullscreen="true" style="border: 0px; width: 100%;" onload="this.height=this.contentWindow.document.body.scrollHeight;"></iframe>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="viewiFrameLG" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-body">
+                    <iframe class="auto-height" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" oallowfullscreen msallowfullscreen="true" style="border: 0px; width: 100%;" onload="this.height=this.contentWindow.document.body.scrollHeight;"></iframe>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="viewiFrameFull" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-full">
+                <div class="modal-body">
+                    <iframe class="auto-height" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" oallowfullscreen msallowfullscreen="true" style="border: 0px; width: 100%;" onload="this.height=this.contentWindow.document.body.scrollHeight;"></iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- END FOOTER -->
+        <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+        <!-- BEGIN CORE PLUGINS -->
+
+
+
+        <script src="<%=ResolveClientUrl("~/Default/assets/global/plugins/respond.min.js?V=2_20200225") %>"></script>
+        <script src="<%=ResolveClientUrl("~/Default/assets/global/plugins/excanvas.min.js?V=2_20200225") %>"></script>
+        <script src="<%=ResolveClientUrl("~/Default/assets/global/plugins/ie8.fix.min.js?V=2_20200225") %>"></script>
+
+        <!-- BEGIN CORE PLUGINS -->
+
+        <script src="<%=ResolveClientUrl("~/Default/assets/global/plugins/jquery.min.js?V=2_20200225") %>" type="text/javascript"></script>
+        <script src="<%=ResolveClientUrl("~/Default/assets/global/plugins/bootstrap/js/bootstrap.min.js?V=2_20200225") %>" type="text/javascript"></script>
+        <script src="<%=ResolveClientUrl("~/Default/assets/global/plugins/js.cookie.min.js?V=2_20200225") %>" type="text/javascript"></script>
+        <script src="<%=ResolveClientUrl("~/Default/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js?V=2_20200225") %>" type="text/javascript"></script>
+        <script src="<%=ResolveClientUrl("~/Default/assets/global/plugins/jquery.blockui.min.js?V=2_20200225") %>" type="text/javascript"></script>
+        <script src="<%=ResolveClientUrl("~/Default/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js?V=2_20200225") %>" type="text/javascript"></script>
+
+        <!-- END CORE PLUGINS -->
+
+        <!-- BEGIN PAGE LEVEL PLUGINS -->
+        <script src="<%=ResolveClientUrl("~/Default/assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js?V=2_20200225") %>" type="text/javascript"></script>
+        <!-- END PAGE LEVEL PLUGINS -->
+
+        <script src="<%=ResolveClientUrl("~/Default/assets/global/plugins/jquery-ui/jquery-ui.min.js?V=2_20200225") %>" type="text/javascript"></script>
+
+        <!-- BEGIN PAGE LEVEL PLUGINS -->
+        <script src="<%=ResolveClientUrl("~/Default/assets/global/plugins/select2/js/select2.full.min.js?V=2_20200225") %>" type="text/javascript"></script>
+        <script src="<%=ResolveClientUrl("~/Default/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js?V=2_20200225") %>" type="text/javascript"></script>
+        <script src="<%=ResolveClientUrl("~/Default/assets/global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js?V=2_20200225") %>" type="text/javascript"></script>
+        <script src="<%=ResolveClientUrl("~/Default/assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js?V=2_20200225") %>" type="text/javascript"></script>
+
+        <script src="<%=ResolveClientUrl("~/Default/assets/global/scripts/datatable.js?V=2_20200225") %>" type="text/javascript"></script>
+        <script src="<%=ResolveClientUrl("~/Default/assets/global/plugins/datatables/datatables.min.js?V=2_20200225") %>" type="text/javascript"></script>
+        <script src="<%=ResolveClientUrl("~/Default/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js?V=2_20200225") %>" type="text/javascript"></script>
+        <script src="<%=ResolveClientUrl("~/Default/assets/global/plugins/bootbox/bootbox.min.js?V=2_20200225") %>"></script>
+
+        <!-- END PAGE LEVEL PLUGINS -->
+
+        <!-- BEGIN THEME GLOBAL SCRIPTS -->
+        <script src="<%=ResolveClientUrl("~/Default/assets/global/scripts/app.min.js?V=2_20200225") %>" type="text/javascript"></script>
+        <script src="<%=ResolveClientUrl("~/Default/assets/pages/scripts/components-date-time-pickers.min.js?V=2_20200225") %>" type="text/javascript"></script>
+        <!-- END THEME GLOBAL SCRIPTS -->
+
+        <!-- BEGIN THEME LAYOUT SCRIPTS -->
+
+        <script src="<%=ResolveClientUrl("~/Default/assets/layouts/layout/scripts/layout.min.js?V=2_20200225") %>" type="text/javascript"></script>
+        <script src="<%=ResolveClientUrl("~/Default/assets/layouts/layout/scripts/demo.min.js?V=2_20200225") %>" type="text/javascript"></script>
+        <script src="<%=ResolveClientUrl("~/Default/assets/layouts/global/scripts/quick-sidebar.min.js?V=2_20200225") %>" type="text/javascript"></script>
+        <script src="<%=ResolveClientUrl("~/Default/assets/layouts/global/scripts/quick-nav.min.js?V=2_20200225") %>" type="text/javascript"></script>
+
+        <!-- END THEME LAYOUT SCRIPTS -->
+
+        <!-- BEGIN CUSTOM SCRIPTS -->
+
+        <script src="<%=ResolveClientUrl("~/Default/JS/UI_Select2.js?V=2_20200225") %>" type="text/javascript"></script>
+        <script src="<%=ResolveClientUrl("~/Default/JS/GN_UI.js?V=2_20200225") %>" type="text/javascript"></script>
+        <script src="<%=ResolveClientUrl("~/Default/JS/CommonValidation.js?V=2_20200225") %>" type="text/javascript"></script>
+        <script src="<%=ResolveClientUrl("~/Default/JS/CommonJSFunctions.js?V=2_20200225") %>" type="text/javascript"></script>
+        <script src="<%=ResolveClientUrl("~/Default/JS/UI_ModalEvents.js?V=2_20200225") %>" type="text/javascript"></script>
+        <script src="<%=ResolveClientUrl("~/Default/JS/UI_BlockUI.js?V=2_20200225") %>" type="text/javascript"></script>
+        <script src="<%=ResolveClientUrl("~/Default/JS/GN_InitMain.js?V=2_20200225") %>" type="text/javascript"></script>
+
+        <!-- END CUSTOM SCRIPTS -->
+
+        <%--<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>--%>
+
+
+        <script>
+
+            function OnSuccess(a, b) {
+            }
+            function OnFailure(a, b, c) {
+            }
+
+            $(document).ready(function () {
+                InitMain.init();
+            });
+
+            $(document).ajaxStart(function () {
+
+                //funBlockUI();
+
+            }).ajaxStop(function () {
+
+                //funUnblockUI();
+
+                InitMain.init();
+
+            });
+
+            function CheckMenu() {
+                var MenuData = sessionStorage.getItem('Menu');
+                if (MenuData != null)
+                    document.getElementById("MenuUL").innerHTML = MenuData;
+            }
+
+            var prm = Sys.WebForms.PageRequestManager.getInstance();
+
+            prm.add_beginRequest(function () {
+
+                funBlockUI();
+
+            });
+            prm.add_endRequest(function () {
+
+                funUnblockUI();
+                InitMain.init();
+
+
+                /*Old IFrame Modal BEGIN*/
+                $('a.GNModalIFrame').on('click', function (e) {
+                    var src = $(this).attr('href');
+                    var target = $(this).attr('data-target');
+
+                    $(target + " iframe").attr({
+                        'src': src
+                    });
+                    e.preventDefault();
+                });
+
+                $('.modal .fade').on('hidden.bs.modal', function () {
+                    $(".modal .fade iframe").attr({
+                        'src': 'about:blank'
+                    });
+                });
+
+                function closemyModal() {
+                    $('.modal').modal('hide');
+                }
+
+                function closeModalAndRefreshPage() {
+                    $('.modal').modal('hide');
+                    location.reload();
+                }
+
+
+                /*Old IFrame Modal END*/
+
+            });
+            /*Old IFrame Modal BEGIN*/
+            $('a.GNModalIFrame').on('click', function (e) {
+                var src = $(this).attr('href');
+                var target = $(this).attr('data-target');
+
+                $(target + " iframe").attr({
+                    'src': src
+                });
+                e.preventDefault();
+            });
+
+            $('.modal .fade').on('hidden.bs.modal', function () {
+                $(".modal .fade iframe").attr({
+                    'src': 'about:blank'
+                });
+            });
+
+            /*Old IFrame Modal END*/
+
+            function redirectToPage(url) {
+                window.location.href = url;
+            }
+
+            function toggleModal_lg() {
+                $('#Modal_lg').modal('toggle');
+                location.reload();
+            }
+
+            function ShowHelp() {
+                $(".DivHelp").slideToggle('slow');
+            }
+
+
+        </script>
+
+
+        <!-- END JAVASCRIPTS -->
+        <asp:ContentPlaceHolder ID="cphScripts" runat="server">
+        </asp:ContentPlaceHolder>
+
+    </form>
+
+</body>
+</html>
+
