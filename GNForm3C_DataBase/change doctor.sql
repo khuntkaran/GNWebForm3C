@@ -255,211 +255,136 @@ BEGIN
 END;
 GO
 
-alter PROCEDURE PR_MasterDashboard_IncomeList 
+ALTER PROCEDURE PR_MasterDashboard_IncomeList 4
 @HospitalID INT
 AS
 BEGIN
-    DECLARE @cols NVARCHAR(MAX), @query NVARCHAR(MAX), @currentYear INT;
+    DECLARE @currentYear INT;
 
     -- Get the current year
-    SET @currentYear = YEAR(GETDATE());
+    SET @currentYear = YEAR(GETDATE())
+	
 
-    -- Generate the list of month columns
-    SET @cols = QUOTENAME('January') + ', ' +
-                 QUOTENAME('February') + ', ' +
-                 QUOTENAME('March') + ', ' +
-                 QUOTENAME('April') + ', ' +
-                 QUOTENAME('May') + ', ' +
-                 QUOTENAME('June') + ', ' +
-                 QUOTENAME('July') + ', ' +
-                 QUOTENAME('August') + ', ' +
-                 QUOTENAME('September') + ', ' +
-                 QUOTENAME('October') + ', ' +
-                 QUOTENAME('November') + ', ' +
-                 QUOTENAME('December');
+    -- Generate a list of days for the month (1 to 31)
+      ;WITH Days AS (
+        SELECT TOP (31) ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS [Day]
+        FROM master.dbo.spt_values
+    )
+    -- Retrieve the data, including all days of the month
+	SELECt * from (
+    SELECT 
+        CAST(d.[Day] AS NVARCHAR) AS [Day], -- Cast Day as NVARCHAR for consistent data type in UNION
+        ISNULL(SUM(CASE WHEN DATENAME(MONTH, i.IncomeDate) = 'January' THEN i.Amount ELSE 0 END), 0) AS [January],
+        ISNULL(SUM(CASE WHEN DATENAME(MONTH, i.IncomeDate) = 'February' THEN i.Amount ELSE 0 END), 0) AS [February],
+        ISNULL(SUM(CASE WHEN DATENAME(MONTH, i.IncomeDate) = 'March' THEN i.Amount ELSE 0 END), 0) AS [March],
+        ISNULL(SUM(CASE WHEN DATENAME(MONTH, i.IncomeDate) = 'April' THEN i.Amount ELSE 0 END), 0) AS [April],
+        ISNULL(SUM(CASE WHEN DATENAME(MONTH, i.IncomeDate) = 'May' THEN i.Amount ELSE 0 END), 0) AS [May],
+        ISNULL(SUM(CASE WHEN DATENAME(MONTH, i.IncomeDate) = 'June' THEN i.Amount ELSE 0 END), 0) AS [June],
+        ISNULL(SUM(CASE WHEN DATENAME(MONTH, i.IncomeDate) = 'July' THEN i.Amount ELSE 0 END), 0) AS [July],
+        ISNULL(SUM(CASE WHEN DATENAME(MONTH, i.IncomeDate) = 'August' THEN i.Amount ELSE 0 END), 0) AS [August],
+        ISNULL(SUM(CASE WHEN DATENAME(MONTH, i.IncomeDate) = 'September' THEN i.Amount ELSE 0 END), 0) AS [September],
+        ISNULL(SUM(CASE WHEN DATENAME(MONTH, i.IncomeDate) = 'October' THEN i.Amount ELSE 0 END), 0) AS [October],
+        ISNULL(SUM(CASE WHEN DATENAME(MONTH, i.IncomeDate) = 'November' THEN i.Amount ELSE 0 END), 0) AS [November],
+        ISNULL(SUM(CASE WHEN DATENAME(MONTH, i.IncomeDate) = 'December' THEN i.Amount ELSE 0 END), 0) AS [December]
+    FROM Days d
+    LEFT JOIN ACC_Income i
+        ON DAY(i.IncomeDate) = d.[Day] AND i.HospitalID = @HospitalID AND YEAR(i.IncomeDate) = @currentYear
+    GROUP BY d.[Day]
 
-    -- Construct the dynamic SQL query
-    SET @query = '
-        ;WITH IncomeData AS (
-            SELECT DAY(i.IncomeDate) AS [Day],
-                   DATENAME(MONTH, i.IncomeDate) AS [Month],
-                   SUM(i.Amount) AS Amount
-            FROM ACC_Income i
-            WHERE HospitalID='+CAST(@HospitalID AS VARCHAR(4))+' and YEAR(i.IncomeDate) = ' + CAST(@currentYear AS VARCHAR(4)) + '
-            GROUP BY DAY(i.IncomeDate), DATENAME(MONTH, i.IncomeDate)
-        ),
-        Days AS (
-            SELECT 1 AS [Day] UNION ALL
-            SELECT 2 UNION ALL
-            SELECT 3 UNION ALL
-            SELECT 4 UNION ALL
-            SELECT 5 UNION ALL
-            SELECT 6 UNION ALL
-            SELECT 7 UNION ALL
-            SELECT 8 UNION ALL
-            SELECT 9 UNION ALL
-            SELECT 10 UNION ALL
-            SELECT 11 UNION ALL
-            SELECT 12 UNION ALL
-            SELECT 13 UNION ALL
-            SELECT 14 UNION ALL
-            SELECT 15 UNION ALL
-            SELECT 16 UNION ALL
-            SELECT 17 UNION ALL
-            SELECT 18 UNION ALL
-            SELECT 19 UNION ALL
-            SELECT 20 UNION ALL
-            SELECT 21 UNION ALL
-            SELECT 22 UNION ALL
-            SELECT 23 UNION ALL
-            SELECT 24 UNION ALL
-            SELECT 25 UNION ALL
-            SELECT 26 UNION ALL
-            SELECT 27 UNION ALL
-            SELECT 28 UNION ALL
-            SELECT 29 UNION ALL
-            SELECT 30 UNION ALL
-            SELECT 31
-        ),
-        FullData AS (
-            SELECT d.[Day],
-                   m.[Month],
-                   ISNULL(i.Amount, 0) AS Amount
-            FROM Days d
-            CROSS JOIN (SELECT ''January'' AS [Month]
-                        UNION ALL SELECT ''February''
-                        UNION ALL SELECT ''March''
-                        UNION ALL SELECT ''April''
-                        UNION ALL SELECT ''May''
-                        UNION ALL SELECT ''June''
-                        UNION ALL SELECT ''July''
-                        UNION ALL SELECT ''August''
-                        UNION ALL SELECT ''September''
-                        UNION ALL SELECT ''October''
-                        UNION ALL SELECT ''November''
-                        UNION ALL SELECT ''December'') m
-            LEFT JOIN IncomeData i
-                   ON d.[Day] = i.[Day] AND m.[Month] = i.[Month]
-        )
-        SELECT [Day], ' + @cols + '
-        FROM (
-            SELECT [Day], [Month], Amount
-            FROM FullData
-        ) AS SourceTable
-        PIVOT
-        (
-            SUM(Amount)
-            FOR [Month] IN (' + @cols + ')
-        ) AS PivotTable
-        ORDER BY [Day];
-    ';
-
-    -- Execute the dynamic SQL
-    EXEC sp_executesql @query;
+	 
+    
+    UNION ALL
+    
+    -- Summary row for totals
+    SELECT 
+        'Total' AS [Day],
+        ISNULL(SUM(CASE WHEN DATENAME(MONTH, i.IncomeDate) = 'January' THEN i.Amount ELSE 0 END), 0) AS [January],
+        ISNULL(SUM(CASE WHEN DATENAME(MONTH, i.IncomeDate) = 'February' THEN i.Amount ELSE 0 END), 0) AS [February],
+        ISNULL(SUM(CASE WHEN DATENAME(MONTH, i.IncomeDate) = 'March' THEN i.Amount ELSE 0 END), 0) AS [March],
+        ISNULL(SUM(CASE WHEN DATENAME(MONTH, i.IncomeDate) = 'April' THEN i.Amount ELSE 0 END), 0) AS [April],
+        ISNULL(SUM(CASE WHEN DATENAME(MONTH, i.IncomeDate) = 'May' THEN i.Amount ELSE 0 END), 0) AS [May],
+        ISNULL(SUM(CASE WHEN DATENAME(MONTH, i.IncomeDate) = 'June' THEN i.Amount ELSE 0 END), 0) AS [June],
+        ISNULL(SUM(CASE WHEN DATENAME(MONTH, i.IncomeDate) = 'July' THEN i.Amount ELSE 0 END), 0) AS [July],
+        ISNULL(SUM(CASE WHEN DATENAME(MONTH, i.IncomeDate) = 'August' THEN i.Amount ELSE 0 END), 0) AS [August],
+        ISNULL(SUM(CASE WHEN DATENAME(MONTH, i.IncomeDate) = 'September' THEN i.Amount ELSE 0 END), 0) AS [September],
+        ISNULL(SUM(CASE WHEN DATENAME(MONTH, i.IncomeDate) = 'October' THEN i.Amount ELSE 0 END), 0) AS [October],
+        ISNULL(SUM(CASE WHEN DATENAME(MONTH, i.IncomeDate) = 'November' THEN i.Amount ELSE 0 END), 0) AS [November],
+        ISNULL(SUM(CASE WHEN DATENAME(MONTH, i.IncomeDate) = 'December' THEN i.Amount ELSE 0 END), 0) AS [December]
+    FROM ACC_Income i
+    WHERE i.HospitalID = @HospitalID AND YEAR(i.IncomeDate) = @currentYear
+    GROUP BY i.HospitalID
+	)s
+	ORDER BY CASE WHEN [Day] = 'Total' THEN 999 ELSE [Day] END;
+	
+    
+    
 END
 GO
 
-create PROCEDURE PR_MasterDashboard_ExpenseList 4
+
+ALTER PROCEDURE PR_MasterDashboard_ExpenseList 3
 @HospitalID INT
 AS
 BEGIN
-    DECLARE @cols NVARCHAR(MAX), @query NVARCHAR(MAX), @currentYear INT;
+    DECLARE @currentYear INT;
 
     -- Get the current year
-    SET @currentYear = YEAR(GETDATE());
+    SET @currentYear = YEAR(GETDATE())
+	
 
-    -- Generate the list of month columns
-    SET @cols = QUOTENAME('January') + ', ' +
-                 QUOTENAME('February') + ', ' +
-                 QUOTENAME('March') + ', ' +
-                 QUOTENAME('April') + ', ' +
-                 QUOTENAME('May') + ', ' +
-                 QUOTENAME('June') + ', ' +
-                 QUOTENAME('July') + ', ' +
-                 QUOTENAME('August') + ', ' +
-                 QUOTENAME('September') + ', ' +
-                 QUOTENAME('October') + ', ' +
-                 QUOTENAME('November') + ', ' +
-                 QUOTENAME('December');
+    -- Generate a list of days for the month (1 to 31)
+      ;WITH Days AS (
+        SELECT TOP (31) ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS [Day]
+        FROM master.dbo.spt_values
+    )
+    -- Retrieve the data, including all days of the month
+	SELECt * from (
+    SELECT 
+        CAST(d.[Day] AS NVARCHAR) AS [Day], -- Cast Day as NVARCHAR for consistent data type in UNION
+        ISNULL(SUM(CASE WHEN DATENAME(MONTH, i.ExpenseDate) = 'January' THEN i.Amount ELSE 0 END), 0) AS [January],
+        ISNULL(SUM(CASE WHEN DATENAME(MONTH, i.ExpenseDate) = 'February' THEN i.Amount ELSE 0 END), 0) AS [February],
+        ISNULL(SUM(CASE WHEN DATENAME(MONTH, i.ExpenseDate) = 'March' THEN i.Amount ELSE 0 END), 0) AS [March],
+        ISNULL(SUM(CASE WHEN DATENAME(MONTH, i.ExpenseDate) = 'April' THEN i.Amount ELSE 0 END), 0) AS [April],
+        ISNULL(SUM(CASE WHEN DATENAME(MONTH, i.ExpenseDate) = 'May' THEN i.Amount ELSE 0 END), 0) AS [May],
+        ISNULL(SUM(CASE WHEN DATENAME(MONTH, i.ExpenseDate) = 'June' THEN i.Amount ELSE 0 END), 0) AS [June],
+        ISNULL(SUM(CASE WHEN DATENAME(MONTH, i.ExpenseDate) = 'July' THEN i.Amount ELSE 0 END), 0) AS [July],
+        ISNULL(SUM(CASE WHEN DATENAME(MONTH, i.ExpenseDate) = 'August' THEN i.Amount ELSE 0 END), 0) AS [August],
+        ISNULL(SUM(CASE WHEN DATENAME(MONTH, i.ExpenseDate) = 'September' THEN i.Amount ELSE 0 END), 0) AS [September],
+        ISNULL(SUM(CASE WHEN DATENAME(MONTH, i.ExpenseDate) = 'October' THEN i.Amount ELSE 0 END), 0) AS [October],
+        ISNULL(SUM(CASE WHEN DATENAME(MONTH, i.ExpenseDate) = 'November' THEN i.Amount ELSE 0 END), 0) AS [November],
+        ISNULL(SUM(CASE WHEN DATENAME(MONTH, i.ExpenseDate) = 'December' THEN i.Amount ELSE 0 END), 0) AS [December]
+    FROM Days d
+    LEFT JOIN ACC_Expense i
+        ON DAY(i.ExpenseDate) = d.[Day] AND i.HospitalID = @HospitalID AND YEAR(i.ExpenseDate) = @currentYear
+    GROUP BY d.[Day]
 
-    -- Construct the dynamic SQL query
-    SET @query = '
-        ;WITH IncomeData AS (
-            SELECT DAY(i.ExpenseDate) AS [Day],
-                   DATENAME(MONTH, i.ExpenseDate) AS [Month],
-                   SUM(i.Amount) AS Amount
-            FROM ACC_Expense i
-            WHERE HospitalID='+CAST(@HospitalID AS VARCHAR(4))+' and YEAR(i.ExpenseDate) = ' + CAST(@currentYear AS VARCHAR(4)) + '
-            GROUP BY DAY(i.ExpenseDate), DATENAME(MONTH, i.ExpenseDate)
-        ),
-        Days AS (
-            SELECT 1 AS [Day] UNION ALL
-            SELECT 2 UNION ALL
-            SELECT 3 UNION ALL
-            SELECT 4 UNION ALL
-            SELECT 5 UNION ALL
-            SELECT 6 UNION ALL
-            SELECT 7 UNION ALL
-            SELECT 8 UNION ALL
-            SELECT 9 UNION ALL
-            SELECT 10 UNION ALL
-            SELECT 11 UNION ALL
-            SELECT 12 UNION ALL
-            SELECT 13 UNION ALL
-            SELECT 14 UNION ALL
-            SELECT 15 UNION ALL
-            SELECT 16 UNION ALL
-            SELECT 17 UNION ALL
-            SELECT 18 UNION ALL
-            SELECT 19 UNION ALL
-            SELECT 20 UNION ALL
-            SELECT 21 UNION ALL
-            SELECT 22 UNION ALL
-            SELECT 23 UNION ALL
-            SELECT 24 UNION ALL
-            SELECT 25 UNION ALL
-            SELECT 26 UNION ALL
-            SELECT 27 UNION ALL
-            SELECT 28 UNION ALL
-            SELECT 29 UNION ALL
-            SELECT 30 UNION ALL
-            SELECT 31
-        ),
-        FullData AS (
-            SELECT d.[Day],
-                   m.[Month],
-                   ISNULL(i.Amount, 0) AS Amount
-            FROM Days d
-            CROSS JOIN (SELECT ''January'' AS [Month]
-                        UNION ALL SELECT ''February''
-                        UNION ALL SELECT ''March''
-                        UNION ALL SELECT ''April''
-                        UNION ALL SELECT ''May''
-                        UNION ALL SELECT ''June''
-                        UNION ALL SELECT ''July''
-                        UNION ALL SELECT ''August''
-                        UNION ALL SELECT ''September''
-                        UNION ALL SELECT ''October''
-                        UNION ALL SELECT ''November''
-                        UNION ALL SELECT ''December'') m
-            LEFT JOIN IncomeData i
-                   ON d.[Day] = i.[Day] AND m.[Month] = i.[Month]
-        )
-        SELECT [Day], ' + @cols + '
-        FROM (
-            SELECT [Day], [Month], Amount
-            FROM FullData
-        ) AS SourceTable
-        PIVOT
-        (
-            SUM(Amount)
-            FOR [Month] IN (' + @cols + ')
-        ) AS PivotTable
-        ORDER BY [Day];
-    ';
-
-    -- Execute the dynamic SQL
-    EXEC sp_executesql @query;
+	 
+    
+    UNION ALL
+    
+    -- Summary row for totals
+    SELECT 
+        'Total' AS [Day],
+        ISNULL(SUM(CASE WHEN DATENAME(MONTH, i.ExpenseDate) = 'January' THEN i.Amount ELSE 0 END), 0) AS [January],
+        ISNULL(SUM(CASE WHEN DATENAME(MONTH, i.ExpenseDate) = 'February' THEN i.Amount ELSE 0 END), 0) AS [February],
+        ISNULL(SUM(CASE WHEN DATENAME(MONTH, i.ExpenseDate) = 'March' THEN i.Amount ELSE 0 END), 0) AS [March],
+        ISNULL(SUM(CASE WHEN DATENAME(MONTH, i.ExpenseDate) = 'April' THEN i.Amount ELSE 0 END), 0) AS [April],
+        ISNULL(SUM(CASE WHEN DATENAME(MONTH, i.ExpenseDate) = 'May' THEN i.Amount ELSE 0 END), 0) AS [May],
+        ISNULL(SUM(CASE WHEN DATENAME(MONTH, i.ExpenseDate) = 'June' THEN i.Amount ELSE 0 END), 0) AS [June],
+        ISNULL(SUM(CASE WHEN DATENAME(MONTH, i.ExpenseDate) = 'July' THEN i.Amount ELSE 0 END), 0) AS [July],
+        ISNULL(SUM(CASE WHEN DATENAME(MONTH, i.ExpenseDate) = 'August' THEN i.Amount ELSE 0 END), 0) AS [August],
+        ISNULL(SUM(CASE WHEN DATENAME(MONTH, i.ExpenseDate) = 'September' THEN i.Amount ELSE 0 END), 0) AS [September],
+        ISNULL(SUM(CASE WHEN DATENAME(MONTH, i.ExpenseDate) = 'October' THEN i.Amount ELSE 0 END), 0) AS [October],
+        ISNULL(SUM(CASE WHEN DATENAME(MONTH, i.ExpenseDate) = 'November' THEN i.Amount ELSE 0 END), 0) AS [November],
+        ISNULL(SUM(CASE WHEN DATENAME(MONTH, i.ExpenseDate) = 'December' THEN i.Amount ELSE 0 END), 0) AS [December]
+    FROM ACC_Expense i
+    WHERE i.HospitalID = @HospitalID AND YEAR(i.ExpenseDate) = @currentYear
+    GROUP BY i.HospitalID
+	)s
+	ORDER BY CASE WHEN [Day] = 'Total' THEN 999 ELSE [Day] END;
+	
+    
+    
 END
 GO
 
