@@ -1,17 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|c:\\users\\apex\\downloads\\bhavin_gnwebform3c_code_20230213_0731pm\\gnwebform3c_codeb\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|c:\\users\\apex\\downloads\\bhavin_gnwebform3c_code_20230213_0731pm\\gnwebform3c_codeb\\adminpanel\\account\\acc_income\\acc_incomeaddedit.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|c:\\users\\apex\\downloads\\bhavin_gnwebform3c_code_20230213_0731pm\\gnwebform3c_codeb\\adminpanel\\account\\acc_income\\acc_incomeaddedit.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -19,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -28,39 +18,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Web.config",
-              "DocumentMoniker": "C:\\Users\\Apex\\Downloads\\BHAVIN_GNWebForm3C_Code_20230213_0731PM\\GNWebForm3C_CodeB\\Web.config",
-              "ToolTip": "C:\\Users\\Apex\\Downloads\\BHAVIN_GNWebForm3C_Code_20230213_0731PM\\GNWebForm3C_CodeB\\Web.config",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2024-07-29T06:30:08.667Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ACC_IncomeAddEdit.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\Apex\\Downloads\\BHAVIN_GNWebForm3C_Code_20230213_0731PM\\GNWebForm3C_CodeB\\AdminPanel\\Account\\ACC_Income\\ACC_IncomeAddEdit.aspx.cs",
-              "ToolTip": "C:\\Users\\Apex\\Downloads\\BHAVIN_GNWebForm3C_Code_20230213_0731PM\\GNWebForm3C_CodeB\\AdminPanel\\Account\\ACC_Income\\ACC_IncomeAddEdit.aspx.cs",
-              "ViewState": "AQIAAKMAAAAAAAAAAAAIwK0AAAAdAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-29T06:10:56.801Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ACC_IncomeAddEdit.aspx",
-              "DocumentMoniker": "C:\\Users\\Apex\\Downloads\\BHAVIN_GNWebForm3C_Code_20230213_0731PM\\GNWebForm3C_CodeB\\AdminPanel\\Account\\ACC_Income\\ACC_IncomeAddEdit.aspx",
-              "ToolTip": "C:\\Users\\Apex\\Downloads\\BHAVIN_GNWebForm3C_Code_20230213_0731PM\\GNWebForm3C_CodeB\\AdminPanel\\Account\\ACC_Income\\ACC_IncomeAddEdit.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-07-29T06:10:46.121Z",
-              "EditorCaption": ""
             }
           ]
         }
