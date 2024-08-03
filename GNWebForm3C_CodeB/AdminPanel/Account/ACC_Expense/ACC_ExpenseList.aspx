@@ -213,7 +213,7 @@
                                                             	<%#Eval("FinYearName") %>
                                                             </td>
                                                             <td >
-   	                                                            <%#Eval("TagName",GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint) %>
+   	                                                            <%#Eval("TagName") %>
                                                             </td>
                                                             <td class="text-nowrap text-center">
                                                                 <asp:HyperLink ID="hlView" SkinID="View" NavigateUrl='<%# "~/AdminPanel/Account/ACC_Expense/ACC_ExpenseView.aspx?ExpenseID=" + GNForm3C.CommonFunctions.EncryptBase64(Eval("ExpenseID").ToString()) %>' data-target="#viewiFrameReg" data-toggle="modal" runat="server"></asp:HyperLink>

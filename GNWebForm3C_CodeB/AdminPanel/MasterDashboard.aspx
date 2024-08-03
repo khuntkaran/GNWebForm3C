@@ -100,43 +100,46 @@
                                     <div class="form-body">
                                         <div class="row">
                                             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                                                <a class="dashboard-stat dashboard-stat-v2 blue" href="Account/ACC_Income/ACC_IncomeList.aspx">
+                                                <asp:LinkButton ID="btnIncomeCount" runat="server" CssClass="dashboard-stat dashboard-stat-v2 blue" OnClick="IncomeCount_Click">
                                                     <div class="visual">
                                                         <i class="fa fa-comments"></i>
                                                     </div>
                                                     <div class="details">
                                                         <div class="number">
+                                                            <i class="fa fa-inr"></i>
                                                             <asp:Label runat="server" ID="lblTotalIncome"></asp:Label>
                                                         </div>
                                                         <div class="desc">Incomes </div>
                                                     </div>
-                                                </a>
+                                                </asp:LinkButton>
                                             </div>
                                             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                                                <a class="dashboard-stat dashboard-stat-v2 red" href="Account/ACC_Expense/ACC_ExpenseList.aspx">
+                                                <asp:LinkButton ID="btnExpenseCount" runat="server" CssClass="dashboard-stat dashboard-stat-v2 red" OnClick="ExpenseCount_Click">
                                                     <div class="visual">
                                                         <i class="fa fa-list"></i>
                                                     </div>
                                                     <div class="details">
                                                         <div class="number">
+                                                            <i class="fa fa-inr"></i>
                                                             <asp:Label runat="server" ID="lblTotalExpense"></asp:Label>
                                                         </div>
                                                         <div class="desc">Expenses</div>
                                                     </div>
-                                                </a>
+                                                </asp:LinkButton>
                                             </div>
                                             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                                                <a class="dashboard-stat dashboard-stat-v2 green" href="Account/ACC_Transaction/ACC_TransactionList.aspx">
+                                                <asp:LinkButton ID="btnTransactionCount" runat="server" CssClass="dashboard-stat dashboard-stat-v2 green" OnClick="TransactionCount_Click">
                                                     <div class="visual">
                                                         <i class="fa fa-shopping-cart"></i>
                                                     </div>
                                                     <div class="details">
                                                         <div class="number">
+                                                            <i class="fa fa-inr"></i>
                                                             <asp:Label runat="server" ID="lblTotalPatientAmount"></asp:Label>
                                                         </div>
                                                         <div class="desc">Total Patient Amount </div>
                                                     </div>
-                                                </a>
+                                                </asp:LinkButton>
                                             </div>
 
                                         </div>
@@ -189,86 +192,51 @@
                                                     <div class="portlet-body" style="display: block;">
                                                         <div class="table-responsive">
                                                             <div id="TableContent1">
-                                                                <table class="table table-bordered table-advanced table-striped table-hover" id="sample11">
-                                                                    <%-- Table Header --%>
-                                                                    <thead>
-                                                                        <tr class="TRDark">
-                                                                            <th class="text-center">Date
-                                                                            </th>
-                                                                            <asp:Repeater ID="rpIncomeMonth" runat="server">
+                                                                <asp:Label runat="server" ID="lblIncomeContent"></asp:Label>
+                                                                <div runat="server" id="divIncomeList" visible="false">
+
+
+                                                                    <table class="table table-bordered table-advanced table-striped " id="tblIncomeList">
+                                                                        <%-- Table Header --%>
+                                                                        <thead>
+                                                                            <tr class="TRDark">
+                                                                                <th class="text-center">Day
+                                                                                </th>
+                                                                                <asp:Repeater ID="rpIncomeMonth" runat="server">
+                                                                                    <ItemTemplate>
+                                                                                        <th class="text-right">
+                                                                                            <asp:Label ID="lblMonth" runat="server" Text='<%# Container.DataItem %>'></asp:Label>
+                                                                                        </th>
+                                                                                    </ItemTemplate>
+                                                                                </asp:Repeater>
+
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <%-- END Table Header --%>
+                                                                        <tbody>
+                                                                            <asp:Repeater ID="rpIncomeData" runat="server" OnItemDataBound="rpIncome_ItemDataBound">
+                                                                                <%--OnItemDataBound="rpIncome_ItemDataBound"--%>
                                                                                 <ItemTemplate>
-                                                                                    <th class="text-center">
-                                                                                        <asp:Label ID="lblMonth" runat="server" Text='<%# Container.DataItem %>'></asp:Label>
-                                                                                    </th>
+                                                                                    <tr style='<%# Eval("Day").ToString() == "Total" ? "background-color: rgba(189, 189, 189, 1); font-weight: bold;": "" %>'>
+                                                                                        <td class="text-center">
+                                                                                            <%# Eval("Day") %>
+                                                                                        </td>
+                                                                                        <asp:Repeater ID="rpIncomeMonth2" runat="server">
+                                                                                            <ItemTemplate>
+                                                                                                <td class="text-right" style='<%#(  Convert.ToInt32(DataBinder.Eval( ((RepeaterItem)Container.Parent.Parent).DataItem,Container.DataItem.ToString()) ) > 0 && DataBinder.Eval( ((RepeaterItem)Container.Parent.Parent).DataItem,"Day").ToString() != "Total" )?"background-color: rgba(173, 216, 230, 0.8);": "" %>'>
+                                                                                                    <i class="fa fa-inr"></i>
+                                                                                                    <asp:Label ID="lblMonth" runat="server" Text='<%#  DataBinder.Eval( ((RepeaterItem)Container.Parent.Parent).DataItem,Container.DataItem.ToString(),GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint  ) %>'></asp:Label>
+                                                                                                </td>
+                                                                                            </ItemTemplate>
+                                                                                        </asp:Repeater>
+                                                                                    </tr>
                                                                                 </ItemTemplate>
                                                                             </asp:Repeater>
 
-                                                                        </tr>
-                                                                    </thead>
-                                                                    <%-- END Table Header --%>
-                                                                    <tbody>
-                                                                        <asp:Repeater ID="rpIncomeData" runat="server">
-                                                                            <%--OnItemDataBound="rpIncome_ItemDataBound"--%>
-                                                                            <ItemTemplate>
-                                                                                <tr>
-                                                                                    <!-- Example Date Column -->
-                                                                                    <td class="text-center">
-                                                                                        <%# Eval("Day") %>
-                                                                                    </td>
-                                                                                    <td class="text-center">
-                                                                                        <%# Eval("January") %>
-                                                                                    </td>
-                                                                                    <td class="text-center">
-                                                                                        <%# Eval("February") %>
-                                                                                    </td>
-                                                                                    <td class="text-center">
-                                                                                        <%# Eval("March") %>
-                                                                                    </td>
-                                                                                    <td class="text-center">
-                                                                                        <%# Eval("April") %>
-                                                                                    </td>
-                                                                                    <td class="text-center">
-                                                                                        <%# Eval("May") %>
-                                                                                    </td>
-                                                                                    <td class="text-center">
-                                                                                        <%# Eval("June") %>
-                                                                                    </td>
-                                                                                    <td class="text-center">
-                                                                                        <%# Eval("July") %>
-                                                                                    </td>
-                                                                                    <td class="text-center">
-                                                                                        <%# Eval("August") %>
-                                                                                    </td>
-                                                                                    <td class="text-center">
-                                                                                        <%# Eval("September") %>
-                                                                                    </td>
-                                                                                    <td class="text-center">
-                                                                                        <%# Eval("October") %>
-                                                                                    </td>
-                                                                                    <td class="text-center">
-                                                                                        <%# Eval("November") %>
-                                                                                    </td>
-                                                                                    <td class="text-center">
-                                                                                        <%# Eval("December") %>
-                                                                                    </td>
-                                                                                    <%-- <!-- Inner Repeater for Months -->
+                                                                        </tbody>
 
-                                                                    <asp:Repeater ID="rpMonthValues" runat="server">
-                                                                        <ItemTemplate>
-                                                                            <td class="text-center">
-                                                                                <%# Container.DataItem %>
-                                                                                <!-- Display value for month -->
-                                                                                <!-- Use the month name from the outer repeater -->
-                                                                                <!-- Replace with your actual data field -->
-                                                                            </td>
-                                                                        </ItemTemplate>
-                                                                    </asp:Repeater>--%>
-                                                                                </tr>
-                                                                            </ItemTemplate>
-                                                                        </asp:Repeater>
-
-                                                                    </tbody>
-                                                                </table>
+                                                                    </table>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -290,74 +258,50 @@
                                                     </div>
                                                     <div class="portlet-body" style="display: block;">
                                                         <div class="table-responsive">
-                                                            <div id="TableContent1">
-                                                                <table class="table table-bordered table-advanced table-striped table-hover" id="sample11">
-                                                                    <%-- Table Header --%>
-                                                                    <thead>
-                                                                        <tr class="TRDark">
-                                                                            <th class="text-center">Date
-                                                                            </th>
-                                                                            <asp:Repeater ID="rpExpenseMonth" runat="server">
+                                                            <div id="TableContent3">
+                                                                <asp:Label runat="server" ID="lblExpenseContent"></asp:Label>
+                                                                <div runat="server" id="divExpenseList" visible="false">
+
+                                                                    <table class="table table-bordered table-advanced table-striped " id="sample11">
+                                                                        <%-- Table Header --%>
+                                                                        <thead>
+                                                                            <tr class="TRDark">
+                                                                                <th class="text-center">Day
+                                                                                </th>
+                                                                                <asp:Repeater ID="rpExpenseMonth" runat="server">
+                                                                                    <ItemTemplate>
+                                                                                        <th class="text-right">
+                                                                                            <asp:Label ID="lblMonth" runat="server" Text='<%# Container.DataItem %>'></asp:Label>
+                                                                                        </th>
+                                                                                    </ItemTemplate>
+                                                                                </asp:Repeater>
+
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <%-- END Table Header --%>
+                                                                        <tbody>
+                                                                            <asp:Repeater ID="rpExpenseData" runat="server" OnItemDataBound="rpExpense_ItemDataBound">
                                                                                 <ItemTemplate>
-                                                                                    <th class="text-center">
-                                                                                        <asp:Label ID="lblMonth" runat="server" Text='<%# Container.DataItem %>'></asp:Label>
-                                                                                    </th>
+                                                                                    <tr style='<%# Eval("Day").ToString() == "Total" ? "background-color: rgba(189, 189, 189, 1); font-weight: bold;": "" %>'>
+                                                                                        <!-- Example Date Column -->
+                                                                                        <td class="text-center">
+                                                                                            <%# Eval("Day") %>
+                                                                                        </td>
+                                                                                        <asp:Repeater ID="rpExpenseMonth2" runat="server">
+                                                                                            <ItemTemplate>
+                                                                                                <td class="text-right" style='<%#(  Convert.ToInt32(DataBinder.Eval( ((RepeaterItem)Container.Parent.Parent).DataItem,Container.DataItem.ToString()) ) > 0 && DataBinder.Eval( ((RepeaterItem)Container.Parent.Parent).DataItem,"Day").ToString() != "Total" )?"background-color: rgba(241, 169, 160, 0.8);": "" %>'>
+                                                                                                    <i class="fa fa-inr"></i>
+                                                                                                    <asp:Label ID="lblMonth2" runat="server" Text='<%#  DataBinder.Eval( ((RepeaterItem)Container.Parent.Parent).DataItem,Container.DataItem.ToString(),GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint  ) %>'></asp:Label>
+                                                                                                </td>
+                                                                                            </ItemTemplate>
+                                                                                        </asp:Repeater>
+                                                                                    </tr>
                                                                                 </ItemTemplate>
                                                                             </asp:Repeater>
 
-                                                                        </tr>
-                                                                    </thead>
-                                                                    <%-- END Table Header --%>
-                                                                    <tbody>
-                                                                        <asp:Repeater ID="rpExpenseData" runat="server">
-                                                                            <ItemTemplate>
-                                                                                <tr>
-                                                                                    <!-- Example Date Column -->
-                                                                                    <td class="text-center">
-                                                                                        <%# Eval("Day") %>
-                                                                                    </td>
-                                                                                    <td class="text-center">
-                                                                                        <%# Eval("January") %>
-                                                                                    </td>
-                                                                                    <td class="text-center">
-                                                                                        <%# Eval("February") %>
-                                                                                    </td>
-                                                                                    <td class="text-center">
-                                                                                        <%# Eval("March") %>
-                                                                                    </td>
-                                                                                    <td class="text-center">
-                                                                                        <%# Eval("April") %>
-                                                                                    </td>
-                                                                                    <td class="text-center">
-                                                                                        <%# Eval("May") %>
-                                                                                    </td>
-                                                                                    <td class="text-center">
-                                                                                        <%# Eval("June") %>
-                                                                                    </td>
-                                                                                    <td class="text-center">
-                                                                                        <%# Eval("July") %>
-                                                                                    </td>
-                                                                                    <td class="text-center">
-                                                                                        <%# Eval("August") %>
-                                                                                    </td>
-                                                                                    <td class="text-center">
-                                                                                        <%# Eval("September") %>
-                                                                                    </td>
-                                                                                    <td class="text-center">
-                                                                                        <%# Eval("October") %>
-                                                                                    </td>
-                                                                                    <td class="text-center">
-                                                                                        <%# Eval("November") %>
-                                                                                    </td>
-                                                                                    <td class="text-center">
-                                                                                        <%# Eval("December") %>
-                                                                                    </td>
-                                                                                </tr>
-                                                                            </ItemTemplate>
-                                                                        </asp:Repeater>
-
-                                                                    </tbody>
-                                                                </table>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -372,22 +316,25 @@
                     </ContentTemplate>
                 </asp:UpdatePanel>
 
-                
+
 
                 <asp:UpdatePanel ID="upTreatment" runat="server" EnableViewState="true" UpdateMode="Conditional" ChildrenAsTriggers="false">
                     <ContentTemplate>
-                        <div class="portlet-body table-both-scroll">
-                            <div class="portlet light ">
-                                <div class="portlet-title">
-                                    <div class="caption font-green">
-                                        <i class="fa fa-line-chart font-green"></i>
-                                        <span class="caption-subject bold uppercase">Treatment Type Summary (This Year)</span>
-                                    </div>
-                                    <div class="tools"></div>
-                                </div>
-                                <div class="portlet-body">
-                                    <div class="tab-content">
 
+                        <div class="portlet box green ">
+                            <div class="portlet-title">
+                                <div class="caption ">
+                                    <i class="fa fa-line-chart "></i>
+                                    Treatment Type Summary (This Year)
+                                </div>
+                                <div class="tools">
+                                    <a href="javascript:;" class="collapse" data-original-title="" title=""></a>
+                                </div>
+                            </div>
+                            <div class="portlet-body">
+                                <div class="tab-content">
+                                    <asp:Label runat="server" ID="lblTreatmentContent"></asp:Label>
+                                    <div runat="server" id="divTreatmentList" visible="false">
                                         <table class="table table-bordered table-advanced table-striped table-hover" id="sample_1">
                                             <%-- Table Header --%>
                                             <thead>
@@ -395,13 +342,13 @@
                                                     <th class="text-center" style="width: 20px;">
                                                         <asp:Label ID="lblSrNo" runat="server" Text="Sr."></asp:Label>
                                                     </th>
-                                                    <th class="text-center">
+                                                    <th>
                                                         <asp:Label ID="lbhTreatmentType" runat="server" Text="Treatment Type"></asp:Label>
                                                     </th>
                                                     <th>
                                                         <asp:Label ID="lbhPatientCount" runat="server" Text="Patient Count"></asp:Label>
                                                     </th>
-                                                    <th>
+                                                    <th class="text-right">
                                                         <asp:Label ID="lbhIncomeAmount" runat="server" Text="Income Amount"></asp:Label>
                                                     </th>
                                                 </tr>
@@ -416,14 +363,15 @@
                                                             <td class="text-center">
                                                                 <%#Container.ItemIndex+1 %>
                                                             </td>
-                                                            <td class="text-center">
+                                                            <td>
                                                                 <%#Eval("TreatmentType") %>
                                                             </td>
-                                                            <td>
-                                                                <%#Eval("PatientCount") %>
+                                                            <td class="text-right">
+                                                                <asp:LinkButton ID="hlPatientCount"  SkinID="lbGreen_Grid" OnClick="PatientCount_Click" CommandArgument='<%# Eval("TreatmentID") %>'  Text='<%#Eval("PatientCount") %>' runat="server"></asp:LinkButton>
                                                             </td>
-                                                            <td>
-                                                                <%#Eval("IncomeAmount") %>
+                                                            <td class="text-right">
+                                                                <i class="fa fa-inr"></i>
+                                                                <%#Eval("IncomeAmount",GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint ) %>
                                                             </td>
                                                         </tr>
                                                         <%-- END Table Rows --%>
@@ -431,11 +379,11 @@
                                                 </asp:Repeater>
                                             </tbody>
                                         </table>
-
                                     </div>
                                 </div>
                             </div>
                         </div>
+
                     </ContentTemplate>
 
                 </asp:UpdatePanel>

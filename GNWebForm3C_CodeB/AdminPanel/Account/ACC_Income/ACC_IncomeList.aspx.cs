@@ -127,6 +127,12 @@ public partial class AdminPanel_ACC_Income_ACC_IncomeList : System.Web.UI.Page
 
 		if (ddlHospitalID.SelectedIndex > 0)
 			HospitalID = Convert.ToInt32(ddlHospitalID.SelectedValue);
+        else if (Session["HospitalID"] != null)
+        {
+            HospitalID = Convert.ToInt32(Session["HospitalID"]);
+            ddlHospitalID.SelectedValue = HospitalID.ToString();
+            Session.Remove("HospitalID");
+        }
 
 		if (ddlFinYearID.SelectedIndex > 0)
 			FinYearID = Convert.ToInt32(ddlFinYearID.SelectedValue);

@@ -71,6 +71,7 @@
 </div>
 <!-- END SAMPLE FORM PORTLET-->
 </asp:Content>
+
 <asp:Content ID="cntScripts" ContentPlaceHolderID="cphScripts" Runat="Server">
 <script>
 $(document).keyup(function (e) {

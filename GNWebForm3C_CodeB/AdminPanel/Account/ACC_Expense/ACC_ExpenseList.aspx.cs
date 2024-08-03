@@ -128,6 +128,12 @@ public partial class AdminPanel_ACC_Expense_ACC_ExpenseList : System.Web.UI.Page
 
         if (ddlHospitalID.SelectedIndex > 0)
             HospitalID = Convert.ToInt32(ddlHospitalID.SelectedValue);
+        else if (Session["HospitalID"] != null)
+        {
+            HospitalID = Convert.ToInt32(Session["HospitalID"]);
+            ddlHospitalID.SelectedValue = HospitalID.ToString();
+            Session.Remove("HospitalID");
+        }
 
         if (ddlFinYearID.SelectedIndex > 0)
             FinYearID = Convert.ToInt32(ddlFinYearID.SelectedValue);
@@ -139,7 +145,7 @@ public partial class AdminPanel_ACC_Expense_ACC_ExpenseList : System.Web.UI.Page
 
         ACC_ExpenseBAL balACC_Expense = new ACC_ExpenseBAL();
 
-        DataTable dt = balACC_Expense.SelectPage(Offset, PageRecordSize, out TotalRecords, ExpenseTypeID, Amount, ExpenseDate, HospitalID, FinYearID,TagName);
+        DataTable dt = balACC_Expense.SelectPage(Offset, PageRecordSize, out TotalRecords, ExpenseTypeID, Amount, ExpenseDate, HospitalID, FinYearID, TagName);
 
         if (PageRecordSize == 0 && dt.Rows.Count > 0)
         {
@@ -365,7 +371,7 @@ public partial class AdminPanel_ACC_Expense_ACC_ExpenseList : System.Web.UI.Page
             Offset = (Convert.ToInt32(ViewState["CurrentPage"]) - 1) * PageRecordSize;
 
         ACC_ExpenseBAL balACC_Expense = new ACC_ExpenseBAL();
-        DataTable dtACC_Expense = balACC_Expense.SelectPage(Offset, PageRecordSize, out TotalReceivedRecord, ExpenseTypeID, Amount, ExpenseDate, HospitalID, FinYearID,TagName);
+        DataTable dtACC_Expense = balACC_Expense.SelectPage(Offset, PageRecordSize, out TotalReceivedRecord, ExpenseTypeID, Amount, ExpenseDate, HospitalID, FinYearID, TagName);
         if (dtACC_Expense != null && dtACC_Expense.Rows.Count > 0)
         {
             Session["ExportTable"] = dtACC_Expense;

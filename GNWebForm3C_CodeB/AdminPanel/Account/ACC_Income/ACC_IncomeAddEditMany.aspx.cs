@@ -113,7 +113,7 @@ public partial class AdminPanel_Account_ACC_Income_ACC_IncomeAddEditMany : Syste
 
         ACC_IncomeBAL balACC_Income = new ACC_IncomeBAL();
 
-        DataTable dt = balACC_Income.SelectShow(HospitalID,IncomeTypeID,FinYearID);
+        DataTable dt = balACC_Income.SelectShow(HospitalID, IncomeTypeID, FinYearID);
 
         if (Request.QueryString["HospitalID"] != null)
             ddlHospitalID.SelectedValue = CommonFunctions.DecryptBase64(Request.QueryString["HospitalID"]);
@@ -135,10 +135,37 @@ public partial class AdminPanel_Account_ACC_Income_ACC_IncomeAddEditMany : Syste
             dt.Rows.Add();
         }
 
+
         rpData.DataSource = dt;
         rpData.DataBind();
         Div_ShowResult.Visible = true;
 
+    }
+
+    protected void rpData_ItemDataBound(object sender, RepeaterItemEventArgs e)
+    {
+        if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+        {
+            // Find the DropDownList control
+            DropDownList ddlUserID = (DropDownList)e.Item.FindControl("ddlUserID");
+
+            if (ddlUserID != null)
+            {
+                CommonFillMethods.FillDropDownListUserID(ddlUserID);
+
+                DataRowView drv = e.Item.DataItem as DataRowView;
+
+                if (drv != null && drv.Row.Table.Columns.Contains("UserID"))
+                {
+                    string selectedUserID = drv["UserID"].ToString();
+
+                    if (!string.IsNullOrEmpty(selectedUserID))
+                    {
+                        ddlUserID.SelectedValue = selectedUserID;
+                    }
+                }
+            }
+        }
     }
 
     #endregion 14.0 Show Button Event
@@ -168,10 +195,11 @@ public partial class AdminPanel_Account_ACC_Income_ACC_IncomeAddEditMany : Syste
                 {
                     #region FindControl
 
-                    TextBox dtpIncomeDate = (TextBox) items.FindControl("dtpIncomeDate");
+                    TextBox dtpIncomeDate = (TextBox)items.FindControl("dtpIncomeDate");
                     HiddenField Hdfiled = (HiddenField)items.FindControl("hdIncomeID");
                     TextBox txtAmount = (TextBox)items.FindControl("txtAmount");
                     TextBox txtNote = (TextBox)items.FindControl("txtNote");
+                    DropDownList ddlUserID = (DropDownList)items.FindControl("ddlUserID");
                     CheckBox chkIsSelected = (CheckBox)items.FindControl("chkIsSelected");
 
 
@@ -186,7 +214,7 @@ public partial class AdminPanel_Account_ACC_Income_ACC_IncomeAddEditMany : Syste
                         entACC_Income.Amount = Convert.ToDecimal(txtAmount.Text.Trim());
                         entACC_Income.Note = txtNote.Text.Trim();
                         entACC_Income.IncomeDate = Convert.ToDateTime(dtpIncomeDate.Text);
-                        entACC_Income.UserID = Convert.ToInt32(Session["UserID"]);
+                        entACC_Income.UserID = Convert.ToInt32(ddlUserID.SelectedValue);
                         entACC_Income.Created = DateTime.Now;
                         entACC_Income.Modified = DateTime.Now;
                     }
@@ -200,7 +228,7 @@ public partial class AdminPanel_Account_ACC_Income_ACC_IncomeAddEditMany : Syste
                             #region 15.1.2 Update Data
                             if (dtpIncomeDate.Text.Trim() == string.Empty)
                             {
-                                
+
                                 ucMessage.ShowError("Enter Income Date");
                                 break;
                             }
@@ -252,7 +280,7 @@ public partial class AdminPanel_Account_ACC_Income_ACC_IncomeAddEditMany : Syste
                         if (chkIsSelected.Checked)
                         {
                             #region 15.1.4 Insert Data
-                            if (dtpIncomeDate.Text.Trim() == string.Empty &&  txtNote.Text.Trim() != string.Empty)
+                            if (dtpIncomeDate.Text.Trim() == string.Empty && txtNote.Text.Trim() != string.Empty)
                             {
                                 ucMessage.ShowError("Enter Income Date");
                             }
@@ -306,6 +334,7 @@ public partial class AdminPanel_Account_ACC_Income_ACC_IncomeAddEditMany : Syste
         dt.Columns.Add("Amount");
         dt.Columns.Add("Note");
         dt.Columns.Add("IncomeID");
+        dt.Columns.Add("UserID");
 
 
         foreach (RepeaterItem rp in rpData.Items)
@@ -313,6 +342,7 @@ public partial class AdminPanel_Account_ACC_Income_ACC_IncomeAddEditMany : Syste
             TextBox dtpIncomeDate = (TextBox)rp.FindControl("dtpIncomeDate");
             TextBox txtAmount = (TextBox)rp.FindControl("txtAmount");
             TextBox txtNote = (TextBox)rp.FindControl("txtNote");
+            DropDownList ddlUserID = (DropDownList)rp.FindControl("ddlUserID");
             HiddenField hdIncomeID = (HiddenField)rp.FindControl("hdIncomeID");
 
             DataRow dr = dt.NewRow();
@@ -320,13 +350,14 @@ public partial class AdminPanel_Account_ACC_Income_ACC_IncomeAddEditMany : Syste
             dr["Amount"] = txtAmount.Text.Trim();
             dr["Note"] = txtNote.Text.Trim();
             dr["IncomeID"] = hdIncomeID.Value.ToString();
+            dr["UserID"] = ddlUserID.SelectedValue;
 
             dt.Rows.Add(dr);
         }
         int count = 0;
         foreach (DataRow dr in dt.Rows)
         {
-            if (dr["dtpIncomeDate"].ToString() != String.Empty)
+            if (dr["IncomeDate"].ToString() != "")
                 count++;
         }
         if (count == dt.Rows.Count)

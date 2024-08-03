@@ -340,7 +340,7 @@ namespace GNForm3C.DAL
 				return null;
 			}
 		}
-        public DataTable SelectPage(SqlInt32 PageOffset, SqlInt32 PageSize, out Int32 TotalRecords, SqlString Patient, SqlInt32 TreatmentID)
+        public DataTable SelectPage(SqlInt32 PageOffset, SqlInt32 PageSize, out Int32 TotalRecords, SqlString Patient, SqlInt32 TreatmentID,SqlInt32 HospitalID)
 		{
 			TotalRecords = 0;
 			try
@@ -352,8 +352,9 @@ namespace GNForm3C.DAL
 				sqlDB.AddOutParameter(dbCMD, "@TotalRecords", SqlDbType.Int, 4);
                 sqlDB.AddInParameter(dbCMD, "@Patient", SqlDbType.VarChar, Patient);
                 sqlDB.AddInParameter(dbCMD, "@TreatmentID", SqlDbType.Int, TreatmentID);
+                sqlDB.AddInParameter(dbCMD, "@HospitalID", SqlDbType.Int, HospitalID);
 
-				DataTable dtACC_Transaction = new DataTable("PR_ACC_Transaction_SelectPage");
+                DataTable dtACC_Transaction = new DataTable("PR_ACC_Transaction_SelectPage");
 
 				DataBaseHelper DBH = new DataBaseHelper();
 				DBH.LoadDataTable(sqlDB, dbCMD, dtACC_Transaction);

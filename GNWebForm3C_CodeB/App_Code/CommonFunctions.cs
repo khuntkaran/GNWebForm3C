@@ -19,6 +19,7 @@ using System.Configuration;
 using System.Data.OleDb;
 using System.Web.UI;
 using System.Security.Cryptography;
+using System.Runtime.InteropServices.WindowsRuntime;
 
 namespace GNForm3C
 {
@@ -2129,9 +2130,20 @@ namespace GNForm3C
 
         #endregion Conversion
 
-        
+        #region Column of DataTable
+        public static List<String> ColumnOfDataTable(DataTable dt)
+        {
+            var columnNames = new List<string>();
+            foreach (DataColumn column in dt.Columns)
+            {
+                columnNames.Add(column.ColumnName);
+            }
 
-      
+            return columnNames;
+        }
+        #endregion Column of DataTable
+
+
 
     }
 }

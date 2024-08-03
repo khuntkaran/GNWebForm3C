@@ -137,7 +137,7 @@
                                                 <asp:Repeater ID="rpData" runat="server" OnItemCommand="rpData_ItemCommand">
                                                     <ItemTemplate>
                                                         <%-- Table Rows --%>
-                                                        <tr class="row" style=' content:"";<%# Eval("LedgerType").ToString() == "Income" ? "background-color: green; color: white;": "background-color: red; color: white;" %>'>
+                                                        <tr class="row" style=' <%# Eval("LedgerType").ToString() == "Income" ? "background-color: green; color: white;": "background-color: red; color: white;" %>'>
                                                             <td class="text-center col-md-3">
                                                                 <%#Eval("LedgerDate", GNForm3C.CV.DefaultDateFormatForGrid) %>
                                                             </td>
@@ -155,7 +155,7 @@
                                                         <%-- END Table Rows --%>
                                                     </ItemTemplate>
                                                 </asp:Repeater>
-                                                <tr class="row" style="content:'';">
+                                                <tr class="row" style="content:''; background-color: rgba(189, 189, 189, 1); font-weight: bold;">
                                                     <td class="text-right col-8" colspan="2">
                                                        Total Balance
                                                     </td>

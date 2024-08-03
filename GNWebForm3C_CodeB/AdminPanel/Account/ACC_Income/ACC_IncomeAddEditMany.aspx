@@ -153,12 +153,16 @@
                                                             <th>
                                                                 <asp:Label ID="lbhNote" runat="server" Text="Note"></asp:Label>
                                                             </th>
+                                                            <th>
+                                                                <asp:Label ID="lblUser" runat="server" Text="User"></asp:Label>
+                                                            </th>
+
                                                         </tr>
                                                     </thead>
                                                     <%-- END Table Header --%>
 
                                                     <tbody>
-                                                        <asp:Repeater ID="rpData" runat="server">
+                                                        <asp:Repeater ID="rpData" runat="server" OnItemDataBound="rpData_ItemDataBound">
                                                             <ItemTemplate>
                                                                 <%-- Table Rows --%>
                                                                 <tr class="odd gradeX">
@@ -169,21 +173,26 @@
                                                                         <%#Container.ItemIndex+1 %>
                                                                     </td>
                                                                     <td>
-                                                                        
-                                                                            <div class="input-group date date-picker" data-date-format="dd-mm-yyyy">
-                                                                                <span class="input-group-btn">
-                                                                                    <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
-                                                                                </span>
-                                                                                <asp:TextBox ID="dtpIncomeDate" CssClass="form-control" Value='<%#Eval("IncomeDate") %>' runat="server" placeholder="Income Date"></asp:TextBox>
-                                                                            </div>
+
+                                                                        <div class="input-group date date-picker" data-date-format="dd-mm-yyyy">
+                                                                            <span class="input-group-btn">
+                                                                                <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
+                                                                            </span>
+                                                                            <asp:TextBox ID="dtpIncomeDate" CssClass="form-control" Value='<%#Eval("IncomeDate") %>' runat="server" placeholder="Income Date"></asp:TextBox>
+                                                                        </div>
                                                                         <asp:HiddenField ID="hdIncomeID" runat="server" Value='<%#Eval("IncomeID") %>' />
                                                                     </td>
                                                                     <td>
                                                                         <asp:TextBox ID="txtAmount" CssClass="form-control" onkeypress="return IsPositiveInteger(event)" runat="server" Text='<%#Eval("Amount") %>' PlaceHolder="Enter Amount"></asp:TextBox>
-                                                                        
+
                                                                     </td>
                                                                     <td>
                                                                         <asp:TextBox ID="txtNote" CssClass="form-control" runat="server" Text='<%#Eval("Note") %>' PlaceHolder="Enter Note"></asp:TextBox>
+                                                                    </td>
+                                                                    <td>
+                                                                        
+                                                                            <asp:DropDownList ID="ddlUserID" CssClass="form-control select2me" runat="server" ></asp:DropDownList>
+                                                                        
                                                                     </td>
                                                                 </tr>
                                                                 <%-- END Table Rows --%>

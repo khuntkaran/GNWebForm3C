@@ -132,8 +132,14 @@ public partial class AdminPanel_ACC_Transaction_ACC_TransactionList : System.Web
 
 		if (ddlTreatmentID.SelectedIndex > 0)
 			TreatmentID = Convert.ToInt32(ddlTreatmentID.SelectedValue);
+        else if (Session["TreatmentID"] != null)
+        {
+            TreatmentID = Convert.ToInt32(Session["TreatmentID"]);
+            ddlTreatmentID.SelectedValue = TreatmentID.ToString();
+            Session.Remove("TreatmentID");
+        }
 
-		if (txtAmount.Text.Trim() != String.Empty)
+        if (txtAmount.Text.Trim() != String.Empty)
 			Amount = Convert.ToDecimal(txtAmount.Text.Trim());
 
 		if (txtSerialNo.Text.Trim() != String.Empty)
@@ -168,8 +174,14 @@ public partial class AdminPanel_ACC_Transaction_ACC_TransactionList : System.Web
 
 		if (ddlHospitalID.SelectedIndex > 0)
 			HospitalID = Convert.ToInt32(ddlHospitalID.SelectedValue);
+        else if (Session["HospitalID"] != null)
+        {
+            HospitalID = Convert.ToInt32(Session["HospitalID"]);
+            ddlHospitalID.SelectedValue = HospitalID.ToString();
+            Session.Remove("HospitalID");
+        }
 
-		if (ddlFinYearID.SelectedIndex > 0)
+        if (ddlFinYearID.SelectedIndex > 0)
 			FinYearID = Convert.ToInt32(ddlFinYearID.SelectedValue);
 
 		if (ddlReceiptTypeID.SelectedIndex > 0)
@@ -180,7 +192,7 @@ public partial class AdminPanel_ACC_Transaction_ACC_TransactionList : System.Web
 
         ACC_TransactionBAL balACC_Transaction = new ACC_TransactionBAL();
 
-        DataTable dt = balACC_Transaction.SelectPage(Offset, PageRecordSize, out TotalRecords, Patient, TreatmentID);
+        DataTable dt = balACC_Transaction.SelectPage(Offset, PageRecordSize, out TotalRecords, Patient, TreatmentID, HospitalID);
 
         if(PageRecordSize == 0 && dt.Rows.Count > 0)
         {
@@ -447,7 +459,7 @@ public partial class AdminPanel_ACC_Transaction_ACC_TransactionList : System.Web
             	Offset = (Convert.ToInt32(ViewState["CurrentPage"]) - 1) * PageRecordSize;
 
         ACC_TransactionBAL balACC_Transaction = new ACC_TransactionBAL();
-        DataTable dtACC_Transaction = balACC_Transaction.SelectPage(Offset, PageRecordSize, out TotalReceivedRecord, Patient, TreatmentID);
+        DataTable dtACC_Transaction = balACC_Transaction.SelectPage(Offset, PageRecordSize, out TotalReceivedRecord, Patient, TreatmentID,HospitalID);
         if (dtACC_Transaction != null && dtACC_Transaction.Rows.Count > 0)
 		{
             Session["ExportTable"] = dtACC_Transaction;
