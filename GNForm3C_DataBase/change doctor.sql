@@ -321,7 +321,6 @@ BEGIN
 END
 GO
 
-
 ALTER PROCEDURE PR_MasterDashboard_ExpenseList 3
 @HospitalID INT
 AS
@@ -388,23 +387,81 @@ BEGIN
 END
 GO
 
-alter PROCEDURE PR_MasterDashboard_TreatmentSummary
+alter PROCEDURE PR_MasterDashboard_TreatmentSummary 2
 @HospitalID INT
 AS
 BEGIN
 	DECLARE @currentYear INT;
 	SET @currentYear = YEAR(GETDATE());
-	Select Treatment AS TreatmentType,Count(TransactionID) as PatientCount,ISNULL(SUM(Amount), 0.00) as IncomeAmount
+	Select MST_Treatment.TreatmentID as TreatmentID, Treatment AS TreatmentType,Count(TransactionID) as PatientCount,ISNULL(SUM(Amount), 0.00) as IncomeAmount
 	from ACC_Transaction
 	inner join MST_Treatment
 	on ACC_Transaction.TreatmentID = MST_Treatment.TreatmentID
 	where ACC_Transaction.HospitalID=@HospitalID and YEAR(Date)=@currentYear
-	Group by Treatment
+	Group by Treatment,MST_Treatment.TreatmentID
 END
 GO
 
 
 
 
+--------------   Traning Task #4
+
+CREATE TABLE STU_BranchIntake (
+    Branch NVARCHAR(100) ,
+    AdmissionYear INT ,
+    Intake INT 
+);
+select * from STU_BranchIntake
+
+
+CREATE PROCEDURE PR_STU_Student_GetBranchIntakeMatrix
+AS
+BEGIN
+    -- Declare variables for dynamic SQL
+    DECLARE @columns NVARCHAR(MAX), @sql NVARCHAR(MAX);
+    
+    -- Dynamically create column headers based on distinct AdmissionYear values
+    SELECT @columns = ISNULL(@columns + ', ', '') + QUOTENAME(AdmissionYear)
+    FROM (SELECT DISTINCT AdmissionYear FROM STU_BranchIntake) AS Years
+    ORDER BY AdmissionYear;
+    
+    -- Build the dynamic SQL for the pivot
+    SET @sql = '
+        SELECT Branch, ' + @columns + '
+        FROM
+        (
+            SELECT Branch, AdmissionYear, Intake
+            FROM STU_BranchIntake
+        ) AS SourceTable
+        PIVOT
+        (
+            SUM(Intake)
+            FOR AdmissionYear IN (' + @columns + ')
+        ) AS PivotTable
+        ORDER BY Branch;
+    ';
+    
+    -- Execute the dynamic SQL
+    EXEC sp_executesql @sql;
+END;
+GO
+
+
+
+CREATE Procedure PR_STU_Student_UpdateBranchIntakeMatrix
+ @Branch NVARCHAR(100) ,
+  @AdmissionYear INT ,
+  @Intake INT 
+  as
+  begin
+  update STU_BranchIntake
+  set Intake = @Intake
+  where Branch=@Branch and AdmissionYear = @AdmissionYear
+  end
+GO
+
+
+---------------- 
 
 

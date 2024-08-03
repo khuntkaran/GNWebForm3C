@@ -168,6 +168,7 @@
         <!-- END HEADER -->
         <div class="clearfix">
         </div>
+
         <!-- BEGIN CONTAINER -->
 
 
@@ -423,6 +424,26 @@
                                 </ul>
                             </li>
 
+                            <li class="nav-item">
+                                <a href="javascript:;" class="nav-link nav-toggle">
+                                    <i class="icon-user"></i>
+                                    <span class="title">Student</span>
+                                    <span class="arrow"></span>
+                                </a>
+                                <ul class="sub-menu" style="display: none;">
+                                    <li class="nav-item  ">
+                                        <a href='<%=ResolveClientUrl("~/AdminPanel/Student/STU_Student/STU_StudentList.aspx") %>' class="nav-link ">
+                                            <span class="title">Student Detail</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item  ">
+                                        <a href='<%=ResolveClientUrl("~/AdminPanel/Student/STU_Student/STU_StudentBranchIntakeMatrix.aspx") %>' class="nav-link ">
+                                            <span class="title">Branch Intake</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
 
 
                         </ul>
@@ -469,6 +490,7 @@
 
         </div>
         <!-- END CONTAINER -->
+
         <!-- BEGIN FOOTER -->
         <div class="page-footer">
             <div class="page-footer-inner">
@@ -503,6 +525,7 @@
         </div>
 
         <!-- END FOOTER -->
+
         <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
         <!-- BEGIN CORE PLUGINS -->
 

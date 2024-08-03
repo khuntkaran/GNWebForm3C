@@ -1,16 +1,16 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPageView.master.cs" Inherits="Default_MasterPageView" %>
 
-<%--<!DOCTYPE html>--%>
+<!DOCTYPE html>
 
-<%--<html xmlns="http://www.w3.org/1999/xhtml">--%>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
- 
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+
 </head>
-<%--<body style="background-color: transparent">--%>
+<body style="background-color: transparent">
     <form id="form1" runat="server">
         <asp:ContentPlaceHolder ID="cphPageContent" runat="server">
         </asp:ContentPlaceHolder>
@@ -18,5 +18,5 @@
 
     <asp:ContentPlaceHolder ID="cphScripts" runat="server">
     </asp:ContentPlaceHolder>
-<%--</body>--%>
-<%--</html>--%>
+</body>
+</html>
