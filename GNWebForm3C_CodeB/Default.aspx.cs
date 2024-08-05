@@ -24,7 +24,8 @@ public partial class _Default : System.Web.UI.Page
         {
             Session.Clear();
             this.Page.Title = "Login - " + CV.DefaultCompanyName;
-           // imgLogo.ImageUrl = CV.DefaultLoginLogoPath;
+            // imgLogo.ImageUrl = CV.DefaultLoginLogoPath;
+            lbtnLogin.Focus();
         }
 
         #region Check Login Restricted

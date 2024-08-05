@@ -131,7 +131,6 @@ public partial class AdminPanel_Student_STU_Student_STU_StudentBranchIntakeMatri
 
     #endregion 15.2 Search Function
 
-
     #region 15.3 rpIntake_ItemDataBound
     protected void rpIntake_ItemDataBound(object sender, RepeaterItemEventArgs e)
     {
@@ -184,7 +183,6 @@ public partial class AdminPanel_Student_STU_Student_STU_StudentBranchIntakeMatri
     #endregion 15.3 rpIntake_ItemDataBound
 
 
-
     #endregion 15.0 Search
 
     #region 16.0 Save Button Event 
@@ -235,7 +233,14 @@ public partial class AdminPanel_Student_STU_Student_STU_StudentBranchIntakeMatri
                         }
                     }
                 }
-                balSTU_Student.UpdateBranchIntakeMatrix(branchIntakeTable);
+                if (balSTU_Student.UpdateBranchIntakeMatrix(branchIntakeTable))
+                {
+                    ucMessage.ShowSuccess(CommonMessage.RecordSaved());
+                }
+                else
+                {
+                    ucMessage.ShowError(balSTU_Student.Message);
+                }
 
                 // Refresh the data
                 Search(1);
