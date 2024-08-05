@@ -197,7 +197,10 @@ public partial class AdminPanel_Student_STU_Student_STU_StudentBranchIntakeMatri
             try
             {
                 STU_StudentBAL balSTU_Student = new STU_StudentBAL();
-                STU_StudentBranchIntakeMatrixENT entSTU_StudentBranchIntakeMatrix = new STU_StudentBranchIntakeMatrixENT();
+                DataTable branchIntakeTable = new DataTable();
+                branchIntakeTable.Columns.Add("Branch", typeof(string));
+                branchIntakeTable.Columns.Add("AdmissionYear", typeof(string));
+                branchIntakeTable.Columns.Add("Intake", typeof(int));
 
 
 
@@ -223,10 +226,7 @@ public partial class AdminPanel_Student_STU_Student_STU_StudentBranchIntakeMatri
 
                                     if (int.TryParse(txtIntake.Text, out intake) && int.TryParse(lblYear.Text, out year))
                                     {
-                                        entSTU_StudentBranchIntakeMatrix.Intake = intake;
-                                        entSTU_StudentBranchIntakeMatrix.AdmissionYear=year;
-                                        entSTU_StudentBranchIntakeMatrix.Branch = lblBranch.Text;
-                                        balSTU_Student.UpdateBranchIntakeMatrix(entSTU_StudentBranchIntakeMatrix);
+                                        branchIntakeTable.Rows.Add(lblBranch.Text, year, intake);
                                     }
                                 }
                             }
@@ -235,6 +235,7 @@ public partial class AdminPanel_Student_STU_Student_STU_StudentBranchIntakeMatri
                         }
                     }
                 }
+                balSTU_Student.UpdateBranchIntakeMatrix(branchIntakeTable);
 
                 // Refresh the data
                 Search(1);

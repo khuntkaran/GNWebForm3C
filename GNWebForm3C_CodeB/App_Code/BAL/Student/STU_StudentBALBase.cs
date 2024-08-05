@@ -75,10 +75,10 @@ namespace GNForm3C.BAL
             }
         }
 
-        public Boolean UpdateBranchIntakeMatrix(STU_StudentBranchIntakeMatrixENT entSTU_StudentBranchIntakeMatrix)
+        public Boolean UpdateBranchIntakeMatrix(DataTable branchIntakeTable)
         {
             STU_StudentDAL dalSTU_Student = new STU_StudentDAL();
-            if (dalSTU_Student.UpdateBranchIntakeMatrix(entSTU_StudentBranchIntakeMatrix))
+            if (dalSTU_Student.UpdateBranchIntakeMatrix( branchIntakeTable))
             {
                 return true;
             }

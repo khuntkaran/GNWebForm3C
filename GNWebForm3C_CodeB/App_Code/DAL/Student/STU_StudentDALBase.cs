@@ -16,7 +16,7 @@ using System.Web;
 /// 
 namespace GNForm3C.DAL
 {
-    public abstract class STU_StudentDALBase: DataBaseConfig
+    public abstract class STU_StudentDALBase : DataBaseConfig
     {
         #region Properties
 
@@ -38,7 +38,7 @@ namespace GNForm3C.DAL
         #region Constructor
         public STU_StudentDALBase()
         {
-            
+
         }
         #endregion Constructor
 
@@ -64,21 +64,21 @@ namespace GNForm3C.DAL
                 sqlDB.AddInParameter(dbCMD, "@Modified", SqlDbType.DateTime, entSTU_Student.Modified);
 
                 DataBaseHelper DBH = new DataBaseHelper();
-                DBH.ExecuteNonQuery(sqlDB,dbCMD);
+                DBH.ExecuteNonQuery(sqlDB, dbCMD);
 
                 entSTU_Student.StudentID = (SqlInt32)Convert.ToInt32(dbCMD.Parameters["@StudentID"].Value);
 
 
                 return true;
             }
-            catch(SqlException ex)
+            catch (SqlException ex)
             {
                 Message = SQLDataExceptionMessage(ex);
                 if (SQLDataExceptionHandler(ex))
                     throw;
                 return false;
             }
-            catch(Exception ex) 
+            catch (Exception ex)
             {
                 Message = ExceptionMessage(ex);
                 if (ExceptionHandler(ex))
@@ -114,14 +114,14 @@ namespace GNForm3C.DAL
 
                 return true;
             }
-            catch(SqlException ex)
+            catch (SqlException ex)
             {
                 Message = SQLDataExceptionMessage(ex);
                 if (SQLDataExceptionHandler(ex))
                     throw;
                 return false;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Message = ExceptionMessage(ex);
                 if (ExceptionHandler(ex))
@@ -130,25 +130,30 @@ namespace GNForm3C.DAL
             }
         }
 
-        public Boolean UpdateBranchIntakeMatrix(STU_StudentBranchIntakeMatrixENT entSTU_StudentBranchIntakeMatrix)
+        public Boolean UpdateBranchIntakeMatrix(DataTable branchIntakeTable)
         {
             try
             {
                 SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
-                DbCommand dbCMD = sqlDB.GetStoredProcCommand("PR_STU_Student_UpdateBranchIntakeMatrix");
-                sqlDB.AddInParameter(dbCMD, "@AdmissionYear", SqlDbType.Int, entSTU_StudentBranchIntakeMatrix.AdmissionYear);
-                sqlDB.AddInParameter(dbCMD, "@Branch", SqlDbType.VarChar, entSTU_StudentBranchIntakeMatrix.Branch);
-                sqlDB.AddInParameter(dbCMD, "@Intake", SqlDbType.Int, entSTU_StudentBranchIntakeMatrix.Intake);
-                
-                DataBaseHelper DBH = new DataBaseHelper();
-                DBH.ExecuteNonQuery(sqlDB, dbCMD);
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("PR_STU_Student_InsertUpdateBranchIntakeMatrix");
+
+                SqlParameter tvpParam = new SqlParameter
+                {
+                    ParameterName = "@BranchIntakeData",
+                    SqlDbType = SqlDbType.Structured,
+                    Value = branchIntakeTable,
+                    TypeName = "dbo.BranchIntakeType"
+                };
+                dbCMD.Parameters.Add(tvpParam);
+
+                sqlDB.ExecuteNonQuery(dbCMD);
 
                 return true;
             }
-            catch (SqlException ex)
+            catch (SqlException sqlex)
             {
-                Message = SQLDataExceptionMessage(ex);
-                if (SQLDataExceptionHandler(ex))
+                Message = SQLDataExceptionMessage(sqlex);
+                if (SQLDataExceptionHandler(sqlex))
                     throw;
                 return false;
             }
@@ -168,12 +173,12 @@ namespace GNForm3C.DAL
             try
             {
                 SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
-                DbCommand dbCMD =  sqlDB.GetStoredProcCommand("PR_STU_Students_Delete");
-               
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("PR_STU_Students_Delete");
+
                 sqlDB.AddInParameter(dbCMD, "@StudentID", SqlDbType.Int, StudentID);
 
                 DataBaseHelper DBH = new DataBaseHelper();
-                DBH.ExecuteNonQuery (sqlDB, dbCMD);
+                DBH.ExecuteNonQuery(sqlDB, dbCMD);
 
                 return true;
             }
@@ -206,9 +211,9 @@ namespace GNForm3C.DAL
 
                 STU_StudentENT entSTU_Student = new STU_StudentENT();
                 DataBaseHelper DBH = new DataBaseHelper();
-                using (IDataReader dr = DBH.ExecuteReader(sqlDB,dbCMD))
+                using (IDataReader dr = DBH.ExecuteReader(sqlDB, dbCMD))
                 {
-                    while(dr.Read())
+                    while (dr.Read())
                     {
                         if (!dr["StudentID"].Equals(System.DBNull.Value))
                             entSTU_Student.StudentID = Convert.ToInt32(dr["StudentID"]);
@@ -264,7 +269,7 @@ namespace GNForm3C.DAL
                 SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
                 DbCommand dbCMD = sqlDB.GetStoredProcCommand("PR_STU_Students_SelectView");
 
-                sqlDB.AddInParameter(dbCMD,"@StudentID",SqlDbType.Int, StudentID);
+                sqlDB.AddInParameter(dbCMD, "@StudentID", SqlDbType.Int, StudentID);
 
                 DataTable dtSTU_Student = new DataTable("PR_STU_Students_SelectView");
 
@@ -289,7 +294,7 @@ namespace GNForm3C.DAL
             }
         }
 
-        public DataTable SelectPage(SqlInt32 PageOffset, SqlInt32 PageSize, out Int32 TotalRecords,SqlString StudentName, SqlString EnrollmentNo,SqlInt32 CurrentSem,SqlString EmailInstitute,SqlString EmailPersonal,SqlString Gender,SqlInt32 RollNo,SqlString ContactNo)
+        public DataTable SelectPage(SqlInt32 PageOffset, SqlInt32 PageSize, out Int32 TotalRecords, SqlString StudentName, SqlString EnrollmentNo, SqlInt32 CurrentSem, SqlString EmailInstitute, SqlString EmailPersonal, SqlString Gender, SqlInt32 RollNo, SqlString ContactNo)
         {
             TotalRecords = 0;
             try
@@ -333,7 +338,7 @@ namespace GNForm3C.DAL
                     throw;
                 return null;
             }
-        }                                                                                          
+        }
 
         public DataTable SelectBranchIntakeMatrix()
         {
@@ -365,6 +370,5 @@ namespace GNForm3C.DAL
             }
         }
         #endregion SelectOperation                                                                  
-    }                                                                                                      
-}                                                                                                          
-                                                                                                        
+    }
+}

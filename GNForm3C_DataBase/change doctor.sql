@@ -461,7 +461,33 @@ CREATE Procedure PR_STU_Student_UpdateBranchIntakeMatrix
   end
 GO
 
+CREATE TYPE dbo.BranchIntakeType AS TABLE
+(
+    Branch NVARCHAR(50),
+    AdmissionYear NVARCHAR(4),
+    Intake INT
+)
+GO
+
+Create PROCEDURE [dbo].[PR_STU_Student_InsertUpdateBranchIntakeMatrix]
+    @BranchIntakeData dbo.BranchIntakeType READONLY
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    MERGE INTO STU_BranchIntake AS target
+    USING @BranchIntakeData AS source
+    ON target.Branch = source.Branch AND target.AdmissionYear = source.AdmissionYear
+    WHEN MATCHED THEN
+        UPDATE SET Intake = source.Intake
+    WHEN NOT MATCHED THEN
+        INSERT (Branch, AdmissionYear, Intake)
+        VALUES (source.Branch, source.AdmissionYear, source.Intake);
+END
+GO
+
 
 ---------------- 
 
 
+ 
