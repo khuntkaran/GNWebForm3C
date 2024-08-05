@@ -126,10 +126,10 @@ namespace GNForm3C.BAL
             return dalSTU_Student.SelectPage( PageOffset,  PageSize, out  TotalRecords,  StudentName,  EnrollmentNo,  CurrentSem,  EmailInstitute,  EmailPersonal,  Gender,  RollNo,  ContactNo);
         }
 
-        public DataTable SelecBranchIntakeMatrix()
+        public DataTable SelectBranchIntakeMatrix()
         {
             STU_StudentDAL dalSTU_Student = new STU_StudentDAL();
-            return dalSTU_Student.SelecBranchIntakeMatrix();
+            return dalSTU_Student.SelectBranchIntakeMatrix();
         }
         #endregion SelectOperation
 

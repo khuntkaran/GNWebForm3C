@@ -30,6 +30,8 @@
     <asp:UpdatePanel ID="upMasterDashboard" runat="server" EnableViewState="true" UpdateMode="Conditional" ChildrenAsTriggers="false">
         <Triggers>
             <asp:AsyncPostBackTrigger ControlID="btnSave" EventName="Click" />
+                        <asp:AsyncPostBackTrigger ControlID="btnClear" EventName="Click" />
+
         </Triggers>
         <ContentTemplate>
             <asp:UpdatePanel ID="upMasterDashboard2" runat="server" EnableViewState="true" UpdateMode="Conditional" ChildrenAsTriggers="false">
@@ -79,15 +81,17 @@
                                                         <ItemTemplate>
                                                             <tr>
                                                                 <td class="text-center">
-                                                                    <%# Eval("Branch") %>
+                                                                    <asp:Label ID="lblBranch" runat="server" Text='<%# Eval("Branch") %>'></asp:Label>
                                                                 </td>
-                                                                <asp:Repeater ID="rpAddmissionYearBody" runat="server" OnItemDataBound="rpAddmissionYearBody_ItemDataBound">
+                                                                <asp:Repeater ID="rpAddmissionYearBody" runat="server" >
                                                                     <ItemTemplate>
                                                                         <td class="text-right form-group">
-                                                                            <div class="form-group">
-                                                                                <asp:TextBox ID="TextBoxTemplate" CssClass="form-control" runat="server"  onkeypress="return IsPositiveInteger(event)" PlaceHolder="Enter Intake"></asp:TextBox>
+                                                                            <%--<div class="form-group">--%>
+                                                                                <asp:Label ID="lblYear" runat="server" Text='<%#Eval("Year") %>' Visible="false"></asp:Label>
+
+                                                                                <asp:TextBox ID="txtIntake" Text='<%# Eval("Intake") %>' CssClass="form-control" runat="server" onkeypress="return IsPositiveInteger(event)" PlaceHolder="Enter Intake"></asp:TextBox>
                                                                                 <%--                                                                                <asp:RequiredFieldValidator ID="rvfContactNo" SetFocusOnError="True" Display="Dynamic" runat="server" ControlToValidate="txtContactNo" ErrorMessage="Enter Contact No"></asp:RequiredFieldValidator>--%>
-                                                                            </div>
+                                                                           <%-- </div>--%>
                                                                         </td>
                                                                     </ItemTemplate>
                                                                 </asp:Repeater>
@@ -103,7 +107,7 @@
                                     <div class="row">
                                         <div class="col-md-offset-3 col-md-9">
                                             <asp:Button ID="btnSave" runat="server" SkinID="btnSave" OnClick="btnSave_Click" />
-                                            <asp:Button ID="btnClear" runat="server" SkinID="btnClear" Text="Clear" OnClick="btnClear_Click" />
+                                            <asp:Button ID="btnClear" runat="server" SkinID="btnClear" Text="Clear" OnClick="btnClear_Click" CssClass="btn btn-secondary" />
                                         </div>
                                     </div>
                                 </div>

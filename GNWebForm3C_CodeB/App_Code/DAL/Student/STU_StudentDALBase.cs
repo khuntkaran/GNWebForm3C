@@ -335,7 +335,7 @@ namespace GNForm3C.DAL
             }
         }                                                                                          
 
-        public DataTable SelecBranchIntakeMatrix()
+        public DataTable SelectBranchIntakeMatrix()
         {
             try
             {

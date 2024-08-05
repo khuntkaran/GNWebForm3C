@@ -58,7 +58,7 @@ public partial class AdminPanel_Student_STU_Student_STU_StudentBranchIntakeMatri
 
             #endregion 12.4 Fill Labels
 
-           
+
         }
         else
         {
@@ -110,7 +110,7 @@ public partial class AdminPanel_Student_STU_Student_STU_StudentBranchIntakeMatri
     {
 
         STU_StudentBAL balSTU_Student = new STU_StudentBAL();
-        DataTable dt = balSTU_Student.SelecBranchIntakeMatrix();
+        DataTable dt = balSTU_Student.SelectBranchIntakeMatrix();
 
 
         if (dt != null && dt.Rows.Count > 0)
@@ -131,53 +131,59 @@ public partial class AdminPanel_Student_STU_Student_STU_StudentBranchIntakeMatri
 
     #endregion 15.2 Search Function
 
+
     #region 15.3 rpIntake_ItemDataBound
     protected void rpIntake_ItemDataBound(object sender, RepeaterItemEventArgs e)
     {
-
-        Repeater rpAddmissionYearBody = (Repeater)e.Item.FindControl("rpAddmissionYearBody");
-
-        STU_StudentBAL balSTU_Student = new STU_StudentBAL();
-        DataTable dt = balSTU_Student.SelecBranchIntakeMatrix();
-
-
-        List<String> column = CommonFunctions.ColumnOfDataTable(dt);
-
-        rpAddmissionYearBody.DataSource = column.GetRange(1, column.Count - 1); ;
-        rpAddmissionYearBody.DataBind();
-
-
-
-
-    }
-    #endregion 15.3 rpIntake_ItemDataBound
-
-    #region 15.4 rpAddmissionYearBody_ItemDataBound
-
-    protected void rpAddmissionYearBody_ItemDataBound(object sender, RepeaterItemEventArgs e)
-    {
         if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
         {
-             
-            RepeaterItem parentItem = (RepeaterItem)e.Item.Parent.Parent;
-            var branchData = (DataRowView)parentItem.DataItem;
-            string branch = branchData["Branch"].ToString();
-            string columnName = e.Item.DataItem.ToString(); 
+            Repeater rpAddmissionYearBody = (Repeater)e.Item.FindControl("rpAddmissionYearBody");
+            DataRowView drv = (DataRowView)e.Item.DataItem;
 
-            TextBox txtBox = e.Item.FindControl("TextBoxTemplate") as TextBox;
-            if (txtBox != null)
+            if (rpAddmissionYearBody != null && drv != null)
             {
-                txtBox.ID = "txt" + branch + columnName;
-                TextBoxID.Add("txt" + branch + columnName);
-                txtBox.Text = branchData[columnName].ToString();
+                // Retrieve column names excluding the "Branch" column
+                DataTable dt = drv.DataView.Table;
+                List<string> yearColumns = CommonFunctions.ColumnOfDataTable(dt).GetRange(1, dt.Columns.Count - 1);
+
+                // Create a data source with year and intake pairs for binding
+                List<YearIntakePair> yearIntakePairs = new List<YearIntakePair>();
+                foreach (string year in yearColumns)
+                {
+                    yearIntakePairs.Add(new YearIntakePair
+                    {
+                        Year = year,
+                        Intake = drv[year].ToString()
+                    });
+                }
+
+                rpAddmissionYearBody.DataSource = yearIntakePairs;
+                rpAddmissionYearBody.DataBind();
             }
         }
-
-        // Save TextBoxID to ViewState
-        ViewState["TextBoxID"] = TextBoxID;
     }
 
-    #endregion 15.4 rpAddmissionYearBody_ItemDataBound
+    // Helper class to store year and intake pairs
+    public class YearIntakePair
+    {
+        public string Year { get; set; }
+        public string Intake { get; set; }
+    }
+
+
+    protected string BindIntakeData(string year, object dataItem)
+    {
+        DataRowView rowView = dataItem as DataRowView;
+        if (rowView != null && rowView.Row.Table.Columns.Contains(year))
+        {
+            return rowView[year].ToString();
+        }
+        return string.Empty;
+    }
+
+    #endregion 15.3 rpIntake_ItemDataBound
+
+
 
     #endregion 15.0 Search
 
@@ -195,45 +201,44 @@ public partial class AdminPanel_Student_STU_Student_STU_StudentBranchIntakeMatri
 
 
 
-                //Repeater rpAddmissionYearBody = (Repeater)e.FindControl("rpAddmissionYearBody");
-                foreach (RepeaterItem outerItem in rpIntakeData.Items)
+                foreach (RepeaterItem item in rpIntakeData.Items)
                 {
-                    if (outerItem.ItemType == ListItemType.Item || outerItem.ItemType == ListItemType.AlternatingItem)
-                    {
-                        var branchData = outerItem.DataItem as DataRowView;
-                        if (branchData != null)
-                        {
-                            string branch = branchData["Branch"].ToString();
-                            Repeater innerRepeater = (Repeater)outerItem.FindControl("rpAddmissionYearBody");
+                    Label lblBranch = (Label)item.FindControl("lblBranch");
 
-                            if (innerRepeater != null)
+                    if (lblBranch != null)
+                    {
+                        Repeater rpAddmissionYearBody = (Repeater)item.FindControl("rpAddmissionYearBody");
+
+                        if (rpAddmissionYearBody != null)
+                        {
+                            foreach (RepeaterItem yearItem in rpAddmissionYearBody.Items)
                             {
-                                foreach (RepeaterItem innerItem in innerRepeater.Items)
+                                TextBox txtIntake = (TextBox)yearItem.FindControl("txtIntake");
+                                Label lblYear = (Label)yearItem.FindControl("lblYear");
+
+                                if (txtIntake != null && lblYear != null)
                                 {
-                                    if (innerItem.ItemType == ListItemType.Item || innerItem.ItemType == ListItemType.AlternatingItem)
+                                    int intake;
+                                    int year;
+
+                                    if (int.TryParse(txtIntake.Text, out intake) && int.TryParse(lblYear.Text, out year))
                                     {
-                                        TextBox txtBox = (TextBox)innerItem.FindControl("TextBoxTemplate");
-                                        if (txtBox != null)
-                                        {
-                                            string intakeValue = txtBox.Text;
-                                            // Process the intakeValue (e.g., save to database)
-                                        }
+                                        entSTU_StudentBranchIntakeMatrix.Intake = intake;
+                                        entSTU_StudentBranchIntakeMatrix.AdmissionYear=year;
+                                        entSTU_StudentBranchIntakeMatrix.Branch = lblBranch.Text;
+                                        balSTU_Student.UpdateBranchIntakeMatrix(entSTU_StudentBranchIntakeMatrix);
                                     }
                                 }
                             }
-                            else
-                            {
-                                // Log or handle case where innerRepeater is null
-                                Console.WriteLine("Inner Repeater not found for branch: " + branch);
-                            }
-                        }
-                        else
-                        {
-                            // Log or handle case where branchData is null
-                            Console.WriteLine("Branch data is null for an item in the outer repeater.");
+
+
                         }
                     }
                 }
+
+                // Refresh the data
+                Search(1);
+
             }
             catch (Exception ex)
             {
@@ -251,45 +256,34 @@ public partial class AdminPanel_Student_STU_Student_STU_StudentBranchIntakeMatri
         ClearControls();
     }
 
+
     #endregion 17.0 Cancel Button Event
 
     #region 18.0 Clear Controls 
 
     private void ClearControls()
     {
-        List<TextBox> allTextBoxes = FindAllTextBoxes(Page);
-        foreach (TextBox textboxid in allTextBoxes)
+
+        foreach (RepeaterItem item in rpIntakeData.Items)
         {
-            
-            int num = 5; // your count goes here
-            TextBox tb = new TextBox();
-            //tb = FindControlRecursive(Page, textboxid) as TextBox;
 
-            string value = textboxid.Text; //You have the data now
+            Repeater rpAddmissionYearBody = (Repeater)item.FindControl("rpAddmissionYearBody");
 
-
-        }
-    }
-
-    private List<TextBox> FindAllTextBoxes(Control root)
-    {
-        List<TextBox> textBoxes = new List<TextBox>();
-
-        foreach (Control control in root.Controls)
-        {
-            if (control is TextBox)
+            if (rpAddmissionYearBody != null)
             {
-                textBoxes.Add((TextBox)control);
-            }
-            else if (control.HasControls())
-            {
-                textBoxes.AddRange(FindAllTextBoxes(control));
+                foreach (RepeaterItem yearItem in rpAddmissionYearBody.Items)
+                {
+                    TextBox txtIntake = (TextBox)yearItem.FindControl("txtIntake");
+                    if (txtIntake != null)
+                    {
+                        txtIntake.Text = string.Empty;
+                    }
+                    
+
+                }
             }
         }
-
-        return textBoxes;
     }
-
 
 
 
