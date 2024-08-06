@@ -3,19 +3,11 @@
   "WorkspaceRootPath": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|e:\\gnwebform3c\\gnwebform3c_codeb\\default.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:default.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|e:\\gnwebform3c\\gnwebform3c_codeb\\default.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:default.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|e:\\gnwebform3c\\gnwebform3c_codeb\\adminpanel\\student\\stu_student\\stu_studentaddeditpopup.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|E:\\GNWebForm3C\\GNWebForm3C_CodeB\\adminpanel\\student\\stu_student\\stu_studentaddeditpopup.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:adminpanel\\student\\stu_student\\stu_studentaddeditpopup.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|e:\\gnwebform3c\\gnwebform3c_codeb\\adminpanel\\student\\stu_student\\stu_studentaddeditpopup.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|E:\\GNWebForm3C\\GNWebForm3C_CodeB\\adminpanel\\student\\stu_student\\stu_studentaddeditpopup.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:adminpanel\\student\\stu_student\\stu_studentaddeditpopup.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     }
   ],
@@ -26,25 +18,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 0,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "STU_StudentAddEditPopUp.aspx.cs",
               "DocumentMoniker": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\AdminPanel\\Student\\STU_Student\\STU_StudentAddEditPopUp.aspx.cs",
               "RelativeDocumentMoniker": "AdminPanel\\Student\\STU_Student\\STU_StudentAddEditPopUp.aspx.cs",
               "ToolTip": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\AdminPanel\\Student\\STU_Student\\STU_StudentAddEditPopUp.aspx.cs",
               "RelativeToolTip": "AdminPanel\\Student\\STU_Student\\STU_StudentAddEditPopUp.aspx.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAABUAAAAEAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-05T10:56:45.044Z",
               "IsPinned": true,
@@ -52,7 +36,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "STU_StudentAddEditPopUp.aspx",
               "DocumentMoniker": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\AdminPanel\\Student\\STU_Student\\STU_StudentAddEditPopUp.aspx",
               "RelativeDocumentMoniker": "AdminPanel\\Student\\STU_Student\\STU_StudentAddEditPopUp.aspx",
@@ -65,30 +49,12 @@
               "EditorCaption": ""
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Default.aspx.cs",
-              "DocumentMoniker": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\Default.aspx.cs",
-              "RelativeDocumentMoniker": "Default.aspx.cs",
-              "ToolTip": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\Default.aspx.cs*",
-              "RelativeToolTip": "Default.aspx.cs*",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAEAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-05T11:00:32.772Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Default.aspx",
-              "DocumentMoniker": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\Default.aspx",
-              "RelativeDocumentMoniker": "Default.aspx",
-              "ToolTip": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\Default.aspx",
-              "RelativeToolTip": "Default.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-08-05T11:00:28.904Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             }
           ]
         }
