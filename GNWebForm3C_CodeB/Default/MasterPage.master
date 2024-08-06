@@ -444,7 +444,21 @@
                                 </ul>
                             </li>
 
-
+                            <li class="nav-item">
+                                <a href="javascript:;" class="nav-link nav-toggle">
+                                    <i class="icon-user"></i>
+                                    <span class="title">GN-Transaction </span>
+                                    <span class="arrow"></span>
+                                </a>
+                                <ul class="sub-menu" style="display: none;">
+                                    <li class="nav-item  ">
+                                        <a href='<%=ResolveClientUrl("~/AdminPanel/Account/ACC_GNTransaction/ACC_GNTransactionList.aspx") %>' class="nav-link ">
+                                            <span class="title">GN-Transaction List</span>
+                                        </a>
+                                    </li>
+                                    
+                                </ul>
+                            </li>
 
                         </ul>
                         <!-- END SIDEBAR MENU -->

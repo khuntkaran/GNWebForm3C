@@ -180,5 +180,25 @@ namespace GNForm3C
             ddl.Items.Add(new ListItem("6", "6"));
             ddl.Items.Insert(0, new ListItem("Select Semester", "-99"));
         }
+
+        public static void FillDropDownListPatientID(DropDownList ddl)
+        {
+            ACC_GNTransactionBAL balMST_Patient = new ACC_GNTransactionBAL();
+            ddl.DataSource = balMST_Patient.SelectComboBox();
+            ddl.DataValueField = "PatientID";
+            ddl.DataTextField = "PatientName";
+            ddl.DataBind();
+            ddl.Items.Insert(0, new ListItem("Select Patient", "-99"));
+        }
+
+        public static void FillDropDownListTreatmentIDByHospitalID(DropDownList ddl, SqlInt32 HospitalID)
+        {
+            MST_TreatmentBAL balMST_Treatment = new MST_TreatmentBAL();
+            ddl.DataSource = balMST_Treatment.SelectComboBoxByHospitalID(HospitalID);
+            ddl.DataValueField = "TreatmentID";
+            ddl.DataTextField = "Treatment";
+            ddl.DataBind();
+            ddl.Items.Insert(0, new ListItem("Select Treatment", "-99"));
+        }
     }
 }

@@ -9,7 +9,7 @@ using System.Web;
 /// 
 namespace GNForm3C.ENT
 {
-    public class ACC_GNTransactionENT : ACC_ExpenseENTBase
+    public class ACC_GNTransactionENT : ACC_GNTransactionENTBase
     {
         public ACC_GNTransactionENT()
         {

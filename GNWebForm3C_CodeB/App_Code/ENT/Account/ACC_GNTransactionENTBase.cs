@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.SqlTypes;
-using System.Linq;
-using System.Web;
 
-/// <summary>
-/// Summary description for ACC_GNTransactionENTBase
-/// </summary>
 namespace GNForm3C.ENT
 {
     public abstract class ACC_GNTransactionENTBase
@@ -18,6 +12,13 @@ namespace GNForm3C.ENT
         {
             get { return _TransactionID; }
             set { _TransactionID = value; }
+        }
+
+        protected SqlInt32 _TreatmentID;
+        public SqlInt32 TreatmentID
+        {
+            get { return _TreatmentID; }
+            set { _TreatmentID = value; }
         }
 
         protected SqlInt32 _FinYearID;
@@ -41,6 +42,13 @@ namespace GNForm3C.ENT
             set { _ReceiptTypeID = value; }
         }
 
+        protected SqlInt32 _Quantity;
+        public SqlInt32 Quantity
+        {
+            get { return _Quantity; }
+            set { _Quantity = value; }
+        }
+
         protected SqlInt32 _ReceiptNo;
         public SqlInt32 ReceiptNo
         {
@@ -60,6 +68,13 @@ namespace GNForm3C.ENT
         {
             get { return _PatientID; }
             set { _PatientID = value; }
+        }
+
+        protected SqlDecimal _Rate;
+        public SqlDecimal Rate
+        {
+            get { return _Rate; }
+            set { _Rate = value; }
         }
 
         protected SqlDecimal _Amount;
