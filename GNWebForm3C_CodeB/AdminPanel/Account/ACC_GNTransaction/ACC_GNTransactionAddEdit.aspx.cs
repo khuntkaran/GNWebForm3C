@@ -11,6 +11,10 @@ using GNForm3C.BAL;
 using GNForm3C.ENT;
 using GNForm3C;
 using System.Data.SqlTypes;
+using System.Web.Services;
+using System.Collections.Generic;
+using System.Web.Script.Serialization;
+
 
 
 public partial class AdminPanel_Account_ACC_GNTransaction_ACC_GNTransactionAddEdit : System.Web.UI.Page
@@ -34,6 +38,9 @@ public partial class AdminPanel_Account_ACC_GNTransaction_ACC_GNTransactionAddEd
 
         if (!Page.IsPostBack)
         {
+
+
+
             #region 11.2 Fill Labels 
 
             FillLabels(FormName);
@@ -74,6 +81,7 @@ public partial class AdminPanel_Account_ACC_GNTransaction_ACC_GNTransactionAddEd
     #endregion 11.0 Page Load Event
 
     #region 12.0 FillLabels 
+
 
     private void FillLabels(String FormName)
     {
@@ -324,24 +332,89 @@ public partial class AdminPanel_Account_ACC_GNTransaction_ACC_GNTransactionAddEd
 
     #endregion 16.0 Clear Controls 
 
-    #region 18.0 Fill Finyear Dropdown From Hopital
-    protected void ddlHospitalID_SelectedIndexChanged(object sender, EventArgs e)
-    {
 
+
+
+
+    #region FillTreatmentCombobox   
+    protected void FillTreatmentCombobox(object sender, EventArgs e)
+    {
         if (ddlHospitalID.SelectedIndex > 0)
         {
             SqlInt32 HospitalID = SqlInt32.Null;
+
             HospitalID = Convert.ToInt32(ddlHospitalID.SelectedValue);
             CommonFillMethods.FillDropDownListTreatmentIDByHospitalID(ddlTreatmentID, HospitalID);
 
         }
         else
         {
-            ddlFinYearID.Items.Clear();
-            ddlFinYearID.Items.Insert(0, new ListItem("Select Fin Year", "-99"));
+            ddlTreatmentID.Items.Clear();
+            ddlTreatmentID.Items.Insert(0, new ListItem("Select Treatment", "-99"));
         }
     }
 
-    #endregion 18.0 Fill Finyear Dropdown From Hopital
+    #endregion
+
+
+
+    public class SavePatientResponse
+    {
+        public bool Success { get; set; }
+        public string Message { get; set; }
+        public int PatientID { get; set; }
+        public string PatientName { get; set; }
+    }
+
+
+    [WebMethod]
+    public static string SaveNewPatient(string PatientName, int Age, DateTime DOB, string MobileNo, string PrimaryDesc)
+    {
+        var response = new SavePatientResponse();
+        try
+        {
+            MST_PatientENT newPatient = new MST_PatientENT
+            {
+                PatientName = PatientName,
+                Age = Age,
+                DOB = DOB,
+                MobileNo = MobileNo,
+                PrimaryDesc = PrimaryDesc,
+                UserID = 4,
+                Created = DateTime.Now,
+                Modified = DateTime.Now
+            };
+
+            ACC_GNTransactionBAL balMST_Patient = new ACC_GNTransactionBAL();
+            MST_PatientENT entMST_PatientENT = balMST_Patient.InsertPatient(newPatient);
+
+            System.Diagnostics.Debug.WriteLine(entMST_PatientENT.PatientID);
+            System.Diagnostics.Debug.WriteLine(entMST_PatientENT.PatientName);
+
+            response.Success = true;
+            response.Message = "New Patient Added Successfully.";
+            response.PatientID = Convert.ToInt32(entMST_PatientENT.PatientID.ToString());
+            response.PatientName = Convert.ToString(entMST_PatientENT.PatientName.ToString() + " - " + entMST_PatientENT.MobileNo.ToString());
+        }
+        catch (Exception ex)
+        {
+            response.Success = false;
+            response.Message = "Error: " + ex.Message;
+        }
+
+        JavaScriptSerializer js = new JavaScriptSerializer();
+        return js.Serialize(response);
+    }
+
+    public  void FillPatientDropDownList(object sender, EventArgs e)
+    {
+        CommonFillMethods.FillDropDownListPatientID(ddlPatientID);
+    }
+
+
+
+
+
+
 
 }

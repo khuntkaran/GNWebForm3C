@@ -33,8 +33,8 @@
     </asp:ScriptManager>
     <asp:UpdatePanel ID="upACC_GNTransaction" runat="server" EnableViewState="true" UpdateMode="Conditional" ChildrenAsTriggers="false">
         <Triggers>
-            <asp:AsyncPostBackTrigger ControlID="btnSave" EventName="Click" />
             <asp:AsyncPostBackTrigger ControlID="ddlHospitalID" />
+            <asp:AsyncPostBackTrigger ControlID="btnSave" EventName="Click" />
         </Triggers>
         <ContentTemplate>
             <div class="row">
@@ -79,7 +79,7 @@
                                     <asp:Label ID="lblHospitalID_XXXXX" runat="server" Text="Hospital"></asp:Label>
                                 </label>
                                 <div class="col-md-5">
-                                    <asp:DropDownList ID="ddlHospitalID" CssClass="form-control select2me" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlHospitalID_SelectedIndexChanged"></asp:DropDownList>
+                                    <asp:DropDownList ID="ddlHospitalID" CssClass="form-control select2me" runat="server" AutoPostBack="true" OnSelectedIndexChanged="FillTreatmentCombobox"></asp:DropDownList>
                                     <asp:RequiredFieldValidator ID="rfvHospitalID" SetFocusOnError="True" runat="server" Display="Dynamic" ControlToValidate="ddlHospitalID" ErrorMessage="Select Hospital" InitialValue="-99"></asp:RequiredFieldValidator>
                                 </div>
                             </div>
@@ -93,85 +93,86 @@
                                     <asp:RequiredFieldValidator ID="rfvPatientID" SetFocusOnError="True" runat="server" Display="Dynamic" ControlToValidate="ddlPatientID" ErrorMessage="Select Patient" InitialValue="-99"></asp:RequiredFieldValidator>
                                 </div>
                                 <div class="col-md-2">
-                                    <button type="button" class="btn btn-primary" onclick="addNewPatient">
+                                    <button type="button" class="btn btn-primary" onclick="toggleAddPatientForm()">
                                         Add
-                                   
                                     </button>
                                 </div>
                             </div>
 
-                            <div class="form-group">
-                                <label class="col-md-3 control-label">
-                                    <span class="required">*</span>
-                                    <asp:Label ID="Label1" runat="server" Text="Patient"></asp:Label>
-                                </label>
-                                <div class="col-md-5">
-                                    <asp:DropDownList ID="DropDownList1" CssClass="form-control select2me" runat="server"></asp:DropDownList>
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" SetFocusOnError="True" runat="server" Display="Dynamic" ControlToValidate="ddlPatientID" ErrorMessage="Select Patient" InitialValue="-99"></asp:RequiredFieldValidator>
-                                </div>
-                                <div class="col-md-2">
-                                    <div class="tools">
-                                        <a href="javascript:;" class="collapse" data-original-title="" title="" onclick="togglePatientTableContent()"></a>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            <!-- Collapsible Form -->
 
 
-                            <div class="portlet box blue">
-                                <div class="portlet-title">
-                                    <div class="caption">
-                                        <i class="fa fa-bullhorn "></i>This Year INCOMES 
+                            <!-- Add New Patient -->
+                            <!-- Collapsible Form for adding a new patient -->
+                            <%--<div id="addPatientCollapse" class="collapse" >
+                                <div class="well">
+                                    <h4>Add New Patient</h4>
+                                    <div class="form-group">
+                                        <label for="txtPatientName">Patient Name</label>
+                                        <input type="text" class="form-control" id="txtPatientName" placeholder="Enter Patient Name">
                                     </div>
-                                    <div class="tools">
-                                        <a href="javascript:;" class="collapse" data-original-title="" title=""></a>
+                                    <div class="form-group">
+                                        <label for="txtAge">Age</label>
+                                        <input type="number" class="form-control" id="txtAge" placeholder="Enter Age">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="txtDOB">Date of Birth</label>
+                                        <input type="date" class="form-control" id="txtDOB" placeholder="Enter Date of Birth">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="txtMobileNo">Mobile No</label>
+                                        <input type="text" class="form-control" id="txtMobileNo" placeholder="Enter Mobile No">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="txtPrimaryDesc">Primary Description</label>
+                                        <textarea class="form-control" id="txtPrimaryDesc" placeholder="Enter Primary Description"></textarea>
+                                    </div>
+                                    <button type="button" class="btn btn-primary" onclick="saveNewPatient()">Save</button>
+                                </div>
+                            </div>--%>
+
+
+                            <asp:Panel ID="pnlAddPatient" runat="server" CssClass="collapse" ClientIDMode="Static">
+                                <div class="well">
+
+
+
+                                    <div class="form-group row">
+                                        <label class="col-md-3 control-label" for="txtPatientName">Patient Name</label>
+                                        <div class="col-md-5">
+                                            <asp:TextBox ID="txtPatientName" runat="server" CssClass="form-control" placeholder="Enter Patient Name"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-3 control-label" for="txtAge">Age</label>
+                                        <div class="col-md-5">
+                                            <asp:TextBox ID="txtAge" runat="server" CssClass="form-control" TextMode="Number" placeholder="Enter Age"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-3 control-label" for="dtpDOB">Date of Birth</label>
+                                        <div class="col-md-5">
+                                            <asp:TextBox ID="dtpDOB" runat="server" CssClass="form-control" TextMode="Date" placeholder="Enter Date of Birth"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-3 control-label" for="txtMobileNo">Mobile No</label>
+                                        <div class="col-md-5">
+                                            <asp:TextBox ID="txtMobileNo" runat="server" CssClass="form-control" placeholder="Enter Mobile No"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-3 control-label" for="txtPrimaryDesc">Primary Description</label>
+                                        <div class="col-md-5">
+                                            <asp:TextBox ID="txtPrimaryDesc" runat="server" TextMode="MultiLine" Rows="4" CssClass="form-control" placeholder="Enter Primary Description"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-md-offset-3 col-md-9">
+                                            <asp:Button ID="btnSavePatient" runat="server" CssClass="btn btn-primary" Text="Save" OnClientClick="saveNewPatient(); return true;" OnClick="FillPatientDropDownList" />
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="portlet-body">
-                                    <div id="newPatientForm" class="collapse">
-                                        <div class="form-group">
-                                            <label class="col-md-3 control-label">Patient Name</label>
-                                            <div class="col-md-5">
-                                                <input type="text" id="txtPatientName" class="form-control" />
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-md-3 control-label">Age</label>
-                                            <div class="col-md-5">
-                                                <input type="text" id="txtAge" class="form-control" />
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-md-3 control-label">Date of Birth</label>
-                                            <div class="col-md-5">
-                                                <input type="date" id="txtDOB" class="form-control" />
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-md-3 control-label">Mobile Number</label>
-                                            <div class="col-md-5">
-                                                <input type="text" id="txtMobileNo" class="form-control" />
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-md-3 control-label">Primary Description</label>
-                                            <div class="col-md-5">
-                                                <input type="text" id="txtPrimaryDesc" class="form-control" />
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-md-offset-3 col-md-5">
-                                                <button type="button" class="btn btn-success" onclick="submitNewPatient()">
-                                                    Save
-           
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            </asp:Panel>
 
 
                             <div class="form-group">
@@ -335,8 +336,11 @@
                     </div>
                 </div>
             </div>
+
+
         </ContentTemplate>
     </asp:UpdatePanel>
+    
     <%-- Loading  --%>
     <asp:UpdateProgress ID="upr" runat="server">
         <ProgressTemplate>
@@ -344,10 +348,120 @@
                 <asp:Label ID="lblWait" runat="server" Text="Please wait... " />
                 <asp:Image ID="imgWait" runat="server" SkinID="UpdatePanelLoding" />
             </div>
+
         </ProgressTemplate>
     </asp:UpdateProgress>
     <%-- END Loading  --%>
 </asp:Content>
-<asp:Content ID="cntScripts" ContentPlaceHolderID="cphScripts" runat="Server">
-</asp:Content>
 
+
+
+
+
+
+<asp:Content ID="cntScripts" ContentPlaceHolderID="cphScripts" runat="Server">
+
+    <script type="text/javascript">
+
+        function toggleAddPatientForm() {
+            $('#pnlAddPatient').collapse('toggle');
+        }
+
+        function validateForm() {
+            var isValid = true;
+            var errorMessage = "";
+
+            var patientName = $('#<%= txtPatientName.ClientID %>').val();
+            var age = $('#<%= txtAge.ClientID %>').val();
+            var dob = $('#<%= dtpDOB.ClientID %>').val();
+            var mobileNo = $('#<%= txtMobileNo.ClientID %>').val();
+            var primaryDesc = $('#<%= txtPrimaryDesc.ClientID %>').val();
+
+            if (patientName.trim() === "") {
+                isValid = false;
+                errorMessage += "Patient Name is required.\n";
+            }
+            if (age.trim() === "" || isNaN(age) || age <= 0) {
+                isValid = false;
+                errorMessage += "Valid Age is required.\n";
+            }
+            if (dob.trim() === "") {
+                isValid = false;
+                errorMessage += "Date of Birth is required.\n";
+            }
+            if (mobileNo.trim() === "" || !/^\d{10}$/.test(mobileNo)) {
+                isValid = false;
+                errorMessage += "Valid Mobile No is required (10 digits).\n";
+            }
+            if (primaryDesc.trim() === "") {
+                isValid = false;
+                errorMessage += "Primary Description is required.\n";
+            }
+
+            if (!isValid) {
+                alert(errorMessage);
+            }
+
+            return isValid;
+        }
+        function saveNewPatient() {
+            if (!validateForm()) {
+                return;
+            }
+
+            // Collect data from the form
+            var patientName = $('#<%= txtPatientName.ClientID %>').val();
+            var age = $('#<%= txtAge.ClientID %>').val();
+            var dob = $('#<%= dtpDOB.ClientID %>').val();
+            var mobileNo = $('#<%= txtMobileNo.ClientID %>').val();
+            var primaryDesc = $('#<%= txtPrimaryDesc.ClientID %>').val();
+
+            // Perform an AJAX request to save the patient data
+            $.ajax({
+                type: "POST",
+                url: "ACC_GNTransactionAddEdit.aspx/SaveNewPatient",
+                data: JSON.stringify({ PatientName: patientName, Age: age, DOB: dob, MobileNo: mobileNo, PrimaryDesc: primaryDesc }),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+
+                    var result = JSON.parse(response.d);
+
+                    if (true) {
+
+                        // Clear the form fields
+                        $('#<%= txtPatientName.ClientID %>').val('');
+                        $('#<%= txtAge.ClientID %>').val('');
+                        $('#<%= dtpDOB.ClientID %>').val('');
+                        $('#<%= txtMobileNo.ClientID %>').val('');
+                        $('#<%= txtPrimaryDesc.ClientID %>').val('');
+
+                        // Collapse the form
+                        $('#pnlAddPatient').collapse('hide');
+
+                        //alert("sasas");
+                        //alert(result.PatientID);
+                        //alert(result.PatientName);
+                        //alert("sasas");
+
+
+                        if (result && result.PatientID && result.PatientName) {
+
+                            var ddlPatientID = $("#<%= ddlPatientID.ClientID %>");
+                            // Add the new patient to the dropdown
+                            ddlPatientID.append($("<option></option>").val(result.PatientID).html(result.PatientName));
+                            alert("New Patient added successfully !");
+
+                        } else {
+                            console.error("Unexpected response format:", result);
+                        }
+                    }
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+
+        }
+    </script>
+</asp:Content>

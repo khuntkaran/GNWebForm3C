@@ -487,7 +487,204 @@ END
 GO
 
 
----------------- 
+---------------- Task 9
 
+create   PROCEDURE [dbo].[PR_MST_DSB2_Count]
+	@FinYearID int
+AS
+BEGIN 
+
+	SET NOCOUNT ON;
+
+	DECLARE	@StartTime	datetime
+	DECLARE	@EndTime	datetime
+	SET		@StartTime = [dbo].[GetServerDateTime]();
+
+	DECLARE @IncomeCount int
+	DECLARE @ExpenseCount int
+	DECLARE @DifferenceCount int 
+
+	SELECT @IncomeCount = ISNULL(SUM(ACC_Income.Amount),0) 
+	FROM [dbo].[ACC_Income] 
+	WHERE [dbo].[ACC_Income].[FinYearID] = @FinYearID
+
+	SELECT @ExpenseCount = ISNULL(SUM(ACC_Expense.Amount),0)
+	FROM [dbo].[ACC_Expense]
+	WHERE [dbo].[ACC_Expense].[FinYearID] = @FinYearID
+
+
+	SET @DifferenceCount = (@IncomeCount - @ExpenseCount)
+
+
+
+	SELECT @IncomeCount as IncomeCount ,@ExpenseCount as ExpenseCount , @DifferenceCount as DifferenceCount 
+	 
+	SET		@EndTime = [dbo].[GetServerDateTime]()
+END
+GO
+
+create     PROCEDURE [dbo].[PR_MST_DSB2_SelectAccountTranscation]
+@FinYearID INT
+AS
+BEGIN
+    -- Your SQL statements here
+  
+SELECT TOP 10 
+		[dbo].[ACC_Transaction].[TransactionID],
+		[dbo].[ACC_Transaction].[Patient],
+		[dbo].[MST_Treatment].[Treatment] AS [Treatment],
+		[dbo].[ACC_Transaction].[Amount],
+		[dbo].[ACC_Transaction].[SerialNo],
+		[dbo].[ACC_Transaction].[ReferenceDoctor],
+		[dbo].[ACC_Transaction].[Count],
+		[dbo].[ACC_Transaction].[ReceiptNo],
+		[dbo].[ACC_Transaction].[Date],
+		[dbo].[ACC_Transaction].[DateOfAdmission],
+		[dbo].[ACC_Transaction].[DateOfDischarge],
+		[dbo].[ACC_Transaction].[Deposite],
+		[dbo].[ACC_Transaction].[NetAmount],
+		[dbo].[ACC_Transaction].[NoOfDays],
+		[dbo].[ACC_Transaction].[Remarks],
+		[dbo].[MST_Hospital].[Hospital] AS [Hospital],
+		[dbo].[MST_FinYear].[FinYearName] AS [FinYearName],
+		[dbo].[MST_ReceiptType].[ReceiptTypeName] AS [ReceiptTypeName],
+		[dbo].[SEC_User].[UserName] AS [UserName],
+		[dbo].[ACC_Transaction].[Created],
+		[dbo].[ACC_Transaction].[Modified],
+		[dbo].[ACC_Transaction].[TreatmentID],
+		[dbo].[ACC_Transaction].[HospitalID],
+		[dbo].[ACC_Transaction].[FinYearID],
+		[dbo].[ACC_Transaction].[ReceiptTypeID],
+		[dbo].[ACC_Transaction].[UserID]
+FROM  [dbo].[ACC_Transaction]
+INNER JOIN [dbo].[MST_FinYear]
+ON [dbo].[ACC_Transaction].[FinYearID] = [dbo].[MST_FinYear].[FinYearID]
+INNER JOIN [dbo].[MST_Hospital]
+ON [dbo].[ACC_Transaction].[HospitalID] = [dbo].[MST_Hospital].[HospitalID]
+LEFT OUTER JOIN [dbo].[MST_ReceiptType]
+ON [dbo].[ACC_Transaction].[ReceiptTypeID] = [dbo].[MST_ReceiptType].[ReceiptTypeID]
+INNER JOIN [dbo].[MST_Treatment]
+ON [dbo].[ACC_Transaction].[TreatmentID] = [dbo].[MST_Treatment].[TreatmentID]
+INNER JOIN [dbo].[SEC_User]
+ON [dbo].[ACC_Transaction].[UserID] = [dbo].[SEC_User].[UserID]
+ 
+WHERE [dbo].[ACC_Transaction].[FinYearID] = @FinYearID
+
+
+ORDER BY [dbo].[ACC_Transaction].[Date] DESC; -- Assuming IncomeDate is a column by which you want to order the records
+END
+GO
+
+create   PROCEDURE [dbo].[PR_MST_DSB2_SelectCategoryWiseExpenseTotal] 
+	@FinYearID int 
+AS
+
+SET NOCOUNT ON;
+
+DECLARE	@StartTime	datetime
+DECLARE	@EndTime	datetime
+SET		@StartTime = [dbo].[GetServerDateTime]();
+
+BEGIN TRY
+
+SELECT   
+		[dbo].[MST_ExpenseType].[ExpenseTypeID],
+		[dbo].[MST_ExpenseType].[ExpenseType],
+		ISNULL(SUM([dbo].[ACC_Expense].[Amount]),0) AS [Total]
+		 
+FROM  [dbo].[ACC_Expense]
+INNER JOIN [dbo].[MST_ExpenseType]
+ON  [dbo].[MST_ExpenseType].[ExpenseTypeID] = [dbo].[ACC_Expense].[ExpenseTypeID]
+
+WHERE [dbo].[ACC_Expense].[FinYearID] = @FinYearID
+GROUP BY	[dbo].[MST_ExpenseType].[ExpenseTypeID],
+			[dbo].[MST_ExpenseType].[ExpenseType]
+
+END TRY
+
+BEGIN CATCH
+;THROW
+
+END CATCH
+
+SET		@EndTime = [dbo].[GetServerDateTime]()
+--EXEC	[dbo].[PR_MST_SPExecution_Insert] '[dbo].[PR_ACC_Expense_SelectPK]', @StartTime, @EndTime
+GO
+
+create   PROCEDURE [dbo].[PR_MST_DSB2_SelectCategoryWiseIncomeTotal] 
+	@FinYearID int 
+AS
+
+SET NOCOUNT ON;
+
+DECLARE	@StartTime	datetime
+DECLARE	@EndTime	datetime
+SET		@StartTime = [dbo].[GetServerDateTime]();
+
+BEGIN TRY
+
+SELECT   
+		[dbo].[ACC_Income].[IncomeTypeID],
+		[dbo].[MST_IncomeType].[IncomeType],
+		ISNULL(SUM([dbo].[ACC_Income].[Amount]),0) AS [Total]
+		 
+FROM  [dbo].[ACC_Income]
+INNER JOIN [dbo].[MST_IncomeType]
+ON  [dbo].[MST_IncomeType].[IncomeTypeID] = [dbo].[ACC_Income].[IncomeTypeID]
+
+WHERE [dbo].[ACC_Income].[FinYearID] = @FinYearID
+GROUP BY	[dbo].[ACC_Income].[IncomeTypeID],
+			[dbo].[MST_IncomeType].[IncomeType]
+
+END TRY
+
+BEGIN CATCH
+;THROW
+
+END CATCH
+
+SET		@EndTime = [dbo].[GetServerDateTime]()
+--EXEC	[dbo].[PR_MST_SPExecution_Insert] '[dbo].[PR_ACC_Income_SelectPK]', @StartTime, @EndTime
+GO
+
+create   PROCEDURE [dbo].[PR_MST_DSB2_SelectHospitalWisePatientCount] 
+	@FinYearID int 
+AS
+
+SET NOCOUNT ON;
+
+DECLARE	@StartTime	datetime
+DECLARE	@EndTime	datetime
+SET		@StartTime = [dbo].[GetServerDateTime]();
+
+BEGIN TRY
+
+SELECT   
+	[dbo].[MST_Hospital].[HospitalID],
+	[dbo].[MST_Hospital].[Hospital],
+	Count([dbo].[ACC_Transaction].[TransactionID]) AS [PatientCount]
+FROM  [dbo].[MST_Hospital]
+INNER JOIN [dbo].[ACC_Transaction]
+ON  [dbo].[ACC_Transaction].[HospitalID] = [dbo].[MST_Hospital].[HospitalID]
+
+WHERE [dbo].[ACC_Transaction].[FinYearID] = @FinYearID
+GROUP BY	[dbo].[MST_Hospital].[HospitalID],
+			[dbo].[MST_Hospital].[Hospital]
+
+END TRY
+
+BEGIN CATCH
+;THROW
+
+END CATCH
+
+SET		@EndTime = [dbo].[GetServerDateTime]()
+--EXEC	[dbo].[PR_MST_SPExecution_Insert] '[	dbo].[PR_ACC_Income_SelectPK]', @StartTime, @EndTime
+GO
+
+--------------------------------------------
+
+
+delete from MST_Patient where PatientID >10
 
  

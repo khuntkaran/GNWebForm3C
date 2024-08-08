@@ -44,6 +44,12 @@ namespace GNForm3C.BAL
 
         #region InsertOperation
 
+        public MST_PatientENT InsertPatient(MST_PatientENT entMST_Patient)
+        {
+            ACC_GNTransactionDAL dalMST_Patient = new ACC_GNTransactionDAL();
+            return dalMST_Patient.InsertPatient(entMST_Patient);
+        }
+
         public Boolean Insert(ACC_GNTransactionENT entACC_GNTransaction)
         {
             ACC_GNTransactionDAL dalACC_GNTransaction = new ACC_GNTransactionDAL();

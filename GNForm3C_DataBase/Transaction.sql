@@ -486,3 +486,79 @@ BEGIN
     END CATCH;
 END;
 GO
+
+
+
+ALTER PROCEDURE [dbo].[PR_MST_GNPatient_Insert]
+    @PatientID      INT OUTPUT,
+    @PatientName    VARCHAR(100),
+    @Age            INT,
+    @DOB            DATE,
+    @MobileNo       VARCHAR(15),
+    @PrimaryDesc    VARCHAR(255),
+    @UserID         INT,
+    @Created        DATETIME,
+    @Modified       DATETIME
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    DECLARE @StartTime DATETIME;
+    DECLARE @EndTime DATETIME;
+    SET @StartTime = [dbo].[GetServerDateTime]();
+
+    BEGIN TRY
+        BEGIN TRANSACTION;
+
+        INSERT INTO [dbo].[MST_Patient]
+        (
+            [PatientName],
+            [Age],
+            [DOB],
+            [MobileNo],
+            [PrimaryDesc],
+            [UserID],
+            [Created],
+            [Modified]
+        )
+        VALUES
+        (
+            @PatientName,
+            @Age,
+            @DOB,
+            @MobileNo,
+            @PrimaryDesc,
+            @UserID,
+            @Created,
+            @Modified
+        );
+
+        SET @PatientID = SCOPE_IDENTITY();
+
+        COMMIT TRANSACTION;
+    END TRY
+    BEGIN CATCH
+        IF @@TRANCOUNT > 0
+        BEGIN
+            ROLLBACK TRANSACTION;
+        END;
+        THROW;
+    END CATCH;
+
+    SET @EndTime = [dbo].[GetServerDateTime]();
+
+    SELECT 
+        PatientID,
+        PatientName,
+        Age,
+        DOB,
+        MobileNo,
+        PrimaryDesc,
+        UserID,
+        Created,
+        Modified
+    FROM 
+        MST_Patient
+    WHERE 
+        PatientID = @PatientID;
+END

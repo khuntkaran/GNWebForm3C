@@ -286,6 +286,12 @@
                                             <span class="kt-menu__link-text">Master Dashboard</span>
                                         </a>
                                     </li>
+                                    <li class="nav-item start ">
+                                        <a href='<%=ResolveClientUrl("~/AdminPanel/Dashboard3.aspx") %>' class="kt-menu__link ">
+                                            <i class="kt-menu__link-icon flaticon2-architecture-and-city"></i>
+                                            <span class="kt-menu__link-text">Dashboard3</span>
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
                             <li class="heading">
@@ -456,7 +462,7 @@
                                             <span class="title">GN-Transaction List</span>
                                         </a>
                                     </li>
-                                    
+
                                 </ul>
                             </li>
 
