@@ -38,64 +38,6 @@ namespace GNForm3C.DAL
         #endregion Constructor
 
         #region InsertOperation
-        public MST_PatientENT InsertPatient(MST_PatientENT entMST_Patient)
-        {
-            try
-            {
-                SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
-                DbCommand dbCMD = sqlDB.GetStoredProcCommand("PR_MST_GNPatient_Insert");
-
-                sqlDB.AddOutParameter(dbCMD, "@PatientID", SqlDbType.Int, 4);
-                sqlDB.AddInParameter(dbCMD, "@PatientName", SqlDbType.NVarChar, entMST_Patient.PatientName);
-                sqlDB.AddInParameter(dbCMD, "@Age", SqlDbType.Int, entMST_Patient.Age);
-                sqlDB.AddInParameter(dbCMD, "@DOB", SqlDbType.DateTime, entMST_Patient.DOB);
-                sqlDB.AddInParameter(dbCMD, "@MobileNo", SqlDbType.NVarChar, entMST_Patient.MobileNo);
-                sqlDB.AddInParameter(dbCMD, "@PrimaryDesc", SqlDbType.NVarChar, entMST_Patient.PrimaryDesc);
-                sqlDB.AddInParameter(dbCMD, "@UserID", SqlDbType.Int, entMST_Patient.UserID);
-                sqlDB.AddInParameter(dbCMD, "@Created", SqlDbType.DateTime, entMST_Patient.Created);
-                sqlDB.AddInParameter(dbCMD, "@Modified", SqlDbType.DateTime, entMST_Patient.Modified);
-
-                DataBaseHelper DBH = new DataBaseHelper();
-                using (IDataReader dr = DBH.ExecuteReader(sqlDB, dbCMD))
-                {
-                    if (dr.Read())
-                    {
-                        MST_PatientENT entMST_PatientDetails = new MST_PatientENT
-                        {
-                            PatientID = dr.GetInt32(dr.GetOrdinal("PatientID")),
-                            PatientName = dr.GetString(dr.GetOrdinal("PatientName")),
-                            Age = dr.GetInt32(dr.GetOrdinal("Age")),
-                            DOB = dr.GetDateTime(dr.GetOrdinal("DOB")),
-                            MobileNo = dr.GetString(dr.GetOrdinal("MobileNo")),
-                            PrimaryDesc = dr.GetString(dr.GetOrdinal("PrimaryDesc")),
-                            UserID = dr.GetInt32(dr.GetOrdinal("UserID")),
-                            Created = dr.GetDateTime(dr.GetOrdinal("Created")),
-                            Modified = dr.GetDateTime(dr.GetOrdinal("Modified"))
-                        };
-
-                        return entMST_PatientDetails;
-                    }
-                    else
-                    {
-                        return null;
-                    }
-                }
-            }
-            catch (SqlException sqlex)
-            {
-                Message = SQLDataExceptionMessage(sqlex);
-                if (SQLDataExceptionHandler(sqlex))
-                    throw;
-                return null;
-            }
-            catch (Exception ex)
-            {
-                Message = ExceptionMessage(ex);
-                if (ExceptionHandler(ex))
-                    throw;
-                return null;
-            }
-        }
 
         public Boolean Insert(ACC_GNTransactionENT entACC_GNTransaction)
         {

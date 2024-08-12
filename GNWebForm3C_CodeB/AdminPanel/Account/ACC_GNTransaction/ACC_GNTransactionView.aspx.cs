@@ -105,6 +105,9 @@ public partial class AdminPanel_Account_ACC_GNTransaction_ACC_TransactionView : 
                     if (!dr["Modified"].Equals(DBNull.Value))
                         lblModified.Text = Convert.ToDateTime(dr["Modified"]).ToString(CV.DefaultDateTimeFormat);
 
+                    if (!dr["PatientID"].Equals(DBNull.Value))
+                        ucPatient.ShowPatient(Convert.ToInt32(dr["PatientID"]));
+
                 }
             }
         }
