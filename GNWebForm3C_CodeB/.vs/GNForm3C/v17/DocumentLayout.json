@@ -3,56 +3,24 @@
   "WorkspaceRootPath": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|e:\\gnwebform3c\\gnwebform3c_codeb\\app_code\\bal\\account\\acc_gntransactionbalbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:app_code\\bal\\account\\acc_gntransactionbalbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|e:\\gnwebform3c\\gnwebform3c_codeb\\default\\masterpage.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}",
+      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:default\\masterpage.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|e:\\gnwebform3c\\gnwebform3c_codeb\\adminpanel\\account\\acc_gntransaction\\acc_gntransactionaddedit.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:adminpanel\\account\\acc_gntransaction\\acc_gntransactionaddedit.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|e:\\gnwebform3c\\gnwebform3c_codeb\\adminpanel\\report\\rpt_acc_income.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}",
+      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:adminpanel\\report\\rpt_acc_income.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|e:\\gnwebform3c\\gnwebform3c_codeb\\adminpanel\\account\\acc_gntransaction\\acc_gntransactionaddedit.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:adminpanel\\account\\acc_gntransaction\\acc_gntransactionaddedit.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|e:\\gnwebform3c\\gnwebform3c_codeb\\adminpanel\\report\\acc_incomereport.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:adminpanel\\report\\acc_incomereport.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|e:\\gnwebform3c\\gnwebform3c_codeb\\usercontrol\\ucpatient.ascx||{F390D63C-F7D8-4E74-AA04-57C1ECF53D4D}",
-      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:usercontrol\\ucpatient.ascx||{F390D63C-F7D8-4E74-AA04-57C1ECF53D4D}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|e:\\gnwebform3c\\gnwebform3c_codeb\\adminpanel\\account\\acc_gntransaction\\acc_gntransactionlist.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:adminpanel\\account\\acc_gntransaction\\acc_gntransactionlist.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|e:\\gnwebform3c\\gnwebform3c_codeb\\adminpanel\\account\\acc_gntransaction\\acc_gntransactionview.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:adminpanel\\account\\acc_gntransaction\\acc_gntransactionview.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|e:\\gnwebform3c\\gnwebform3c_codeb\\adminpanel\\account\\acc_gntransaction\\acc_gntransactionview.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:adminpanel\\account\\acc_gntransaction\\acc_gntransactionview.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|e:\\gnwebform3c\\gnwebform3c_codeb\\default.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:default.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|e:\\gnwebform3c\\gnwebform3c_codeb\\usercontrol\\ucpatient.ascx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:usercontrol\\ucpatient.ascx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|E:\\GNWebForm3C\\GNWebForm3C_CodeB\\app_code\\dal\\master\\mst_patientdalbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:app_code\\dal\\master\\mst_patientdalbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|E:\\GNWebForm3C\\GNWebForm3C_CodeB\\app_code\\bal\\master\\mst_patientbalbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:app_code\\bal\\master\\mst_patientbalbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|e:\\gnwebform3c\\gnwebform3c_codeb\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|E:\\GNWebForm3C\\GNWebForm3C_CodeB\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
       "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|e:\\gnwebform3c\\gnwebform3c_codeb\\app_code\\dal\\master\\mst_patientdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:app_code\\dal\\master\\mst_patientdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|E:\\GNWebForm3C\\GNWebForm3C_CodeB\\app_code\\report datatable\\dsincome.xsd||{07AC752B-D2B0-4DCD-AD9C-237BF561A30A}",
+      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:app_code\\report datatable\\dsincome.xsd||{07AC752B-D2B0-4DCD-AD9C-237BF561A30A}"
     }
   ],
   "DocumentGroupContainers": [
@@ -62,103 +30,71 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "MST_PatientBALBase.cs",
-              "DocumentMoniker": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\App_Code\\BAL\\Master\\MST_PatientBALBase.cs",
-              "RelativeDocumentMoniker": "App_Code\\BAL\\Master\\MST_PatientBALBase.cs",
-              "ToolTip": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\App_Code\\BAL\\Master\\MST_PatientBALBase.cs",
-              "RelativeToolTip": "App_Code\\BAL\\Master\\MST_PatientBALBase.cs",
-              "ViewState": "AQIAAD8AAAAAAAAAAAAowEoAAAAsAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-12T07:26:37.512Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "MST_PatientDALBase.cs",
-              "DocumentMoniker": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\App_Code\\DAL\\Master\\MST_PatientDALBase.cs",
-              "RelativeDocumentMoniker": "App_Code\\DAL\\Master\\MST_PatientDALBase.cs",
-              "ToolTip": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\App_Code\\DAL\\Master\\MST_PatientDALBase.cs",
-              "RelativeToolTip": "App_Code\\DAL\\Master\\MST_PatientDALBase.cs",
-              "ViewState": "AQIAAF8AAADQzMzMzMwywGQAAABXAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-12T07:27:45.368Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "ucPatient.ascx.cs",
-              "DocumentMoniker": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\UserControl\\ucPatient.ascx.cs",
-              "RelativeDocumentMoniker": "UserControl\\ucPatient.ascx.cs",
-              "ToolTip": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\UserControl\\ucPatient.ascx.cs",
-              "RelativeToolTip": "UserControl\\ucPatient.ascx.cs",
-              "ViewState": "AQIAACEAAAAAAAAAAAAowBUAAABDAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-12T08:45:12.854Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "ucPatient.ascx",
-              "DocumentMoniker": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\UserControl\\ucPatient.ascx",
-              "RelativeDocumentMoniker": "UserControl\\ucPatient.ascx",
-              "ToolTip": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\UserControl\\ucPatient.ascx",
-              "RelativeToolTip": "UserControl\\ucPatient.ascx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003302|",
-              "WhenOpened": "2024-08-12T08:45:06.415Z",
+              "Title": "Web.config",
+              "DocumentMoniker": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\Web.config",
+              "RelativeDocumentMoniker": "Web.config",
+              "ToolTip": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\Web.config",
+              "RelativeToolTip": "Web.config",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2024-08-13T06:15:42.585Z",
               "IsPinned": true,
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "dsIncome.xsd",
+              "DocumentMoniker": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\App_Code\\Report DataTable\\dsIncome.xsd",
+              "RelativeDocumentMoniker": "App_Code\\Report DataTable\\dsIncome.xsd",
+              "ToolTip": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\App_Code\\Report DataTable\\dsIncome.xsd",
+              "RelativeToolTip": "App_Code\\Report DataTable\\dsIncome.xsd",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003579|",
+              "WhenOpened": "2024-08-13T08:35:47.047Z",
+              "IsPinned": true
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ACC_GNTransactionAddEdit.aspx.cs",
-              "DocumentMoniker": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\AdminPanel\\Account\\ACC_GNTransaction\\ACC_GNTransactionAddEdit.aspx.cs",
-              "RelativeDocumentMoniker": "AdminPanel\\Account\\ACC_GNTransaction\\ACC_GNTransactionAddEdit.aspx.cs",
-              "ToolTip": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\AdminPanel\\Account\\ACC_GNTransaction\\ACC_GNTransactionAddEdit.aspx.cs",
-              "RelativeToolTip": "AdminPanel\\Account\\ACC_GNTransaction\\ACC_GNTransactionAddEdit.aspx.cs",
-              "ViewState": "AQIAAHABAADAzMzMzMwwwEoBAABCAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-12T08:49:14.382Z",
+              "Title": "RPT_ACC_Income.rdlc [Design]",
+              "DocumentMoniker": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\AdminPanel\\Report\\RPT_ACC_Income.rdlc",
+              "RelativeDocumentMoniker": "AdminPanel\\Report\\RPT_ACC_Income.rdlc",
+              "ToolTip": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\AdminPanel\\Report\\RPT_ACC_Income.rdlc [Design]",
+              "RelativeToolTip": "AdminPanel\\Report\\RPT_ACC_Income.rdlc [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001755|",
+              "WhenOpened": "2024-08-13T08:43:16.818Z",
               "IsPinned": true,
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MasterPage.master",
+              "DocumentMoniker": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\Default\\MasterPage.master",
+              "RelativeDocumentMoniker": "Default\\MasterPage.master",
+              "ToolTip": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\Default\\MasterPage.master",
+              "RelativeToolTip": "Default\\MasterPage.master",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-08-13T12:36:27.019Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "ACC_GNTransactionAddEdit.aspx",
-              "DocumentMoniker": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\AdminPanel\\Account\\ACC_GNTransaction\\ACC_GNTransactionAddEdit.aspx",
-              "RelativeDocumentMoniker": "AdminPanel\\Account\\ACC_GNTransaction\\ACC_GNTransactionAddEdit.aspx",
-              "ToolTip": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\AdminPanel\\Account\\ACC_GNTransaction\\ACC_GNTransactionAddEdit.aspx",
-              "RelativeToolTip": "AdminPanel\\Account\\ACC_GNTransaction\\ACC_GNTransactionAddEdit.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-08-12T08:49:11.237Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ACC_GNTransactionBALBase.cs",
-              "DocumentMoniker": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\App_Code\\BAL\\Account\\ACC_GNTransactionBALBase.cs",
-              "RelativeDocumentMoniker": "App_Code\\BAL\\Account\\ACC_GNTransactionBALBase.cs",
-              "ToolTip": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\App_Code\\BAL\\Account\\ACC_GNTransactionBALBase.cs*",
-              "RelativeToolTip": "App_Code\\BAL\\Account\\ACC_GNTransactionBALBase.cs*",
-              "ViewState": "AQIAACoAAAAAAAAAAAAowC4AAAAIAAAA",
+              "Title": "ACC_IncomeReport.aspx.cs",
+              "DocumentMoniker": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\AdminPanel\\Report\\ACC_IncomeReport.aspx.cs",
+              "RelativeDocumentMoniker": "AdminPanel\\Report\\ACC_IncomeReport.aspx.cs",
+              "ToolTip": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\AdminPanel\\Report\\ACC_IncomeReport.aspx.cs",
+              "RelativeToolTip": "AdminPanel\\Report\\ACC_IncomeReport.aspx.cs",
+              "ViewState": "AQIAADEAAAAANDMzMzMDwD0AAAAuAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-12T10:45:57.333Z",
+              "WhenOpened": "2024-08-13T12:37:09.013Z",
               "EditorCaption": ""
             },
             {
@@ -168,84 +104,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Default.aspx",
-              "DocumentMoniker": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\Default.aspx",
-              "RelativeDocumentMoniker": "Default.aspx",
-              "ToolTip": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\Default.aspx",
-              "RelativeToolTip": "Default.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-08-12T10:11:01.293Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ACC_GNTransactionView.aspx.cs",
-              "DocumentMoniker": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\AdminPanel\\Account\\ACC_GNTransaction\\ACC_GNTransactionView.aspx.cs",
-              "RelativeDocumentMoniker": "AdminPanel\\Account\\ACC_GNTransaction\\ACC_GNTransactionView.aspx.cs",
-              "ToolTip": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\AdminPanel\\Account\\ACC_GNTransaction\\ACC_GNTransactionView.aspx.cs",
-              "RelativeToolTip": "AdminPanel\\Account\\ACC_GNTransaction\\ACC_GNTransactionView.aspx.cs",
-              "ViewState": "AQIAAGIAAAAAAAAAAAAuwHMAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-12T09:09:12.133Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ACC_GNTransactionList.aspx",
-              "DocumentMoniker": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\AdminPanel\\Account\\ACC_GNTransaction\\ACC_GNTransactionList.aspx",
-              "RelativeDocumentMoniker": "AdminPanel\\Account\\ACC_GNTransaction\\ACC_GNTransactionList.aspx",
-              "ToolTip": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\AdminPanel\\Account\\ACC_GNTransaction\\ACC_GNTransactionList.aspx",
-              "RelativeToolTip": "AdminPanel\\Account\\ACC_GNTransaction\\ACC_GNTransactionList.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-08-12T09:07:27.266Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ACC_GNTransactionView.aspx",
-              "DocumentMoniker": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\AdminPanel\\Account\\ACC_GNTransaction\\ACC_GNTransactionView.aspx",
-              "RelativeDocumentMoniker": "AdminPanel\\Account\\ACC_GNTransaction\\ACC_GNTransactionView.aspx",
-              "ToolTip": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\AdminPanel\\Account\\ACC_GNTransaction\\ACC_GNTransactionView.aspx",
-              "RelativeToolTip": "AdminPanel\\Account\\ACC_GNTransaction\\ACC_GNTransactionView.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-08-12T09:03:21.321Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "MST_PatientDAL.cs",
-              "DocumentMoniker": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\App_Code\\DAL\\Master\\MST_PatientDAL.cs",
-              "RelativeDocumentMoniker": "App_Code\\DAL\\Master\\MST_PatientDAL.cs",
-              "ToolTip": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\App_Code\\DAL\\Master\\MST_PatientDAL.cs",
-              "RelativeToolTip": "App_Code\\DAL\\Master\\MST_PatientDAL.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAvwA0AAAAfAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-12T08:54:24.059Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Web.config",
-              "DocumentMoniker": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\Web.config",
-              "RelativeDocumentMoniker": "Web.config",
-              "ToolTip": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\Web.config",
-              "RelativeToolTip": "Web.config",
-              "ViewState": "AQIAABkAAAAAAAAAAAAAACIAAABWAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2024-08-12T08:52:45.08Z",
-              "EditorCaption": ""
             }
           ]
         }
