@@ -30,8 +30,7 @@
               "RelativeToolTip": "App_Code\\Report DataTable\\dsIncome.xsd",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003579|",
               "WhenOpened": "2024-08-13T08:35:47.047Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
