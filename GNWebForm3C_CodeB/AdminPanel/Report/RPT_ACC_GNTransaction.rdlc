@@ -503,7 +503,6 @@
                             <rd:FormatSymbolCulture>en-IN</rd:FormatSymbolCulture>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>
@@ -702,7 +701,7 @@
                     <Value>Hospital</Value>
                     <Style>
                       <FontStyle>Normal</FontStyle>
-                      <FontWeight>Normal</FontWeight>
+                      <FontWeight>Bold</FontWeight>
                       <TextDecoration>None</TextDecoration>
                       <Color>#000000</Color>
                     </Style>
@@ -735,7 +734,9 @@
                 <TextRuns>
                   <TextRun>
                     <Value>Patient Name</Value>
-                    <Style />
+                    <Style>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
                   </TextRun>
                 </TextRuns>
                 <Style />
@@ -825,7 +826,9 @@
                 <TextRuns>
                   <TextRun>
                     <Value>Mobile No.</Value>
-                    <Style />
+                    <Style>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
                   </TextRun>
                 </TextRuns>
                 <Style />
@@ -855,7 +858,9 @@
                 <TextRuns>
                   <TextRun>
                     <Value>Receipt No.</Value>
-                    <Style />
+                    <Style>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
                   </TextRun>
                 </TextRuns>
                 <Style />
@@ -885,7 +890,9 @@
                 <TextRuns>
                   <TextRun>
                     <Value>Receipt Type</Value>
-                    <Style />
+                    <Style>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
                   </TextRun>
                 </TextRuns>
                 <Style />
@@ -1005,7 +1012,9 @@
                 <TextRuns>
                   <TextRun>
                     <Value>Admit Date</Value>
-                    <Style />
+                    <Style>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
                   </TextRun>
                 </TextRuns>
                 <Style />
@@ -1015,7 +1024,7 @@
             <Top>1.2in</Top>
             <Left>3.5in</Left>
             <Height>0.25in</Height>
-            <Width>1.2in</Width>
+            <Width>1.3in</Width>
             <ZIndex>15</ZIndex>
             <Style>
               <Border>
@@ -1035,7 +1044,9 @@
                 <TextRuns>
                   <TextRun>
                     <Value>Discharge Date</Value>
-                    <Style />
+                    <Style>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
                   </TextRun>
                 </TextRuns>
                 <Style />
@@ -1045,7 +1056,7 @@
             <Top>1.71389in</Top>
             <Left>3.5in</Left>
             <Height>0.25in</Height>
-            <Width>1.2in</Width>
+            <Width>1.3in</Width>
             <ZIndex>16</ZIndex>
             <Style>
               <Border>
@@ -1073,7 +1084,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox26</rd:DefaultName>
             <Top>1.71389in</Top>
-            <Left>4.7in</Left>
+            <Left>4.8in</Left>
             <Height>0.25in</Height>
             <Width>1.1in</Width>
             <ZIndex>17</ZIndex>
@@ -1103,7 +1114,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox26</rd:DefaultName>
             <Top>1.2in</Top>
-            <Left>4.7in</Left>
+            <Left>4.8in</Left>
             <Height>0.25in</Height>
             <Width>1.1in</Width>
             <ZIndex>18</ZIndex>
@@ -1319,7 +1330,9 @@
                 <TextRuns>
                   <TextRun>
                     <Value>Patient Age</Value>
-                    <Style />
+                    <Style>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
                   </TextRun>
                 </TextRuns>
                 <Style />
@@ -1329,7 +1342,7 @@
             <Top>1.96389in</Top>
             <Left>3.5in</Left>
             <Height>0.25in</Height>
-            <Width>1.2in</Width>
+            <Width>1.3in</Width>
             <ZIndex>25</ZIndex>
             <Style>
               <Border>
@@ -1351,7 +1364,7 @@
                     <Value>Admit Time</Value>
                     <Style>
                       <FontStyle>Normal</FontStyle>
-                      <FontWeight>Normal</FontWeight>
+                      <FontWeight>Bold</FontWeight>
                       <TextDecoration>None</TextDecoration>
                       <Color>#000000</Color>
                     </Style>
@@ -1364,7 +1377,7 @@
             <Top>1.45in</Top>
             <Left>3.5in</Left>
             <Height>0.25in</Height>
-            <Width>1.2in</Width>
+            <Width>1.3in</Width>
             <ZIndex>26</ZIndex>
             <Style>
               <Border>
@@ -1392,7 +1405,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox26</rd:DefaultName>
             <Top>1.45in</Top>
-            <Left>4.7in</Left>
+            <Left>4.8in</Left>
             <Height>0.25in</Height>
             <Width>1.1in</Width>
             <ZIndex>27</ZIndex>
@@ -1422,7 +1435,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox26</rd:DefaultName>
             <Top>1.96389in</Top>
-            <Left>4.7in</Left>
+            <Left>4.8in</Left>
             <Height>0.25in</Height>
             <Width>1.1in</Width>
             <ZIndex>28</ZIndex>
@@ -1444,7 +1457,9 @@
                 <TextRuns>
                   <TextRun>
                     <Value>Reference Doctor</Value>
-                    <Style />
+                    <Style>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
                   </TextRun>
                 </TextRuns>
                 <Style />
@@ -1454,7 +1469,7 @@
             <Top>2.21389in</Top>
             <Left>3.5in</Left>
             <Height>0.25in</Height>
-            <Width>1.2in</Width>
+            <Width>1.3in</Width>
             <ZIndex>29</ZIndex>
             <Style>
               <Border>
@@ -1482,7 +1497,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox26</rd:DefaultName>
             <Top>2.21389in</Top>
-            <Left>4.7in</Left>
+            <Left>4.8in</Left>
             <Height>0.25in</Height>
             <Width>1.1in</Width>
             <ZIndex>30</ZIndex>
