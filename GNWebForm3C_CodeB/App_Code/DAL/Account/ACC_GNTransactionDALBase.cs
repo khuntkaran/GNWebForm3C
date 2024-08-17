@@ -225,6 +225,37 @@ namespace GNForm3C.DAL
 
         #region SelectOperation
 
+        public DataTable PatientReceiptByTransactionID(SqlInt32 TransactionID)
+        {
+            try
+            {
+                SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("PP_ACC_GNTransaction_PatientReceipt");
+
+                sqlDB.AddInParameter(dbCMD, "@TransactionID", SqlDbType.Int, TransactionID);
+
+                DataTable dtACC_GNTransaction = new DataTable("PP_ACC_GNTransaction_PatientReceipt");
+
+                DataBaseHelper DBH = new DataBaseHelper();
+                DBH.LoadDataTable(sqlDB, dbCMD, dtACC_GNTransaction);
+
+                return dtACC_GNTransaction;
+            }
+            catch (SqlException sqlex)
+            {
+                Message = SQLDataExceptionMessage(sqlex);
+                if (SQLDataExceptionHandler(sqlex))
+                    throw;
+                return null;
+            }
+            catch (Exception ex)
+            {
+                Message = ExceptionMessage(ex);
+                if (ExceptionHandler(ex))
+                    throw;
+                return null;
+            }
+        }
         public ACC_GNTransactionENT SelectPK(SqlInt32 TransactionID)
         {
             try

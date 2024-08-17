@@ -305,7 +305,7 @@
                                                         <asp:Label ID="lbhReceiptNo" runat="server" Text="Receipt No"></asp:Label>
                                                     </th>
                                                     <th class="text-center">
-                                                        <asp:Label ID="lbhDate" runat="server" Text="Date"></asp:Label>
+                                                        <asp:Label ID="lbhDate" runat="server" Text="Date" ></asp:Label>
                                                     </th>
                                                     <th>
                                                         <asp:Label ID="lbhDateOfAdmission" runat="server" Text="Date Of Admission"></asp:Label>
@@ -364,14 +364,14 @@
                                                             <td>
                                                                 <%#Eval("ReceiptNo") %>
                                                             </td>
-                                                            <td class="text-center">
+                                                            <td class="text-center" style="white-space: nowrap;  ">
                                                                 <%#Eval("Date", GNForm3C.CV.DefaultDateFormatForGrid) %>
                                                             </td>
                                                             <td>
-                                                                <%#Eval("DateOfAdmission") %>
+                                                                <%#Eval("DateOfAdmission",GNForm3C.CV.DefaultDateFormatForGrid) %>
                                                             </td>
                                                             <td>
-                                                                <%#Eval("DateOfDischarge") %>
+                                                                <%#Eval("DateOfDischarge",GNForm3C.CV.DefaultDateFormatForGrid) %>
                                                             </td>
                                                             <td>
                                                                 <%#Eval("Deposite") %>
@@ -392,6 +392,11 @@
                                                                 <%#Eval("ReceiptTypeName") %>
                                                             </td>
                                                             <td class="text-nowrap text-center">
+                                                                <asp:HyperLink
+                                                                    runat="server"
+                                                                    ID="hlprint"
+                                                                    SkinID="hlprint"
+                                                                    NavigateUrl='<%# "~/AdminPanel/Report/ACC_GNTransactionReport.aspx?TransactionID=" +   GNForm3C.CommonFunctions.EncryptBase64(Eval("TransactionID").ToString()) + "&ReportType=" + GNForm3C.CommonFunctions.EncryptBase64("PDF") %>'></asp:HyperLink>
                                                                 <asp:HyperLink ID="hlView" SkinID="View" NavigateUrl='<%# "~/AdminPanel/Account/ACC_Transaction/ACC_TransactionView.aspx?TransactionID=" + GNForm3C.CommonFunctions.EncryptBase64(Eval("TransactionID").ToString()) %>' data-target="#viewiFrameReg" data-toggle="modal" runat="server"></asp:HyperLink>
                                                                 <asp:LinkButton ID="LinkButton1" runat="server"
                                                                     SkinID="Delete"

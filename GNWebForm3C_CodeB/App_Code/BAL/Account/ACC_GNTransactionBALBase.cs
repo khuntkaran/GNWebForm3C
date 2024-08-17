@@ -114,6 +114,11 @@ namespace GNForm3C.BAL
 
         #region SelectOperation
 
+        public DataTable PatientReceiptByTransactionID(SqlInt32 TransactionID)
+        {
+            ACC_GNTransactionDAL dalACC_GNTransaction = new ACC_GNTransactionDAL();
+            return dalACC_GNTransaction.PatientReceiptByTransactionID(TransactionID);
+        }
         public ACC_GNTransactionENT SelectPK(SqlInt32 TransactionID)
         {
             ACC_GNTransactionDAL dalACC_GNTransaction = new ACC_GNTransactionDAL();

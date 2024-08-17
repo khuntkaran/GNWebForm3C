@@ -58,7 +58,7 @@ public partial class AdminPanel_Account_ACC_Income_ACC_IncomeReport : System.Web
             if (!dr["Amount"].Equals(System.DBNull.Value))
                 drACC_Income.Amount = Convert.ToDecimal(dr["Amount"]);
             if (!dr["IncomeDate"].Equals(System.DBNull.Value))
-                drACC_Income.Income_Date = Convert.ToDateTime(dr["IncomeDate"]).ToString("dd-mm-yyyy");
+                drACC_Income.Income_Date = Convert.ToDateTime(dr["IncomeDate"]).ToString("dd-MM-yyyy");
             dsi.Income.Rows.Add(drACC_Income);
         }
         SetReportParameter();
