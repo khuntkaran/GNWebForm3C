@@ -127,7 +127,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!FinYearName.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -177,7 +179,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>="Desc : "&amp;Fields!PrimaryDesc.Value</Value>
+                                  <Value>=Fields!PrimaryDesc.Value</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
@@ -186,9 +188,9 @@
                           </Paragraphs>
                           <rd:DefaultName>PrimaryDesc</rd:DefaultName>
                           <Top>1.5in</Top>
-                          <Left>1.5in</Left>
+                          <Left>2.1in</Left>
                           <Height>0.25in</Height>
-                          <Width>2in</Width>
+                          <Width>1.4in</Width>
                           <ZIndex>6</ZIndex>
                           <Style>
                             <Border>
@@ -207,7 +209,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>="Contact No : " &amp;Fields!MobileNo.Value</Value>
+                                  <Value>=Fields!MobileNo.Value</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
@@ -216,9 +218,9 @@
                           </Paragraphs>
                           <rd:DefaultName>Textbox14</rd:DefaultName>
                           <Top>1.25in</Top>
-                          <Left>1.5in</Left>
+                          <Left>2.1in</Left>
                           <Height>0.25in</Height>
-                          <Width>2in</Width>
+                          <Width>1.4in</Width>
                           <ZIndex>7</ZIndex>
                           <Style>
                             <Border>
@@ -237,9 +239,9 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>="BirthDate : "&amp;Fields!DOB.Value</Value>
+                                  <Value>=Fields!DOB.Value</Value>
                                   <Style>
-                                    <Format>d</Format>
+                                    <Format>dd/MM/yyyy</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -250,9 +252,9 @@
                           </Paragraphs>
                           <rd:DefaultName>Textbox14</rd:DefaultName>
                           <Top>1in</Top>
-                          <Left>1.5in</Left>
+                          <Left>2.1in</Left>
                           <Height>0.25in</Height>
-                          <Width>2in</Width>
+                          <Width>1.4in</Width>
                           <ZIndex>8</ZIndex>
                           <Style>
                             <Border>
@@ -271,8 +273,40 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>="Age : " &amp; Fields!Age.Value</Value>
+                                  <Value>=Fields!Age.Value</Value>
                                   <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox14</rd:DefaultName>
+                          <Top>0.75in</Top>
+                          <Left>2.1in</Left>
+                          <Height>0.25in</Height>
+                          <Width>1.4in</Width>
+                          <ZIndex>9</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="Textbox18">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Age : </Value>
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style />
@@ -282,8 +316,104 @@
                           <Top>0.75in</Top>
                           <Left>1.5in</Left>
                           <Height>0.25in</Height>
-                          <Width>2in</Width>
-                          <ZIndex>9</ZIndex>
+                          <Width>0.6in</Width>
+                          <ZIndex>10</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="Textbox19">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>DOB : </Value>
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox14</rd:DefaultName>
+                          <Top>1in</Top>
+                          <Left>1.5in</Left>
+                          <Height>0.25in</Height>
+                          <Width>0.6in</Width>
+                          <ZIndex>11</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="Textbox20">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Mobile : </Value>
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox14</rd:DefaultName>
+                          <Top>1.25in</Top>
+                          <Left>1.5in</Left>
+                          <Height>0.25in</Height>
+                          <Width>0.6in</Width>
+                          <ZIndex>12</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="PrimaryDesc2">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value EvaluationMode="Constant">Desc :</Value>
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>PrimaryDesc</rd:DefaultName>
+                          <Top>1.5in</Top>
+                          <Left>1.5in</Left>
+                          <Height>0.25in</Height>
+                          <Width>0.6in</Width>
+                          <ZIndex>13</ZIndex>
                           <Style>
                             <Border>
                               <Style>None</Style>
