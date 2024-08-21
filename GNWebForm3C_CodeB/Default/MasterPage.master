@@ -479,6 +479,11 @@
                                             <span class="title">Account Income Report</span>
                                         </a>
                                     </li>
+                                    <li class="nav-item  ">
+                                        <a href='<%=ResolveClientUrl("~/AdminPanel/Report/Ledger/LedgerReportByFinYearHospital.aspx") %>' class="nav-link ">
+                                            <span class="title">Total Income, Expense, PatientID</span>
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
 

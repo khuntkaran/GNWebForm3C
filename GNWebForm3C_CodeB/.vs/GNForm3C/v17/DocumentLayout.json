@@ -3,12 +3,8 @@
   "WorkspaceRootPath": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|e:\\gnwebform3c\\gnwebform3c_codeb\\adminpanel\\account\\acc_gntransaction\\acc_gntransactionlist.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:adminpanel\\account\\acc_gntransaction\\acc_gntransactionlist.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|E:\\GNWebForm3C\\GNWebForm3C_CodeB\\adminpanel\\account\\acc_gntransaction\\acc_gntransactionaddedit.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:adminpanel\\account\\acc_gntransaction\\acc_gntransactionaddedit.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|e:\\gnwebform3c\\gnwebform3c_codeb\\adminpanel\\report\\ledger\\rpt_ledgerreportbyfinyearhospital.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}",
+      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:adminpanel\\report\\ledger\\rpt_ledgerreportbyfinyearhospital.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,35 +14,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ACC_GNTransactionList.aspx",
-              "DocumentMoniker": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\AdminPanel\\Account\\ACC_GNTransaction\\ACC_GNTransactionList.aspx",
-              "RelativeDocumentMoniker": "AdminPanel\\Account\\ACC_GNTransaction\\ACC_GNTransactionList.aspx",
-              "ToolTip": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\AdminPanel\\Account\\ACC_GNTransaction\\ACC_GNTransactionList.aspx",
-              "RelativeToolTip": "AdminPanel\\Account\\ACC_GNTransaction\\ACC_GNTransactionList.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-08-20T06:35:19.897Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ACC_GNTransactionAddEdit.aspx.cs",
-              "DocumentMoniker": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\AdminPanel\\Account\\ACC_GNTransaction\\ACC_GNTransactionAddEdit.aspx.cs",
-              "RelativeDocumentMoniker": "AdminPanel\\Account\\ACC_GNTransaction\\ACC_GNTransactionAddEdit.aspx.cs",
-              "ToolTip": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\AdminPanel\\Account\\ACC_GNTransaction\\ACC_GNTransactionAddEdit.aspx.cs",
-              "RelativeToolTip": "AdminPanel\\Account\\ACC_GNTransaction\\ACC_GNTransactionAddEdit.aspx.cs",
-              "ViewState": "AQIAAJkAAAAAAAAAAAAAwKsAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-20T06:35:28.385Z",
-              "IsPinned": true
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
@@ -54,6 +23,18 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "RPT_LedgerReportByFinYearHospital.rdlc [Design]",
+              "DocumentMoniker": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\AdminPanel\\Report\\Ledger\\RPT_LedgerReportByFinYearHospital.rdlc",
+              "RelativeDocumentMoniker": "AdminPanel\\Report\\Ledger\\RPT_LedgerReportByFinYearHospital.rdlc",
+              "ToolTip": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\AdminPanel\\Report\\Ledger\\RPT_LedgerReportByFinYearHospital.rdlc [Design]",
+              "RelativeToolTip": "AdminPanel\\Report\\Ledger\\RPT_LedgerReportByFinYearHospital.rdlc [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001755|",
+              "WhenOpened": "2024-08-21T07:17:35.469Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }
