@@ -75,5 +75,11 @@ namespace GNForm3C.BAL
             return dalMST_Patient.SelectView(PatientID);
         }
 
+        public DataTable PP_Patient_ICard()
+        {
+            MST_PatientDAL dalMST_Patient = new MST_PatientDAL();
+            return dalMST_Patient.PP_Patient_ICard();
+        }
+
     }
 }

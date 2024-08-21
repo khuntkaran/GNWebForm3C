@@ -124,6 +124,37 @@ namespace GNForm3C.DAL
                 return null;
             }
         }
+
+        public DataTable PP_Patient_ICard()
+        {
+            try
+            {
+                SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("PP_Patient_ICard");
+
+
+                DataTable dtACC_GNTransaction = new DataTable("PP_Patient_ICard");
+
+                DataBaseHelper DBH = new DataBaseHelper();
+                DBH.LoadDataTable(sqlDB, dbCMD, dtACC_GNTransaction);
+
+                return dtACC_GNTransaction;
+            }
+            catch (SqlException sqlex)
+            {
+                Message = SQLDataExceptionMessage(sqlex);
+                if (SQLDataExceptionHandler(sqlex))
+                    throw;
+                return null;
+            }
+            catch (Exception ex)
+            {
+                Message = ExceptionMessage(ex);
+                if (ExceptionHandler(ex))
+                    throw;
+                return null;
+            }
+        }
         #endregion Select
 
     }

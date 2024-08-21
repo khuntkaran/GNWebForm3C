@@ -484,6 +484,11 @@
                                             <span class="title">Total Income, Expense, PatientID</span>
                                         </a>
                                     </li>
+                                    <li class="nav-item  ">
+                                        <a href='<%=ResolveClientUrl("~/AdminPanel/Report/ICard/PatientICard.aspx") %>' class="nav-link ">
+                                            <span class="title">Patient ICard</span>
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
 

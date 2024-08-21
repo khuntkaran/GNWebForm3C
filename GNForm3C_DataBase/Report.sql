@@ -133,3 +133,29 @@ BEGIN
         [dbo].[MST_FinYear].[FinYearName], 
         [dbo].[MST_Hospital].[Hospital];
 END;
+GO
+
+
+Create procedure [dbo].[PP_Patient_ICard]
+as
+begin
+	Select 
+	[dbo].[MST_Patient].[PatientID],
+	[dbo].[MST_Patient].[PatientName],
+	[dbo].[MST_Patient].[DOB],
+	[dbo].[MST_Patient].[Age],
+	[dbo].[MST_Patient].[MobileNo],
+	[dbo].[MST_Patient].[PrimaryDesc],
+	[dbo].[ACC_GNTransaction].[HospitalID],
+	[dbo].[ACC_GNTransaction].[FinYearID],
+	[dbo].[MST_Hospital].[Hospital],
+	[dbo].[MST_FinYear].[FinYearName]
+	from MST_Patient
+	inner join ACC_GNTransaction
+	on MST_Patient.PatientID = ACC_GNTransaction.PatientID
+	inner join [dbo].[MST_Hospital]
+	on [dbo].[ACC_GNTransaction].[HospitalID] = [dbo].[MST_Hospital].[HospitalID]
+	inner join [dbo].[MST_FinYear]
+	on [dbo].[ACC_GNTransaction].[FinYearID] = [dbo].[MST_FinYear].[FinYearID]
+end
+GO

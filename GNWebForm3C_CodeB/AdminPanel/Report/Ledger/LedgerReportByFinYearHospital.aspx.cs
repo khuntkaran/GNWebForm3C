@@ -54,15 +54,17 @@ public partial class AdminPanel_Report_Ledger_LedgerReportByFinYearHospital : Sy
                 drLedger.TotalPatients = Convert.ToInt32(dr["TotalPatients"]);
             dsLedgerReportByFinYearHospital.LedgerReportByFinYearHospital.Rows.Add(drLedger);
         }
-        //SetReportParameter();
+        SetReportParameter();
         this.rvIncomeList.LocalReport.DataSources.Clear();
         this.rvIncomeList.LocalReport.DataSources.Add(new ReportDataSource("LedgerReportByFinYearHospital", (DataTable)dsLedgerReportByFinYearHospital.LedgerReportByFinYearHospital));
         this.rvIncomeList.LocalReport.Refresh();
     }
     private void SetReportParameter()
     {
-        String ReportTitle = "Income";
+        String ReportTitle = "Income Expense";
+        String ReportSubTitle = "Hospital wise FinYear wise";
         ReportParameter rptReportTitle = new ReportParameter("ReportTitle", ReportTitle);
-        this.rvIncomeList.LocalReport.SetParameters(new ReportParameter[] { rptReportTitle, });
+        ReportParameter rptReportSubTitle = new ReportParameter("ReportSubTitle", ReportSubTitle);
+        this.rvIncomeList.LocalReport.SetParameters(new ReportParameter[] { rptReportTitle,rptReportSubTitle, });
     }
 }
