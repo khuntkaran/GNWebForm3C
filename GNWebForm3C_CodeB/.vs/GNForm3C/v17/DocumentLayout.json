@@ -3,16 +3,8 @@
   "WorkspaceRootPath": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|e:\\gnwebform3c\\gnwebform3c_codeb\\adminpanel\\report\\icard\\rpt_patienticard.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}",
-      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:adminpanel\\report\\icard\\rpt_patienticard.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|e:\\gnwebform3c\\gnwebform3c_codeb\\adminpanel\\report\\icard\\patienticard.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:adminpanel\\report\\icard\\patienticard.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|e:\\gnwebform3c\\gnwebform3c_codeb\\app_code\\report datatable\\dspatientid.xsd||{07AC752B-D2B0-4DCD-AD9C-237BF561A30A}",
-      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:app_code\\report datatable\\dspatientid.xsd||{07AC752B-D2B0-4DCD-AD9C-237BF561A30A}"
+      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|e:\\gnwebform3c\\gnwebform3c_codeb\\adminpanel\\report\\ledger\\rpt_ledgerreport.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}",
+      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:adminpanel\\report\\ledger\\rpt_ledgerreport.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,33 +14,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 2,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "dsPatientID.xsd",
-              "DocumentMoniker": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\App_Code\\Report DataTable\\dsPatientID.xsd",
-              "RelativeDocumentMoniker": "App_Code\\Report DataTable\\dsPatientID.xsd",
-              "ToolTip": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\App_Code\\Report DataTable\\dsPatientID.xsd",
-              "RelativeToolTip": "App_Code\\Report DataTable\\dsPatientID.xsd",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003579|",
-              "WhenOpened": "2024-08-21T10:38:11.412Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "PatientICard.aspx.cs",
-              "DocumentMoniker": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\AdminPanel\\Report\\ICard\\PatientICard.aspx.cs",
-              "RelativeDocumentMoniker": "AdminPanel\\Report\\ICard\\PatientICard.aspx.cs",
-              "ToolTip": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\AdminPanel\\Report\\ICard\\PatientICard.aspx.cs",
-              "RelativeToolTip": "AdminPanel\\Report\\ICard\\PatientICard.aspx.cs",
-              "ViewState": "AQIAAEcAAAAAAAAAAAAiwC8AAAA3AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-21T10:30:40.266Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
@@ -60,13 +27,13 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "RPT_PatientICard.rdlc [Design]",
-              "DocumentMoniker": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\AdminPanel\\Report\\ICard\\RPT_PatientICard.rdlc",
-              "RelativeDocumentMoniker": "AdminPanel\\Report\\ICard\\RPT_PatientICard.rdlc",
-              "ToolTip": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\AdminPanel\\Report\\ICard\\RPT_PatientICard.rdlc [Design]",
-              "RelativeToolTip": "AdminPanel\\Report\\ICard\\RPT_PatientICard.rdlc [Design]",
+              "Title": "RPT_LedgerReport.rdlc [Design]",
+              "DocumentMoniker": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\AdminPanel\\Report\\Ledger\\RPT_LedgerReport.rdlc",
+              "RelativeDocumentMoniker": "AdminPanel\\Report\\Ledger\\RPT_LedgerReport.rdlc",
+              "ToolTip": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\AdminPanel\\Report\\Ledger\\RPT_LedgerReport.rdlc [Design]*",
+              "RelativeToolTip": "AdminPanel\\Report\\Ledger\\RPT_LedgerReport.rdlc [Design]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001755|",
-              "WhenOpened": "2024-08-21T09:50:06.286Z",
+              "WhenOpened": "2024-08-22T11:07:02.867Z",
               "EditorCaption": " [Design]"
             }
           ]

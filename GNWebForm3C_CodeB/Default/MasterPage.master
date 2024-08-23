@@ -489,6 +489,11 @@
                                             <span class="title">Patient ICard</span>
                                         </a>
                                     </li>
+                                    <li class="nav-item  ">
+                                        <a href='<%=ResolveClientUrl("~/AdminPanel/Report/Ledger/LedgerReport.aspx") %>' class="nav-link ">
+                                            <span class="title">Ledger</span>
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
 

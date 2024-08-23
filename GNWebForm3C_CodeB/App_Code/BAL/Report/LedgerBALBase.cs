@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlTypes;
 using System.Linq;
 using System.Web;
 
@@ -23,6 +24,11 @@ namespace GNForm3C.BAL
         {
             LedgerDAL ledgerDAL = new LedgerDAL();
             return ledgerDAL.PP_HospitalWise_FinYearWise_IncomeExpenseList();
+        }
+        public DataTable PP_ACC_IncomeExpense_Ledger(SqlInt32 HospitalID,SqlInt32 FinYearID)
+        {
+            LedgerDAL ledgerDAL = new LedgerDAL();
+            return ledgerDAL.PP_ACC_IncomeExpense_Ledger(HospitalID,FinYearID);
         }
     }
 }

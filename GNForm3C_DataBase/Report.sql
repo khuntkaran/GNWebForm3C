@@ -1,49 +1,3 @@
-select ACC_Income.HospitalID, Hospital,ACC_Income.FinYearID,FinYearName, sum(Acc_Income.Amount) As Income,sum(ACC_Expense.Amount) as Expense,count(ACC_GNTransaction.patientID) as Patient
-from MST_FinYear
-inner join ACC_Income
-on ACC_Income.FinYearID = MST_FinYear.FinYearID
-inner join ACC_Expense
-on ACC_Expense.HospitalID = MST_FinYear.FinYearID
-left outer join MST_Hospital
-on ACC_Income.HospitalID =MST_Hospital.HospitalID
-left outer join ACC_GNTransaction
-on ACC_GNTransaction.HospitalID=MST_Hospital.HospitalID and ACC_GNTransaction.FinYearID =MST_FinYear.FinYearID
-group by Acc_Income.HospitalID,ACC_Income.FinYearID,Hospital,FinYearName
-
-union all
-select ACC_Expense.HospitalID,Hospital,ACC_Expense.FinYearID,FinYearName,Amount
-from ACC_Expense
-inner join MST_Hospital
-on ACC_Expense.HospitalID = MST_Hospital.HospitalID
-inner join MST_FinYear
-on ACC_Expense.FinYearID=MST_FinYear.FinYearID
-
-select * from MST_IncomeType
-
-
-
-select 
-from MS
-
-select * from MST_FinYear
-select * from MST_Hospital
-
-
-select MST_Hospital.HospitalID, Hospital,ACC_Income.FinYearID,sum(Acc_Income.Amount) As Income,sum(ACC_Expense.Amount) as Expense,count( distinct ACC_GNTransaction.patientID) as Patient
-from MST_Hospital 
-cross join MST_FinYear
-left outer join ACC_Expense
-on ACC_Expense.HospitalID = MST_Hospital.HospitalID
-left outer join ACC_Income
-on ACC_Income.HospitalID = MST_Hospital.HospitalID
-left outer join ACC_GNTransaction
-on ACC_GNTransaction.HospitalID=MST_Hospital.HospitalID
-group by MST_Hospital.HospitalID,ACC_Income.FinYearID,Hospital
-
-
-select * from MST_Hospital
-select * from MST_FinYear cross join MST_Hospital
-
 select MST_Hospital.HospitalID,MST_FinYear.FinYearID, Hospital,FinYearName,count( ACC_Income.IncomeID),sum( ACC_Income.Amount) as Income ,count( ACC_Expense.ExpenseID), sum( ACC_Expense.Amount) as Expense, Count(distinct ACC_GNTransaction.patientID) as Patient
 from MST_Hospital cross join MST_FinYear
 left outer join ACC_Expense
@@ -159,3 +113,84 @@ begin
 	on [dbo].[ACC_GNTransaction].[FinYearID] = [dbo].[MST_FinYear].[FinYearID]
 end
 GO
+
+
+select * from MST_Hospital where HospitalID=2
+
+[PP_ACC_IncomeExpense_Ledger] 
+alter PROCEDURE [dbo].[PP_ACC_IncomeExpense_Ledger] 
+	@HospitalID			int =null,
+	@FinYearID			int = null
+AS
+BEGIN
+    SET NOCOUNT ON;
+	
+    DECLARE @StartTime datetime
+    DECLARE @EndTime datetime
+   
+
+    SET @StartTime = GETDATE();
+    
+   
+	--for try porpush
+	set @HospitalID=2;
+	set @FinYearID=9;
+    BEGIN TRY
+        
+        -- Fetch paginated results
+        SELECT 
+			HospitalID,
+			Hospital,
+			FinYearID,
+			FinYearName,
+			ParticularID,
+			Particular,
+            LedgerID, 
+            LedgerType, 
+            LedgerAmount, 
+            LedgerDate, 
+            LedgerNote
+            
+        FROM (
+            SELECT ACC_Expense.HospitalID, MST_Hospital.Hospital, ACC_Expense.FinYearID, MST_FinYear.FinYearName,ACC_Expense.ExpenseTypeID AS ParticularID,MST_ExpenseType.ExpenseType as Particular,
+					ExpenseID AS LedgerID, 'Expense' AS LedgerType, Amount as LedgerAmount, ExpenseDate AS LedgerDate, Note as LedgerNote 
+            FROM [dbo].[ACC_Expense]
+			inner join [dbo].[MST_Hospital]
+			on [dbo].[MST_Hospital].[HospitalID] = [dbo].[ACC_Expense].[HospitalID]
+			inner join [dbo].[MST_FinYear]
+			on [dbo].[MST_FinYear].[FinYearID] = [dbo].[ACC_Expense].[FinYearID]
+			inner join [dbo].[MST_ExpenseType]
+			on [dbo].[MST_ExpenseType].[ExpenseTypeID] = [dbo].[ACC_Expense].[ExpenseTypeID]
+            WHERE acc_Expense.HospitalID=@HospitalID and acc_Expense.FinYearID=@FinYearID
+            
+            
+            UNION ALL
+            
+            SELECT ACC_Income.HospitalID, MST_Hospital.Hospital, ACC_Income.FinYearID, MST_FinYear.FinYearName, ACC_Income.IncomeTypeID AS ParticularID,MST_IncomeType.IncomeType as Particular,
+					IncomeID AS LedgerID, 'Income' AS LedgerType, Amount as LedgerAmount, IncomeDate AS LedgerDate, Note as LedgerNote
+            FROM [dbo].[ACC_Income]
+			inner join [dbo].[MST_Hospital]
+			on [dbo].[MST_Hospital].[HospitalID] = [dbo].[ACC_Income].[HospitalID]
+			inner join [dbo].[MST_FinYear]
+			on [dbo].[MST_FinYear].[FinYearID] = [dbo].[ACC_Income].[FinYearID]
+			inner join [dbo].[MST_IncomeType]
+			on [dbo].[MST_IncomeType].[IncomeTypeID] = [dbo].[ACC_Income].[IncomeTypeID]
+            WHERE Acc_Income.HospitalID=@HospitalID and [ACC_Income].FinYearID=@FinYearID
+            
+        ) AS Combined
+        ORDER BY LedgerDate, LedgerID
+       
+
+    END TRY
+    BEGIN CATCH
+        ;THROW
+    END CATCH
+
+    SET @EndTime = GETDATE()
+    --EXEC [dbo].[PR_MST_SPExecution_Insert] '[dbo].[PR_ACC_IncomeExpense_SelectPage]', @StartTime, @EndTime
+END
+GO
+
+update ACC_Expense set FinYearID=9
+
+select * from MST_ExpenseType

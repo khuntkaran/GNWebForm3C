@@ -6,7 +6,7 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>3.5in</Width>
+              <Width>3.25in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -36,7 +36,7 @@
                           </Paragraphs>
                           <rd:DefaultName>PatientName</rd:DefaultName>
                           <Top>0.5in</Top>
-                          <Left>1.5in</Left>
+                          <Left>1.25in</Left>
                           <Height>0.25in</Height>
                           <Width>2in</Width>
                           <Style>
@@ -54,7 +54,7 @@
                           <Value>GNWebsoft_Logo</Value>
                           <Sizing>Fit</Sizing>
                           <Height>0.5in</Height>
-                          <Width>1.5in</Width>
+                          <Width>1.25in</Width>
                           <ZIndex>1</ZIndex>
                           <Style>
                             <Border>
@@ -86,7 +86,7 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Hospital</rd:DefaultName>
-                          <Left>1.5in</Left>
+                          <Left>1.25in</Left>
                           <Height>0.5in</Height>
                           <Width>2in</Width>
                           <ZIndex>2</ZIndex>
@@ -107,7 +107,7 @@
                           <Sizing>Fit</Sizing>
                           <Top>0.5in</Top>
                           <Height>1.25in</Height>
-                          <Width>1.5in</Width>
+                          <Width>1.25in</Width>
                           <ZIndex>3</ZIndex>
                           <Style>
                             <Border>
@@ -140,7 +140,7 @@
                           <rd:DefaultName>Textbox12</rd:DefaultName>
                           <Top>1.75in</Top>
                           <Height>0.25in</Height>
-                          <Width>1.5in</Width>
+                          <Width>1.25in</Width>
                           <ZIndex>4</ZIndex>
                           <Style>
                             <Border>
@@ -158,7 +158,7 @@
                           <MIMEType>image/x-png</MIMEType>
                           <Sizing>Fit</Sizing>
                           <Top>1.75in</Top>
-                          <Left>1.5in</Left>
+                          <Left>1.25in</Left>
                           <Height>0.25in</Height>
                           <Width>2in</Width>
                           <ZIndex>5</ZIndex>
@@ -188,7 +188,7 @@
                           </Paragraphs>
                           <rd:DefaultName>PrimaryDesc</rd:DefaultName>
                           <Top>1.5in</Top>
-                          <Left>2.1in</Left>
+                          <Left>1.85in</Left>
                           <Height>0.25in</Height>
                           <Width>1.4in</Width>
                           <ZIndex>6</ZIndex>
@@ -218,7 +218,7 @@
                           </Paragraphs>
                           <rd:DefaultName>Textbox14</rd:DefaultName>
                           <Top>1.25in</Top>
-                          <Left>2.1in</Left>
+                          <Left>1.85in</Left>
                           <Height>0.25in</Height>
                           <Width>1.4in</Width>
                           <ZIndex>7</ZIndex>
@@ -252,7 +252,7 @@
                           </Paragraphs>
                           <rd:DefaultName>Textbox14</rd:DefaultName>
                           <Top>1in</Top>
-                          <Left>2.1in</Left>
+                          <Left>1.85in</Left>
                           <Height>0.25in</Height>
                           <Width>1.4in</Width>
                           <ZIndex>8</ZIndex>
@@ -282,7 +282,7 @@
                           </Paragraphs>
                           <rd:DefaultName>Textbox14</rd:DefaultName>
                           <Top>0.75in</Top>
-                          <Left>2.1in</Left>
+                          <Left>1.85in</Left>
                           <Height>0.25in</Height>
                           <Width>1.4in</Width>
                           <ZIndex>9</ZIndex>
@@ -314,7 +314,7 @@
                           </Paragraphs>
                           <rd:DefaultName>Textbox14</rd:DefaultName>
                           <Top>0.75in</Top>
-                          <Left>1.5in</Left>
+                          <Left>1.25in</Left>
                           <Height>0.25in</Height>
                           <Width>0.6in</Width>
                           <ZIndex>10</ZIndex>
@@ -346,7 +346,7 @@
                           </Paragraphs>
                           <rd:DefaultName>Textbox14</rd:DefaultName>
                           <Top>1in</Top>
-                          <Left>1.5in</Left>
+                          <Left>1.25in</Left>
                           <Height>0.25in</Height>
                           <Width>0.6in</Width>
                           <ZIndex>11</ZIndex>
@@ -378,7 +378,7 @@
                           </Paragraphs>
                           <rd:DefaultName>Textbox14</rd:DefaultName>
                           <Top>1.25in</Top>
-                          <Left>1.5in</Left>
+                          <Left>1.25in</Left>
                           <Height>0.25in</Height>
                           <Width>0.6in</Width>
                           <ZIndex>12</ZIndex>
@@ -410,7 +410,7 @@
                           </Paragraphs>
                           <rd:DefaultName>PrimaryDesc</rd:DefaultName>
                           <Top>1.5in</Top>
-                          <Left>1.5in</Left>
+                          <Left>1.25in</Left>
                           <Height>0.25in</Height>
                           <Width>0.6in</Width>
                           <ZIndex>13</ZIndex>
@@ -452,7 +452,7 @@
         </TablixRowHierarchy>
         <DataSetName>PatientICard</DataSetName>
         <Height>2in</Height>
-        <Width>3.5in</Width>
+        <Width>3.25in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -460,10 +460,10 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>2.5in</Height>
+    <Height>2.42708in</Height>
     <Style />
   </Body>
-  <Width>7.5in</Width>
+  <Width>3.25in</Width>
   <Page>
     <PageHeight>11.69in</PageHeight>
     <PageWidth>8.27in</PageWidth>
@@ -471,6 +471,8 @@
     <RightMargin>0.25in</RightMargin>
     <TopMargin>0.25in</TopMargin>
     <BottomMargin>0.25in</BottomMargin>
+    <Columns>2</Columns>
+    <ColumnSpacing>0.1in</ColumnSpacing>
     <Style />
   </Page>
   <AutoRefresh>0</AutoRefresh>
