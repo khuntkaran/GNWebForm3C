@@ -94,11 +94,16 @@ namespace GNForm3C.BAL
 			}
 		}
 
-		#endregion DeleteOperation
+        #endregion DeleteOperation
 
-		#region SelectOperation
+        #region SelectOperation
 
-		public ACC_ExpenseENT SelectPK(SqlInt32 ExpenseID)
+        public DataTable SelectHospitalWiseExpenseList(SqlDateTime FromDate, SqlDateTime ToDate, SqlInt32 HospitalID)
+        {
+            ACC_ExpenseDAL dalACC_Expense = new ACC_ExpenseDAL();
+            return dalACC_Expense.SelectHospitalWiseExpenseList(FromDate, ToDate, HospitalID);
+        }
+        public ACC_ExpenseENT SelectPK(SqlInt32 ExpenseID)
 		{
 			ACC_ExpenseDAL dalACC_Expense = new ACC_ExpenseDAL();
 			return dalACC_Expense.SelectPK(ExpenseID);

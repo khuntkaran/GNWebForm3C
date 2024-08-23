@@ -3,8 +3,16 @@
   "WorkspaceRootPath": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|e:\\gnwebform3c\\gnwebform3c_codeb\\adminpanel\\report\\ledger\\rpt_ledgerreport.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}",
-      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:adminpanel\\report\\ledger\\rpt_ledgerreport.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}"
+      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|e:\\gnwebform3c\\gnwebform3c_codeb\\adminpanel\\report\\rpt_hospitalwisedatewiseexpense.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}",
+      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:adminpanel\\report\\rpt_hospitalwisedatewiseexpense.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|E:\\GNWebForm3C\\GNWebForm3C_CodeB\\adminpanel\\report\\rpt_acc_income.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}",
+      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:adminpanel\\report\\rpt_acc_income.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|E:\\GNWebForm3C\\GNWebForm3C_CodeB\\adminpanel\\report\\rpt_acc_gntransaction.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}",
+      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:adminpanel\\report\\rpt_acc_gntransaction.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -26,14 +34,36 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "RPT_LedgerReport.rdlc [Design]",
-              "DocumentMoniker": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\AdminPanel\\Report\\Ledger\\RPT_LedgerReport.rdlc",
-              "RelativeDocumentMoniker": "AdminPanel\\Report\\Ledger\\RPT_LedgerReport.rdlc",
-              "ToolTip": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\AdminPanel\\Report\\Ledger\\RPT_LedgerReport.rdlc [Design]*",
-              "RelativeToolTip": "AdminPanel\\Report\\Ledger\\RPT_LedgerReport.rdlc [Design]*",
+              "DocumentIndex": 2,
+              "Title": "RPT_ACC_GNTransaction.rdlc [Design]",
+              "DocumentMoniker": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\AdminPanel\\Report\\RPT_ACC_GNTransaction.rdlc",
+              "RelativeDocumentMoniker": "AdminPanel\\Report\\RPT_ACC_GNTransaction.rdlc",
+              "ToolTip": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\AdminPanel\\Report\\RPT_ACC_GNTransaction.rdlc [Design]",
+              "RelativeToolTip": "AdminPanel\\Report\\RPT_ACC_GNTransaction.rdlc [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001755|",
-              "WhenOpened": "2024-08-22T11:07:02.867Z",
+              "WhenOpened": "2024-08-23T09:20:49.812Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "RPT_ACC_Income.rdlc [Design]",
+              "DocumentMoniker": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\AdminPanel\\Report\\RPT_ACC_Income.rdlc",
+              "RelativeDocumentMoniker": "AdminPanel\\Report\\RPT_ACC_Income.rdlc",
+              "ToolTip": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\AdminPanel\\Report\\RPT_ACC_Income.rdlc [Design]",
+              "RelativeToolTip": "AdminPanel\\Report\\RPT_ACC_Income.rdlc [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001755|",
+              "WhenOpened": "2024-08-23T09:20:44.814Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "RPT_HospitalWiseDateWiseExpense.rdlc [Design]",
+              "DocumentMoniker": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\AdminPanel\\Report\\RPT_HospitalWiseDateWiseExpense.rdlc",
+              "RelativeDocumentMoniker": "AdminPanel\\Report\\RPT_HospitalWiseDateWiseExpense.rdlc",
+              "ToolTip": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\AdminPanel\\Report\\RPT_HospitalWiseDateWiseExpense.rdlc [Design]",
+              "RelativeToolTip": "AdminPanel\\Report\\RPT_HospitalWiseDateWiseExpense.rdlc [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001755|",
+              "WhenOpened": "2024-08-23T07:19:27.077Z",
               "EditorCaption": " [Design]"
             }
           ]

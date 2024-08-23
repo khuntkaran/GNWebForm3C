@@ -119,8 +119,8 @@ select * from MST_Hospital where HospitalID=2
 
 [PP_ACC_IncomeExpense_Ledger] 
 alter PROCEDURE [dbo].[PP_ACC_IncomeExpense_Ledger] 
-	@HospitalID			int =null,
-	@FinYearID			int = null
+	@HospitalID			int ,
+	@FinYearID			int 
 AS
 BEGIN
     SET NOCOUNT ON;
@@ -131,10 +131,6 @@ BEGIN
 
     SET @StartTime = GETDATE();
     
-   
-	--for try porpush
-	set @HospitalID=2;
-	set @FinYearID=9;
     BEGIN TRY
         
         -- Fetch paginated results
@@ -194,3 +190,64 @@ GO
 update ACC_Expense set FinYearID=9
 
 select * from MST_ExpenseType
+
+
+
+CREATE   PROCEDURE [dbo].[PP_HospitalWiseExpenseList] 
+  @FromDate	Datetime,
+  @ToDate	Datetime,
+  @HospitalID Int
+
+AS
+
+SET NOCOUNT ON;
+
+DECLARE	@StartTime	datetime
+DECLARE	@EndTime	datetime
+SET		@StartTime = [dbo].[GetServerDateTime]();
+
+BEGIN TRY
+  
+		SELECT  
+				[dbo].[ACC_Expense].[ExpenseID],
+				[dbo].[MST_ExpenseType].[ExpenseType] AS [ExpenseType],
+				[dbo].[ACC_Expense].[Amount],
+				[dbo].[ACC_Expense].[ExpenseDate],
+				[dbo].[ACC_Expense].[Note],
+				[dbo].[MST_Hospital].[Hospital] AS [Hospital],
+				[dbo].[MST_FinYear].[FinYearName] AS [FinYearName],
+				[dbo].[ACC_Expense].[Remarks],
+				[dbo].[SEC_User].[UserName] AS [UserName],
+				[dbo].[ACC_Expense].[Created],
+				[dbo].[ACC_Expense].[Modified],
+				[dbo].[ACC_Expense].[TagName],
+				[dbo].[ACC_Expense].[ExpenseTypeID],
+				[dbo].[ACC_Expense].[HospitalID],
+				[dbo].[ACC_Expense].[FinYearID],
+				[dbo].[ACC_Expense].[UserID]
+		FROM  [dbo].[ACC_Expense]
+		INNER JOIN [dbo].[MST_ExpenseType]
+		ON [dbo].[ACC_Expense].[ExpenseTypeID] = [dbo].[MST_ExpenseType].[ExpenseTypeID]
+		INNER JOIN [dbo].[MST_FinYear]
+		ON [dbo].[ACC_Expense].[FinYearID] = [dbo].[MST_FinYear].[FinYearID]
+		INNER JOIN [dbo].[MST_Hospital]
+		ON [dbo].[ACC_Expense].[HospitalID] = [dbo].[MST_Hospital].[HospitalID]
+		INNER JOIN [dbo].[SEC_User]
+		ON [dbo].[ACC_Expense].[UserID] = [dbo].[SEC_User].[UserID]
+
+		WHERE ( CONVERT(DATE,[dbo].[ACC_Expense].[ExpenseDate]) >= CONVERT(DATE,@FromDate))
+		AND ( CONVERT(DATE,[dbo].[ACC_Expense].[ExpenseDate]) <= CONVERT(DATE,@ToDate))
+		AND (@HospitalID IS NULL OR [dbo].[ACC_Expense].[HospitalID] =@HospitalID )
+		
+		ORDER BY [dbo].[ACC_Expense].[ExpenseDate] 
+
+
+END TRY
+
+BEGIN CATCH
+;THROW
+
+END CATCH
+
+SET		@EndTime = [dbo].[GetServerDateTime]()
+GO

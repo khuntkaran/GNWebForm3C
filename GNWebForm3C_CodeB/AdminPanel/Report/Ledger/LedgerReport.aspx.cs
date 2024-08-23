@@ -1,176 +1,287 @@
 ﻿using GNForm3C;
 using GNForm3C.BAL;
 using GNForm3C.ENT;
-using Microsoft.Reporting.WebForms;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
+using System.Data.SqlTypes;
+using Microsoft.Reporting.WebForms;
 
-public partial class AdminPanel_Report_Ledger_LedgerReport : System.Web.UI.Page
+public partial class Reports_Account_ACC_Ledger_RPT_ACC_Ledger_ByFinYearHospital_IncomeExpense_Balance : System.Web.UI.Page
 {
+    #region 11.0 Variables
+
+    String FormName = "RPT_ACC_Ledger_ByFinYearHospital_IncomeExpense_Balance";
+    static Int32 PageRecordSize = CV.PageRecordSize;//Size of record per page
+    Int32 PageDisplaySize = CV.PageDisplaySize;
+    Int32 DisplayIndex = CV.DisplayIndex;
+
+
+    #region Report Variables
+
     private DataTable dt = new DataTable();
     private dsLedgerReportByFinYearHospital dsLedgerReportByFinYearHospital = new dsLedgerReportByFinYearHospital();
-    int HospitalID=1;
-    int FinYearID=1;
+    
 
-    #region 10.0 Local Variables 
+    #endregion
 
-    String FormName = "Ledger";
+    #endregion 11.0 Variables
 
-    #endregion 10.0 Variables 
-
-    #region 11.0 Page Load Event 
+    #region 12.0 Page Load Event
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        #region 11.1 Check User Login 
+        #region 12.0 Check User Login
 
         if (Session["UserID"] == null)
             Response.Redirect(CV.LoginPageURL);
 
-        #endregion 11.1 Check User Login 
-       
+        #endregion 12.0 Check User Login
+
         if (!Page.IsPostBack)
         {
-            GenerateReport(HospitalID, FinYearID);
-            ExportReport("pdf");
-            #region 11.2 Fill Labels 
-
-            FillLabels(FormName);
-
-            #endregion 11.2 Fill Labels 
-
-            #region 11.3 DropDown List Fill Section 
+            #region 12.1 DropDown List Fill Section
 
             FillDropDownList();
 
-            #endregion 11.3 DropDown List Fill Section 
+            #endregion 12.1 DropDown List Fill Section
 
-            #region 11.4 Set Control Default Value 
+            Search(1);
 
+            #region 12.2 Set Default Value
+
+            ddlFinYearID.SelectedIndex = 0;
+            ddlHospitalID.SelectedIndex = 0;
+            lblSearchHeader.Text = CV.SearchHeaderText;
+            lblSearchResultHeader.Text = CV.SearchResultHeaderText;
             upr.DisplayAfter = CV.UpdateProgressDisplayAfter;
-            ddlHospitalID.Focus();
 
-            #endregion 11.4 Set Control Default Value 
+            #endregion 12.2 Set Default Value
 
-            #region 11.5 Fill Controls 
-
-            FillControls();
-
-            #endregion 11.5 Fill Controls 
-
-            
-
+            #region 12.3 Set Help Text
+            ucHelp.ShowHelp("Help Text will be shown here");
+            #endregion 12.3 Set Help Text
         }
     }
 
-    #endregion 11.0 Page Load Event
+    #endregion 12.0 Page Load Event
 
-    #region 12.0 FillLabels 
+    #region 13.0 FillLabels
 
     private void FillLabels(String FormName)
     {
     }
 
-    #endregion 12.0 FillLabels 
+    #endregion
 
-    #region 13.0 Fill DropDownList 
+    #region 14.0 DropDownList
+
+    #region 14.1 Fill DropDownList
 
     private void FillDropDownList()
     {
+        //ddlFinYearID.Items.Insert(0, new ListItem("Select Fin Year", "-99"));
+        //ddlExpenseTypeID.Items.Insert(0, new ListItem("Select Expense Type", "-99"));
+
         CommonFillMethods.FillDropDownListHospitalID(ddlHospitalID);
-        CommonFillMethods.FillSingleDropDownListFinYearID(ddlFinYearID);
+        CommonFillMethods.FillDropDownListFinYearID(ddlFinYearID);
+
     }
 
-    #endregion 13.0 Fill DropDownList
+    #endregion 14.1 Fill DropDownList
 
-    #region 14.0 FillControls By PK  
+    #endregion 14.0 DropDownList
 
-    private void FillControls()
-    {
-    }
+    #region 15.0 Search
 
-    #endregion 14.0 FillControls By PK 
-
-    #region 15.0 Save Button Event 
+    #region 15.1 Button Search Click Event
 
     protected void btnSearch_Click(object sender, EventArgs e)
     {
-        Page.Validate();
-        
-        if (Page.IsValid)
+        Search(1);
+    }
+
+    #endregion 15.1 Button Search Click Event
+
+    #region 15.2 Search Function
+
+    private void Search(int PageNo)
+    {
+        #region Parameters
+
+        //SqlInt32 ExpenseTypeID = SqlInt32.Null;
+        //SqlDecimal Amount = SqlDecimal.Null;
+        //SqlDateTime ExpenseDate = SqlDateTime.Null;
+
+        SqlInt32 FinYearID = SqlInt32.Null;
+        SqlInt32 HospitalID = SqlInt32.Null;
+        SqlDateTime FromDate = SqlDateTime.Null;
+        SqlDateTime ToDate = SqlDateTime.Null;
+        Int32 Offset = (PageNo - 1) * PageRecordSize;
+        Int32 TotalRecords = 0;
+        Int32 TotalPages = 1;
+
+        #endregion Parameters
+
+        #region Gather Data
+
+        //if (ddlExpenseTypeID.SelectedIndex > 0)
+        //    ExpenseTypeID = Convert.ToInt32(ddlExpenseTypeID.SelectedValue);
+
+        //if (txtAmount.Text.Trim() != String.Empty)
+        //    Amount = Convert.ToDecimal(txtAmount.Text.Trim());
+
+        //if (dtpExpenseDate.Text.Trim() != String.Empty)
+        //    ExpenseDate = Convert.ToDateTime(dtpExpenseDate.Text.Trim());      
+
+        if (ddlFinYearID.SelectedIndex > 0)
+            FinYearID = Convert.ToInt32(ddlFinYearID.SelectedValue);
+
+        if (ddlHospitalID.SelectedIndex > 0)
+            HospitalID = Convert.ToInt32(ddlHospitalID.SelectedValue);
+
+
+        #endregion Gather Data
+
+        LedgerBAL ledgerBAL = new LedgerBAL();
+
+        DataTable dt = ledgerBAL.PP_ACC_IncomeExpense_Ledger(HospitalID, FinYearID);
+
+        if (dt != null && dt.Rows.Count > 0)
+        {
+            Div_SearchResult.Visible = true;
+            Div_ExportOption.Visible = true;
+            rpData.DataSource = dt;
+            rpData.DataBind();
+
+            if (PageNo > TotalPages)
+                PageNo = TotalPages;
+
+            ViewState["TotalPages"] = TotalPages;
+            ViewState["CurrentPage"] = PageNo;
+
+
+
+            lblRecordInfoTop.Text = CommonMessage.PageDisplayMessage(Offset, dt.Rows.Count, TotalRecords, PageNo, TotalPages);
+
+            lbtnExportExcel.Visible = true;
+
+        }
+
+        else if (TotalPages < PageNo && TotalPages > 0)
+            Search(TotalPages);
+
+        else
+        {
+            Div_SearchResult.Visible = false;
+            lbtnExportExcel.Visible = false;
+
+            ViewState["TotalPages"] = 0;
+            ViewState["CurrentPage"] = 1;
+
+            rpData.DataSource = null;
+            rpData.DataBind();
+
+
+            lblRecordInfoTop.Text = CommonMessage.NoRecordFound();
+
+
+            ucMessage.ShowError(CommonMessage.NoRecordFound());
+        }
+
+        GenerateReport(HospitalID, FinYearID);
+    }
+
+    #endregion 15.2 Search Function
+
+    #endregion 15.0 Search
+
+    #region 16.0 Repeater Events
+
+    #region 16.1 Item Command Event
+
+    protected void rpData_ItemCommand(object source, RepeaterCommandEventArgs e)
+    {
+        if (e.CommandName == "DeleteRecord")
         {
             try
             {
-
-                #region 15.1 Validate Fields 
-
-                String ErrorMsg = String.Empty;
-                if (ddlHospitalID.SelectedIndex == 0)
-                    ErrorMsg += " - " + CommonMessage.ErrorRequiredFieldDDL("Hospital");
-                if (ddlFinYearID.SelectedIndex == 0)
-                    ErrorMsg += " - " + CommonMessage.ErrorRequiredFieldDDL("Fin Year");
-
-                if (ErrorMsg != String.Empty)
+                LedgerBAL ledgerBAL = new LedgerBAL();
+                if (e.CommandArgument.ToString().Trim() != "")
                 {
-                    ErrorMsg = CommonMessage.ErrorPleaseCorrectFollowing() + ErrorMsg;
-                   
-                    return;
+                    //if (ledgerBAL.Delete(Convert.ToInt32(e.CommandArgument)))
+                    //{
+                    //    ucMessage.ShowSuccess(CommonMessage.DeletedRecord());
+
+                    //    if (ViewState["CurrentPage"] != null)
+                    //    {
+                    //        int Count = rpData.Items.Count;
+
+                    //        if (Count == 1 && Convert.ToInt32(ViewState["CurrentPage"]) != 1)
+                    //            ViewState["CurrentPage"] = (Convert.ToInt32(ViewState["CurrentPage"]) - 1);
+                    //        Search(Convert.ToInt32(ViewState["CurrentPage"]));
+                    //    }
+                    //}
                 }
-
-                #endregion 15.1 Validate Fields
-
-                #region 15.2 Gather Data 
-
-
-                
-                if (ddlHospitalID.SelectedIndex > 0)
-                    HospitalID = Convert.ToInt32(ddlHospitalID.SelectedValue);
-
-                if (ddlFinYearID.SelectedIndex > 0)
-                    FinYearID = Convert.ToInt32(ddlFinYearID.SelectedValue);
-
-
-
-
-                #endregion 15.2 Gather Data 
-
-
-                #region 15.3 Download Print
-                GenerateReport(HospitalID,FinYearID);
-                ExportReport("pdf");
-
-                #endregion 15.3 Download Print
-
             }
             catch (Exception ex)
             {
+                ucMessage.ShowError(ex.Message.ToString());
             }
         }
     }
 
-    #endregion 15.0 Save Button Event 
+    #endregion 16.1 Item Command Event
 
-    #region 16.0 Clear Controls 
+    #endregion 16.0 Repeater Events
 
-    private void btnClear_Click(object sender, EventArgs e)
+    #region 18.0 Button Delete Click Event
+
+
+    #endregion 18.0 Button Delete Click Event
+
+    #region 20.0 Cancel Button Event
+
+    protected void btnClear_Click(object sender, EventArgs e)
     {
-       
-        ddlHospitalID.SelectedIndex = 0;
-        ddlFinYearID.SelectedIndex = 0;
-       
+        ClearControls();
     }
 
-    #endregion 16.0 Clear Controls 
+    #endregion 20.0 Cancel Button Event
 
-    private void GenerateReport(int HospitalID,int FinYearID)
+    #region 22.0 ClearControls
+
+    private void ClearControls()
+    {
+        //ddlFinYearID.Items.Clear();
+        //ddlFinYearID.Items.Insert(0, new ListItem("Select Fin Year", "-99"));
+        //ddlExpenseTypeID.Items.Clear();
+        //ddlExpenseTypeID.Items.Insert(0, new ListItem("Select Expense Type", "-99"));
+        //txtAmount.Text = String.Empty;
+        //dtpExpenseDate.Text = String.Empty;
+
+
+        ddlFinYearID.SelectedIndex = 0;
+        ddlHospitalID.SelectedIndex = 0;
+        CommonFunctions.BindEmptyRepeater(rpData);
+        Div_SearchResult.Visible = false;
+        Div_ExportOption.Visible = false;
+        lblRecordInfoTop.Text = CommonMessage.NoRecordFound();
+    }
+
+    #endregion 22.0 ClearControls
+
+
+
+    private void GenerateReport(SqlInt32 HospitalID, SqlInt32 FinYearID)
     {
         LedgerBAL ledgerBAL = new LedgerBAL();
-        dt = ledgerBAL.PP_ACC_IncomeExpense_Ledger(HospitalID,FinYearID);
+        dt = ledgerBAL.PP_ACC_IncomeExpense_Ledger(HospitalID, FinYearID);
         FillDataSet();
     }
 
@@ -190,7 +301,7 @@ public partial class AdminPanel_Report_Ledger_LedgerReport : System.Web.UI.Page
                 drLedger.FinYearName = Convert.ToString(dr["FinYearName"]);
             if (!dr["Hospital"].Equals(System.DBNull.Value))
                 drLedger.Hospital = Convert.ToString(dr["Hospital"]);
-            if(!dr["ParticularID"].Equals(System.DBNull.Value))
+            if (!dr["ParticularID"].Equals(System.DBNull.Value))
                 drLedger.ParticularID = Convert.ToInt32(dr["ParticularID"]);
             if (!dr["Particular"].Equals(System.DBNull.Value))
                 drLedger.Particular = Convert.ToString(dr["Particular"]);
@@ -221,6 +332,47 @@ public partial class AdminPanel_Report_Ledger_LedgerReport : System.Web.UI.Page
         this.rvLedger.LocalReport.SetParameters(new ReportParameter[] { rptReportTitle, rptReportSubTitle, });
     }
 
+
+    #region 19.0 Export Data
+
+    #region 19.1 Excel Export Button Click Event
+
+    protected void lbtnExport_Click(object sender, EventArgs e)
+    {
+        LinkButton lbtn = (LinkButton)(sender);
+        String ExportType = lbtn.CommandArgument.ToString();
+        #region Parameters
+
+        SqlDateTime FromDate = SqlDateTime.Null;
+        SqlDateTime ToDate = SqlDateTime.Null;
+
+        #endregion Parameters
+
+        #region Gather Data
+
+
+        SqlInt32 FinYearID = SqlInt32.Null;
+        SqlInt32 HospitalID = SqlInt32.Null;
+
+
+        if (ddlFinYearID.SelectedIndex > 0)
+            FinYearID = Convert.ToInt32(ddlFinYearID.SelectedValue);
+
+        if (ddlHospitalID.SelectedIndex > 0)
+            HospitalID = Convert.ToInt32(ddlHospitalID.SelectedValue);
+
+
+        #endregion Gather Data
+
+        LedgerBAL ledgerBAL = new LedgerBAL();
+
+        dt = ledgerBAL.PP_ACC_IncomeExpense_Ledger(HospitalID, FinYearID);
+        if (dt != null && dt.Rows.Count > 0)
+        {
+            ExportReport(ExportType);
+        }
+    }
+
     private void ExportReport(string format)
     {
         try
@@ -249,5 +401,14 @@ public partial class AdminPanel_Report_Ledger_LedgerReport : System.Web.UI.Page
         }
 
     }
+
+    #endregion 19.1 Excel Export Button Click Event
+
+    #endregion 19.0 Export Data
+
+
+
+
+
 
 }

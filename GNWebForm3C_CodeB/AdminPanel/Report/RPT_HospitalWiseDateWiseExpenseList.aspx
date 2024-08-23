@@ -1,41 +1,48 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default/MasterPage.master" AutoEventWireup="true" CodeFile="LedgerReport.aspx.cs" Inherits="Reports_Account_ACC_Ledger_RPT_ACC_Ledger_ByFinYearHospital_IncomeExpense_Balance" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default/MasterPage.master" AutoEventWireup="true" CodeFile="RPT_HospitalWiseDateWiseExpenseList.aspx.cs" Inherits="AdminPanel_Reports_RPT_ACC_Expense_RPT_HospitalWiseDateWiseExpenseList" %>
 
 <%@ Register Assembly="Microsoft.ReportViewer.WebForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845DCD8080CC91" Namespace="Microsoft.Reporting.WebForms" TagPrefix="rsweb" %>
 
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="cphPageHeader" runat="Server">
-    <asp:Label ID="lblPageHeader_XXXXX" runat="server" Text="Report"></asp:Label>
-    <small>
-        <asp:Label ID="lblPageHeaderInfo_XXXXX" runat="server" Text="Ledger Report"></asp:Label>
 
-    </small>
+<asp:Content ID="Content2" ContentPlaceHolderID="cphPageHeader" runat="Server">
+    <asp:Label ID="lblPageHeader_XXXXX" runat="server" Text="Hospital Wise Expense List"></asp:Label>
+    <small>
+        <asp:Label ID="lblPageHeaderInfo_XXXXX" runat="server" Text="Master"></asp:Label></small>
     <span class="pull-right">
         <small>
             <asp:HyperLink ID="hlShowHelp" SkinID="hlShowHelp" runat="server"></asp:HyperLink>
         </small>
     </span>
 </asp:Content>
-<asp:Content ID="Content6" ContentPlaceHolderID="cphBreadcrumb" runat="Server">
+
+<asp:Content ID="Content3" ContentPlaceHolderID="cphBreadcrumb" runat="Server">
     <li>
         <i class="fa fa-home"></i>
         <asp:HyperLink ID="hlHome" runat="server" NavigateUrl="~/AdminPanel/Default.aspx" Text="Home"></asp:HyperLink>
         <i class="fa fa-angle-right"></i>
     </li>
     <li class="active">
-        <asp:Label ID="lblBreadCrumbLast" runat="server" Text="Ledger Report"></asp:Label>
+        <asp:Label ID="lblBreadCrumbLast" runat="server" Text="Expense Income Ledger"></asp:Label>
     </li>
 </asp:Content>
+
+
 <asp:Content ID="Content4" ContentPlaceHolderID="cphPageContent" runat="Server">
+
+    <!--Help Text-->
     <ucHelp:ShowHelp ID="ucHelp" runat="server" />
     <!--Help Text End-->
     <asp:ScriptManager ID="sm" runat="server">
     </asp:ScriptManager>
-
-    <%-- Search --%>
     <asp:UpdatePanel ID="upApplicationFeature" runat="server">
         <ContentTemplate>
+            <div class="row">
+                <div class="col-md-12">
+                    <ucMessage:ShowMessage ID="ShowMessage1" runat="server" />
+                    <asp:ValidationSummary ID="ValidationSummary1" SkinID="VS" runat="server" />
+                </div>
+            </div>
             <div class="portlet light">
                 <div class="portlet-title">
                     <div class="caption">
@@ -52,52 +59,65 @@
 
                             <div class="row">
                                 <div class="col-md-4">
-                                    <div class="form-group">
-                                        <div class="input-group">
+
+                                    <div class="form-group  ">
+                                        <span class=" control-label">
+                                            <span class="required">*</span>
+                                            <asp:Label ID="lblHospitalID_XXXXX" runat="server" Text="Hospital"></asp:Label>
+                                        </span>
+                                        <div class=" input-group">
+
                                             <span class="input-group-addon">
                                                 <i class="fa fa-search"></i>
                                             </span>
-                                            <asp:DropDownList ID="ddlFinYearID" CssClass="form-control select2me" runat="server" AutoPostBack="True"></asp:DropDownList>
+                                            <asp:DropDownList ID="ddlHospitalID" CssClass="form-control select2me" runat="server"></asp:DropDownList>
+
                                         </div>
+                                        <asp:RequiredFieldValidator ID="rfvHospitalID" SetFocusOnError="True" runat="server" Display="Dynamic" ControlToValidate="ddlHospitalID" ErrorMessage="Select Hospital" InitialValue="-99"></asp:RequiredFieldValidator>
+
                                     </div>
+
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <div class="input-group">
-                                            <span class="input-group-addon">
-                                                <i class="fa fa-search"></i>
-                                            </span>
-                                            <asp:DropDownList ID="ddlHospitalID" CssClass="form-control select2me" runat="server" AutoPostBack="True"></asp:DropDownList>
-                                        </div>
-                                    </div>
-                                </div>
+                                        <span class=" control-label">
+                                            <span class="required">*</span>
+                                            <asp:Label ID="Label1" runat="server" Text="From Date"></asp:Label>
 
-                                <%--     <div class="col-md-4">
-                                    <div class="form-group">
+                                        </span>
                                         <div class="input-group date date-picker" data-date-format="dd-mm-yyyy">
                                             <span class="input-group-btn">
                                                 <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
                                             </span>
                                             <asp:TextBox ID="dtpFromDate" CssClass="form-control" runat="server" placeholder="From Date"></asp:TextBox>
                                         </div>
+                                        <asp:RequiredFieldValidator ID="rfvExpenseDate" runat="server" ControlToValidate="dtpFromDate" ErrorMessage="Enter From Date" Display="Dynamic" Type="Date"></asp:RequiredFieldValidator>
+
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
+                                        <span class=" control-label">
+                                            <span class="required">*</span> 
+                                            <asp:Label ID="Label2" runat="server" Text="To Date"></asp:Label>
+
+                                        </span>
                                         <div class="input-group date date-picker" data-date-format="dd-mm-yyyy">
                                             <span class="input-group-btn">
                                                 <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
                                             </span>
                                             <asp:TextBox ID="dtpToDate" CssClass="form-control" runat="server" placeholder="To Date"></asp:TextBox>
                                         </div>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="dtpToDate" ErrorMessage="Enter To Date" Display="Dynamic" Type="Date"></asp:RequiredFieldValidator>
+
                                     </div>
-                                </div>--%>
+                                </div>
                             </div>
                         </div>
                         <div class="form-actions">
                             <div class="row">
                                 <div class="col-md-9">
-                                    <asp:Button ID="btnSearch" SkinID="btnSearch" runat="server" Text="Show" OnClick="btnSearch_Click" />
+                                    <asp:Button ID="btnSearch" SkinID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click" />
                                     <asp:Button ID="btnClear" runat="server" SkinID="btnClear" Text="Clear" OnClick="btnClear_Click" />
                                 </div>
                             </div>
@@ -107,6 +127,7 @@
             </div>
         </ContentTemplate>
     </asp:UpdatePanel>
+
     <%-- List --%>
     <asp:UpdatePanel ID="upList" runat="server" UpdateMode="Conditional">
         <ContentTemplate>
@@ -115,9 +136,9 @@
                     <ucMessage:ShowMessage ID="ucMessage" runat="server" ViewStateMode="Disabled" />
                 </div>
             </div>
-            <div>
-                <rsweb:ReportViewer ID="rvLedger" runat="server" Width="100%" Height="800px" Visible="false">
-                    <LocalReport ReportPath="AdminPanel/Report/Ledger/RPT_LedgerReport.rdlc"></LocalReport>
+            <div class="row">
+                <rsweb:ReportViewer ID="rvHospitalWiseExpenseList" Visible="false" runat="server" Width="100%" Height="500px">
+                    <LocalReport ReportPath="AdminPanel/Report/RPT_HospitalWiseDateWiseExpense.rdlc"></LocalReport>
                 </rsweb:ReportViewer>
             </div>
             <div class="row">
@@ -145,7 +166,7 @@
                                                 <asp:LinkButton ID="lbtnExportPDF" runat="server" CommandArgument="PDF" OnClick="lbtnExport_Click">PDF</asp:LinkButton>
                                             </li>
                                             <li>
-                                                <asp:LinkButton ID="lbtnExportExcel" runat="server" CommandArgument="EXCEL" OnClick="lbtnExport_Click">Excel</asp:LinkButton>
+                                                <asp:LinkButton ID="lbtnExportExcel" runat="server" CommandArgument="Excel" OnClick="lbtnExport_Click">Excel</asp:LinkButton>
                                             </li>
                                         </ul>
                                     </div>
@@ -161,75 +182,63 @@
                                             <thead>
                                                 <tr class="TRDark">
                                                     <th>
-                                                        <asp:Label ID="lbhFinYearID" runat="server" Text="Fin Year"></asp:Label>
+                                                        <asp:Label ID="lbhExpenseTypeID" runat="server" Text="Expense Type"></asp:Label>
+                                                    </th>
+                                                    <th class="text-right">
+                                                        <asp:Label ID="lbhAmount" runat="server" Text="Amount"></asp:Label>
+                                                    </th>
+                                                    <th class="text-center">
+                                                        <asp:Label ID="lbhExpenseDate" runat="server" Text="Expense Date"></asp:Label>
                                                     </th>
                                                     <th>
                                                         <asp:Label ID="lbhHospitalID" runat="server" Text="Hospital"></asp:Label>
                                                     </th>
-                                                    <th class="text-center">
-                                                        <asp:Label ID="lbhTransactionDate" runat="server" Text="Transaction Date"></asp:Label>
+                                                    <th>
+                                                        <asp:Label ID="lbhFinYearID" runat="server" Text="Fin Year"></asp:Label>
                                                     </th>
-                                                   <%-- <th class="text-center">
-                                                        <asp:Label ID="lbhTransactionType" runat="server" Text="Transaction Type"></asp:Label>
-                                                    </th>--%>
-                                                    <th class="text-center">
-                                                        <asp:Label ID="Income" runat="server" Text="Income Amount"></asp:Label>
+                                                    <th>
+                                                        <asp:Label ID="lbhTagName" runat="server" Text="Tag Name"></asp:Label>
                                                     </th>
-                                                    <th class="text-center">
-                                                        <asp:Label ID="Expense" runat="server" Text="Expense Amount"></asp:Label>
-                                                    </th>
-                                                    <th class="text-center">
-                                                        <asp:Label ID="lbhBalance" runat="server" Text="Balance"></asp:Label>
+                                                    <th class="nosortsearch text-nowrap text-center">
+                                                        <asp:Label ID="lbhAction" runat="server" Text="Action"></asp:Label>
                                                     </th>
                                                 </tr>
                                             </thead>
                                             <%-- END Table Header --%>
 
                                             <tbody>
-                                                <asp:Repeater ID="rpData" runat="server">
+                                                <asp:Repeater ID="rpData" runat="server" OnItemCommand="rpData_ItemCommand">
                                                     <ItemTemplate>
                                                         <%-- Table Rows --%>
                                                         <tr class="odd gradeX">
                                                             <td>
-                                                                <%#Eval("FinYearName") %>
+                                                                <asp:HyperLink ID="hlViewExpenseID" NavigateUrl='<%# "~/AdminPanel/Account/ACC_Expense/ACC_ExpenseView.aspx?ExpenseID=" + GNForm3C.CommonFunctions.EncryptBase64(Eval("ExpenseID").ToString()) %>' data-target="#viewiFrameReg" CssClass="modalButton" data-toggle="modal" runat="server"><%#Eval("ExpenseType") %></asp:HyperLink>
+                                                            </td>
+                                                            <td class="text-right">
+                                                                <%#Eval("Amount",GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint) %>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <%#Eval("ExpenseDate", GNForm3C.CV.DefaultDateFormatForGrid) %>
                                                             </td>
                                                             <td>
                                                                 <%#Eval("Hospital") %>
                                                             </td>
-                                                            <td class="text-center">
-                                                                <%#Eval("LedgerDate", GNForm3C.CV.DefaultDateFormatForGrid) %>
-                                                              </td>
-                                                           <%-- <td class="text-center">
-                                                                <span style='<%# Eval("LedgerType").ToString() == "Income" ? "color:green;": "color:red;" %>'>
-                                                                    <%# Eval("LedgerType") %>
-                                                                </span>
-                                                            </td>--%>
-                                                            <td class="text-center">
-                                                                <span style="color: green;">
-                                                                    <%# Eval("LedgerType").ToString() == "Income" ? Eval("Particular").ToString() : "" %>
-
-                                                                </span>
-                                                                <br />
-                                                                <span style="color: green;">
-                                                                    <%# Eval("LedgerType").ToString() == "Income" ? Eval("LedgerAmount").ToString() : "" %>
-                                                                </span>
+                                                            <td>
+                                                                <%#Eval("FinYearName") %>
                                                             </td>
-                                                            <td class="text-center">
-                                                                <span style="color: red;">
-                                                                    <%# Eval("LedgerType").ToString() != "Income" ? Eval("Particular").ToString() : "" %>
-                                                                </span>
-                                                                <br />
-                                                                <span style="color: red;">
-                                                                    <%# Eval("LedgerType").ToString() != "Income" ? Eval("LedgerAmount").ToString() : "" %>
-                                                                </span>
+                                                            <td>
+                                                                <%#Eval("TagName") %>
                                                             </td>
-
-                                                            <td class="text-right">
-                                                                <span id="lblTotalAmount" style='<%# Eval("LedgerType").ToString() == "Income" ? "color:green;": "color:red;" %>'>
-                                                                    <%# Eval("LedgerAmount") %>
-                                                                </span>
+                                                            <td class="text-nowrap text-center">
+                                                                <asp:HyperLink ID="hlView" SkinID="View" NavigateUrl='<%# "~/AdminPanel/Account/ACC_Expense/ACC_ExpenseView.aspx?ExpenseID=" + GNForm3C.CommonFunctions.EncryptBase64(Eval("ExpenseID").ToString()) %>' data-target="#viewiFrameReg" data-toggle="modal" runat="server"></asp:HyperLink>
+                                                                <asp:HyperLink ID="hlEdit" SkinID="Edit" NavigateUrl='<%# "~/AdminPanel/Account/ACC_Expense/ACC_ExpenseAddEdit.aspx?ExpenseID=" + GNForm3C.CommonFunctions.EncryptBase64(Eval("ExpenseID").ToString()) %>' runat="server"></asp:HyperLink>
+                                                                <asp:LinkButton ID="lbtnDelete" runat="server"
+                                                                    SkinID="Delete"
+                                                                    OnClientClick="javascript:return confirm('Are you sure you want to delete record ? ');"
+                                                                    CommandName="DeleteRecord"
+                                                                    CommandArgument='<%#Eval("ExpenseID") %>'>
+                                                                </asp:LinkButton>
                                                             </td>
-
                                                         </tr>
                                                         <%-- END Table Rows --%>
                                                     </ItemTemplate>
@@ -238,19 +247,7 @@
                                         </table>
                                     </div>
 
-                                    <%-- Pagination --%>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <label class="control-label">
-                                                <%-- <asp:Label ID="lblRecordInfoBottom" Text="No entries found" runat="server">
 
-                                                </asp:Label>--%>
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                    </div>
-                                    <%-- END Pagination --%>
                                 </div>
                             </div>
                         </div>
@@ -280,9 +277,4 @@
     <%-- END Loading  --%>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="cphScripts" runat="Server">
-    <script>
-
-
-        SearchGridUI('<%=btnSearch.ClientID%>', 'sample_1', 1);
-    </script>
 </asp:Content>
