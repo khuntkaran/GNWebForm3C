@@ -82,6 +82,7 @@
                                                 ID="AutoCompleteExtender1"
                                                 runat="server"
                                                 TargetControlID="txtAutoComplete"
+                                                
                                                 ServiceMethod="GetSuggestions"
                                                 ServicePath="~/AdminPanel/Employee/EMP_EmployeeDetail/AutoCompleteService.asmx"
                                                 MinimumPrefixLength="1"
@@ -284,31 +285,7 @@
 
         SearchGridUI('<%=btnSearch.ClientID%>', 'sample_1', 1);
     </script>
-    <script type="text/javascript">
-        $(function () {
-            $("#<%= txtSearch.ClientID %>").autocomplete({
-                source: function (request, response) {
-                    $.ajax({
-                        url: '<%= ResolveUrl("~/AutoCompleteHandler.asmx") %>',
-                        data: { term: request.term },
-                        dataType: "json",
-                        success: function (data) {
-                            response($.map(data, function (item) {
-                                return {
-                                    label: item.Label, // Displayed text in the dropdown
-                                    value: item.Value  // Actual value of the textbox
-                                };
-                            }));
-                        }
-                    });
-                },
-                minLength: 2, // Minimum number of characters before autocomplete activates
-                select: function (event, ui) {
-                    // Any action you want when an item is selected
-                }
-            });
-        });
-    </script>
+    
 
 </asp:Content>
 
