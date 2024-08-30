@@ -411,3 +411,19 @@ AS
 SELECT [EmployeeTypeID]
       ,[EmployeeTypeName]      
   FROM [dbo].[EMP_EmployeeType]
+
+GO
+
+alter PROCEDURE [dbo].[PR_EMP_GetEmployeeNames]
+    @PrefixText NVARCHAR(50),
+    @EmployeeTypeID INT
+AS
+BEGIN
+    SELECT EmployeeName
+    FROM	EMP_EmployeeDetail
+    WHERE EmployeeName LIKE '%'+ @PrefixText + '%'
+      or EmployeeTypeID = @EmployeeTypeID
+END
+GO
+
+-- [dbo].[PR_EMP_GetEmployeeNames] @PrefixText = 'haa' , @EmployeeTypeID =2

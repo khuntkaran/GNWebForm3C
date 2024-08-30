@@ -8,6 +8,8 @@ using System.Data;
 using System.Linq;
 using System.Web;
 using GNForm3C.ENT;
+using Microsoft.Practices.EnterpriseLibrary.Data;
+using ZXing;
 
 /// <summary>
 /// Summary description for EMP_EmployeeDetailDALBase
@@ -37,7 +39,7 @@ namespace GNForm3C.DAL
         #region Constructor
         public EMP_EmployeeDetailDALBase()
         {
-           
+
         }
         #endregion Constructor
 
@@ -167,8 +169,8 @@ namespace GNForm3C.DAL
 
                 sqlDB.AddInParameter(dbCMD, "@EmployeeID", SqlDbType.Int, EmployeeID);
 
-                EMP_EmployeeDetailENT entEMP_EmployeeDetail= new EMP_EmployeeDetailENT();
-                
+                EMP_EmployeeDetailENT entEMP_EmployeeDetail = new EMP_EmployeeDetailENT();
+
                 DataBaseHelper DBH = new DataBaseHelper();
                 using (IDataReader dr = DBH.ExecuteReader(sqlDB, dbCMD))
                 {
@@ -314,6 +316,48 @@ namespace GNForm3C.DAL
                 return null;
             }
         }
+
+        public List<string> GetEmployeeNames(SqlString prefixText, SqlInt32 employeeTypeID)
+        {
+            try
+            {
+                SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("PR_EMP_GetEmployeeNames");
+
+                sqlDB.AddInParameter(dbCMD, "@PrefixText", SqlDbType.VarChar, prefixText);
+                sqlDB.AddInParameter(dbCMD, "@EmployeeTypeID", SqlDbType.Int, employeeTypeID);
+
+                DataTable dtEMP_EmployeeDetail = new DataTable("PR_EMP_GetEmployeeNames");
+
+                DataBaseHelper DBH = new DataBaseHelper();
+                DBH.LoadDataTable(sqlDB, dbCMD, dtEMP_EmployeeDetail);
+
+                List<string> employeeNames = new List<string>();
+
+                foreach (DataRow row in dtEMP_EmployeeDetail.Rows)
+                {
+                    employeeNames.Add(row["EmployeeName"].ToString());
+                }
+
+                return employeeNames;
+            }
+            catch (SqlException sqlex)
+            {
+                Message = SQLDataExceptionMessage(sqlex);
+                if (SQLDataExceptionHandler(sqlex))
+                    throw;
+                return null;
+            }
+            catch (Exception ex)
+            {
+                Message = ExceptionMessage(ex);
+                if (ExceptionHandler(ex))
+                    throw;
+                return null;
+            }
+
+        }
+
         #endregion SelectOperation
     }
 }

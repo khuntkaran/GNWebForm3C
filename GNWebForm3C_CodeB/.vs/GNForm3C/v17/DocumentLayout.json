@@ -1,7 +1,28 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|e:\\gnwebform3c\\gnwebform3c_codeb\\adminpanel\\employee\\emp_employeedetail\\emp_employeedetaillist.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:adminpanel\\employee\\emp_employeedetail\\emp_employeedetaillist.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|e:\\gnwebform3c\\gnwebform3c_codeb\\app_code\\autocompleteservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:app_code\\autocompleteservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|e:\\gnwebform3c\\gnwebform3c_codeb\\adminpanel\\employee\\emp_employeedetail\\autocompleteservice.asmx||{FB9167C9-D3B8-4EDA-8083-9AF6B6F6DA62}",
+      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:adminpanel\\employee\\emp_employeedetail\\autocompleteservice.asmx||{FB9167C9-D3B8-4EDA-8083-9AF6B6F6DA62}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|e:\\gnwebform3c\\gnwebform3c_codeb\\adminpanel\\employee\\emp_employeedetail\\emp_employeedetaillist.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:adminpanel\\employee\\emp_employeedetail\\emp_employeedetaillist.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|e:\\gnwebform3c\\gnwebform3c_codeb\\app_code\\dal\\employee\\emp_employeedetaildalbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:app_code\\dal\\employee\\emp_employeedetaildalbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -18,6 +39,73 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "EMP_EmployeeDetailList.aspx.cs",
+              "DocumentMoniker": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\AdminPanel\\Employee\\EMP_EmployeeDetail\\EMP_EmployeeDetailList.aspx.cs",
+              "RelativeDocumentMoniker": "AdminPanel\\Employee\\EMP_EmployeeDetail\\EMP_EmployeeDetailList.aspx.cs",
+              "ToolTip": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\AdminPanel\\Employee\\EMP_EmployeeDetail\\EMP_EmployeeDetailList.aspx.cs",
+              "RelativeToolTip": "AdminPanel\\Employee\\EMP_EmployeeDetail\\EMP_EmployeeDetailList.aspx.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAABcAAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-30T05:09:36.485Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "EMP_EmployeeDetailList.aspx",
+              "DocumentMoniker": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\AdminPanel\\Employee\\EMP_EmployeeDetail\\EMP_EmployeeDetailList.aspx",
+              "RelativeDocumentMoniker": "AdminPanel\\Employee\\EMP_EmployeeDetail\\EMP_EmployeeDetailList.aspx",
+              "ToolTip": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\AdminPanel\\Employee\\EMP_EmployeeDetail\\EMP_EmployeeDetailList.aspx",
+              "RelativeToolTip": "AdminPanel\\Employee\\EMP_EmployeeDetail\\EMP_EmployeeDetailList.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-08-30T05:09:13.463Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "EMP_EmployeeDetailDALBase.cs",
+              "DocumentMoniker": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\App_Code\\DAL\\Employee\\EMP_EmployeeDetailDALBase.cs",
+              "RelativeDocumentMoniker": "App_Code\\DAL\\Employee\\EMP_EmployeeDetailDALBase.cs",
+              "ToolTip": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\App_Code\\DAL\\Employee\\EMP_EmployeeDetailDALBase.cs",
+              "RelativeToolTip": "App_Code\\DAL\\Employee\\EMP_EmployeeDetailDALBase.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAkwGsBAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-30T07:16:47.783Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AutoCompleteService.asmx",
+              "DocumentMoniker": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\AdminPanel\\Employee\\EMP_EmployeeDetail\\AutoCompleteService.asmx",
+              "RelativeDocumentMoniker": "AdminPanel\\Employee\\EMP_EmployeeDetail\\AutoCompleteService.asmx",
+              "ToolTip": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\AdminPanel\\Employee\\EMP_EmployeeDetail\\AutoCompleteService.asmx",
+              "RelativeToolTip": "AdminPanel\\Employee\\EMP_EmployeeDetail\\AutoCompleteService.asmx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003504|",
+              "WhenOpened": "2024-08-30T06:33:00.353Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AutoCompleteService.cs",
+              "DocumentMoniker": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\App_Code\\AutoCompleteService.cs",
+              "RelativeDocumentMoniker": "App_Code\\AutoCompleteService.cs",
+              "ToolTip": "E:\\GNWebForm3C\\GNWebForm3C_CodeB\\App_Code\\AutoCompleteService.cs",
+              "RelativeToolTip": "App_Code\\AutoCompleteService.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAABMAAABZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-30T06:27:16.928Z",
+              "EditorCaption": ""
             }
           ]
         }

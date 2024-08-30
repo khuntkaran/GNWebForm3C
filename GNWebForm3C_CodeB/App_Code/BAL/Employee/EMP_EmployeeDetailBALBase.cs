@@ -123,6 +123,12 @@ namespace GNForm3C.BAL
             return dalEMP_EmployeeDetail.SelectShow(EmployeeTypeID);
         }
 
-        #endregion SelectOperation
-    }
+        public List<string> GetEmployeeNames(SqlString prefixText, SqlInt32 employeeTypeID)
+        {
+            EMP_EmployeeDetailDAL dalEMP_EmployeeDetail = new EMP_EmployeeDetailDAL();
+            return dalEMP_EmployeeDetail.GetEmployeeNames(prefixText,employeeTypeID);
+        }
+
+            #endregion SelectOperation
+        }
 }

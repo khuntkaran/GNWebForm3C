@@ -408,4 +408,6 @@ public partial class AdminPanel_Employee_EMP_EmployeeDetail_EMP_EmployeeDetailLi
     }
 
     #endregion 22.0 ClearControls
+
+   
 }
