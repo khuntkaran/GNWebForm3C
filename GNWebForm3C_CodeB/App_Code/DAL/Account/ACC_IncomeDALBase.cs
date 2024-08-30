@@ -125,28 +125,19 @@ namespace GNForm3C.DAL
 			}
 		}
 
-		#endregion UpdateOperation
+        #endregion UpdateOperation
 
         #region UpsertOperation
 
-        public Boolean Upsert(ACC_IncomeENT entACC_Income)
+        public Boolean Upsert(DataTable dtIncomeTable)
         {
             try
             {
                 SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
-                DbCommand dbCMD = sqlDB.GetStoredProcCommand("PR_ACC_Income_UPSERT");
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("PR_ACC_Income_Upsert");
 
-                sqlDB.AddInParameter(dbCMD, "@IncomeID", SqlDbType.Int, entACC_Income.IncomeID);
-                sqlDB.AddInParameter(dbCMD, "@IncomeTypeID", SqlDbType.Int, entACC_Income.IncomeTypeID);
-                sqlDB.AddInParameter(dbCMD, "@Amount", SqlDbType.Decimal, entACC_Income.Amount);
-                sqlDB.AddInParameter(dbCMD, "@IncomeDate", SqlDbType.DateTime, entACC_Income.IncomeDate);
-                sqlDB.AddInParameter(dbCMD, "@Note", SqlDbType.NVarChar, entACC_Income.Note);
-                sqlDB.AddInParameter(dbCMD, "@HospitalID", SqlDbType.Int, entACC_Income.HospitalID);
-                sqlDB.AddInParameter(dbCMD, "@FinYearID", SqlDbType.Int, entACC_Income.FinYearID);
-                //sqlDB.AddInParameter(dbCMD, "@Remarks", SqlDbType.NVarChar, entACC_Income.Remarks);
-                sqlDB.AddInParameter(dbCMD, "@UserID", SqlDbType.Int, entACC_Income.UserID);
-                sqlDB.AddInParameter(dbCMD, "@Created", SqlDbType.DateTime, entACC_Income.Created);
-                sqlDB.AddInParameter(dbCMD, "@Modified", SqlDbType.DateTime, entACC_Income.Modified);
+                sqlDB.AddInParameter(dbCMD, "@dtIncomeTable", SqlDbType.Structured, dtIncomeTable);
+
 
                 DataBaseHelper DBH = new DataBaseHelper();
                 DBH.ExecuteNonQuery(sqlDB, dbCMD);
@@ -168,7 +159,6 @@ namespace GNForm3C.DAL
                 return false;
             }
         }
-
         #endregion UpsertOperation
 
         #region DeleteOperation

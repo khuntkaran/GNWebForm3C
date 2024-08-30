@@ -64,7 +64,7 @@
                                 <asp:Label ID="lblEmployeeName_XXXXX" runat="server" Text="Employee Name"></asp:Label>
                             </label>
                             <div class="col-md-5">
-                                <asp:TextBox ID="txtEmployeeName" CssClass="form-control" runat="server" PlaceHolder="Enter Expense Type"></asp:TextBox>
+                                <asp:TextBox ID="txtEmployeeName" CssClass="form-control" runat="server" PlaceHolder="Enter Employee Name"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="rfvEmployeeName" SetFocusOnError="True" Display="Dynamic" runat="server" ControlToValidate="txtEmployeeName" ErrorMessage="Enter Employee Name"></asp:RequiredFieldValidator>
                             </div>
                         </div>

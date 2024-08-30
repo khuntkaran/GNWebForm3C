@@ -140,6 +140,7 @@
                             <div class="tools">
                                 <div>
                                     <asp:LinkButton ID="btnDeleteAll" runat="server" SkinID="lbtnMultipleDelete" OnClick="DeleteAll" />
+                                    <asp:HyperLink SkinID="hlAddMany" ID="HyperLink1" NavigateUrl="~/AdminPanel/Account/ACC_Income/ACC_IncomeAddEditManyDataTable.aspx" runat="server"></asp:HyperLink>
                                     <asp:HyperLink SkinID="hlAddMany" ID="hlAddMany" NavigateUrl="~/AdminPanel/Account/ACC_Income/ACC_IncomeAddEditMany.aspx" runat="server"></asp:HyperLink>
                                     <asp:HyperLink SkinID="hlAddNew" ID="hlAddNew" NavigateUrl="~/AdminPanel/Account/ACC_Income/ACC_IncomeAddEdit.aspx" runat="server"></asp:HyperLink>
                                     <div class="btn-group" runat="server" id="Div_ExportOption" visible="false">
@@ -196,12 +197,12 @@
                                                     <ItemTemplate>
                                                         <%-- Table Rows --%>
                                                         <tr class="odd gradeX">
-                                                            
-                                                             <td class="text-center ">
-                                                                <asp:CheckBox runat="server" ID="chkIsSelected"  />
-                                                                 <asp:HiddenField ID="hdIncomeID" runat="server" Value='<%#Eval("IncomeID") %>' />
-                                                             </td>
-                                                            
+
+                                                            <td class="text-center ">
+                                                                <asp:CheckBox runat="server" ID="chkIsSelected" />
+                                                                <asp:HiddenField ID="hdIncomeID" runat="server" Value='<%#Eval("IncomeID") %>' />
+                                                            </td>
+
                                                             <td>
                                                                 <asp:HyperLink ID="hlViewIncomeID" NavigateUrl='<%# "~/AdminPanel/Account/ACC_Income/ACC_IncomeView.aspx?IncomeID=" + GNForm3C.CommonFunctions.EncryptBase64(Eval("IncomeID").ToString()) %>' data-target="#viewiFrameReg" CssClass="modalButton" data-toggle="modal" runat="server"><%#Eval("IncomeType") %></asp:HyperLink>
                                                             </td>
