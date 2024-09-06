@@ -82,7 +82,6 @@
                                                 ID="AutoCompleteExtender1"
                                                 runat="server"
                                                 TargetControlID="txtAutoComplete"
-                                                
                                                 ServiceMethod="GetSuggestions"
                                                 ServicePath="~/AdminPanel/Employee/EMP_EmployeeDetail/AutoCompleteService.asmx"
                                                 MinimumPrefixLength="1"
@@ -91,7 +90,9 @@
                                                 CompletionListHighlightedItemCssClass="list-group-item bg-grey "
                                                 CompletionInterval="1000"
                                                 EnableCaching="true"
-                                                CompletionSetCount="10">
+                                                CompletionSetCount="10"
+                                                UseContextKey="true"
+                                                ContextKey="<%# ddlEmployeeTypeID.SelectedValue.ToString() %>">
                                             </ajaxToolkit:AutoCompleteExtender>
                                         </div>
                                     </div>
