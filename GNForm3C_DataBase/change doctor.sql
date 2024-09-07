@@ -688,3 +688,82 @@ GO
 delete from MST_Patient where PatientID >10
 
  
+create PROCEDURE [dbo].[PR_ACC_Income_Upsert_XML]
+    @xmlData XML
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    DECLARE @StartTime  datetime;
+    DECLARE @EndTime    datetime;
+
+    SET @StartTime = [dbo].[GetServerDateTime]();
+
+    BEGIN TRY
+        BEGIN TRANSACTION;
+
+        -- Insert Operation
+        INSERT INTO [dbo].[ACC_Income]
+        (
+            [IncomeTypeID],
+            [Amount],
+            [IncomeDate],
+            [Note],
+            [HospitalID],
+            [FinYearID],
+            [UserID],
+            [Created],
+            [Modified]
+        )
+        SELECT
+            x.value('(IncomeTypeID)[1]', 'INT'),
+            x.value('(Amount)[1]', 'DECIMAL(18, 2)'),
+            CONVERT(DATETIME, x.value('(IncomeDate)[1]', 'NVARCHAR(10)'), 105), -- Converts dd-MM-yyyy to DATETIME
+            x.value('(Note)[1]', 'NVARCHAR(MAX)'),
+            x.value('(HospitalID)[1]', 'INT'),
+            x.value('(FinYearID)[1]', 'INT'),
+            x.value('(UserID)[1]', 'INT'),
+            CONVERT(DATETIME, x.value('(Created)[1]', 'NVARCHAR(10)'), 105), -- Converts dd-MM-yyyy to DATETIME
+            CONVERT(DATETIME, x.value('(Modified)[1]', 'NVARCHAR(10)'), 105) -- Converts dd-MM-yyyy to DATETIME
+        FROM @xmlData.nodes('/IncomeList/Income') AS t(x)
+        WHERE x.value('(Operation)[1]', 'CHAR(1)') = 'I';
+
+        -- Update Operation
+        UPDATE [dbo].[ACC_Income]
+        SET
+            [ACC_Income].[IncomeTypeID] = x.value('(IncomeTypeID)[1]', 'INT'),
+            [ACC_Income].[Amount] = x.value('(Amount)[1]', 'DECIMAL(18, 2)'),
+            [ACC_Income].[IncomeDate] = CONVERT(DATETIME, x.value('(IncomeDate)[1]', 'NVARCHAR(10)'), 105), -- Converts dd-MM-yyyy to DATETIME
+            [ACC_Income].[Note] = x.value('(Note)[1]', 'NVARCHAR(MAX)'),
+            [ACC_Income].[HospitalID] = x.value('(HospitalID)[1]', 'INT'),
+            [ACC_Income].[FinYearID] = x.value('(FinYearID)[1]', 'INT'),
+            [ACC_Income].[UserID] = x.value('(UserID)[1]', 'INT'),
+            [ACC_Income].[Created] = CONVERT(DATETIME, x.value('(Created)[1]', 'NVARCHAR(10)'), 105), -- Converts dd-MM-yyyy to DATETIME
+            [ACC_Income].[Modified] = CONVERT(DATETIME, x.value('(Modified)[1]', 'NVARCHAR(10)'), 105) -- Converts dd-MM-yyyy to DATETIME
+        FROM
+            [dbo].[ACC_Income]
+        INNER JOIN @xmlData.nodes('/IncomeList/Income') AS t(x)
+            ON [ACC_Income].[IncomeID] = x.value('(IncomeID)[1]', 'INT')
+        WHERE
+            x.value('(Operation)[1]', 'CHAR(1)') = 'U';
+
+        -- Delete Operation
+        DELETE FROM [dbo].[ACC_Income]
+        WHERE [ACC_Income].[IncomeID] IN (
+            SELECT x.value('(IncomeID)[1]', 'INT')
+            FROM @xmlData.nodes('/IncomeList/Income') AS t(x)
+            WHERE x.value('(Operation)[1]', 'CHAR(1)') = 'D'
+        );
+
+        COMMIT TRANSACTION;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRANSACTION;
+        THROW;
+    END CATCH;
+
+    SET @EndTime = [dbo].[GetServerDateTime]();
+
+    RETURN 0;
+END;
+GO

@@ -140,7 +140,11 @@
                             <div class="tools">
                                 <div>
                                     <asp:LinkButton ID="btnDeleteAll" runat="server" SkinID="lbtnMultipleDelete" OnClick="DeleteAll" />
+                                    <span>XML : </span>
+                                    <asp:HyperLink SkinID="hlAddMany" ID="HyperLink2" NavigateUrl="~/AdminPanel/Account/ACC_Income/ACC_IncomeAddEditManyXML.aspx" runat="server"></asp:HyperLink>
+                                    <span>DataTable : </span>
                                     <asp:HyperLink SkinID="hlAddMany" ID="HyperLink1" NavigateUrl="~/AdminPanel/Account/ACC_Income/ACC_IncomeAddEditManyDataTable.aspx" runat="server"></asp:HyperLink>
+                                    <span>Foreach : </span>
                                     <asp:HyperLink SkinID="hlAddMany" ID="hlAddMany" NavigateUrl="~/AdminPanel/Account/ACC_Income/ACC_IncomeAddEditMany.aspx" runat="server"></asp:HyperLink>
                                     <asp:HyperLink SkinID="hlAddNew" ID="hlAddNew" NavigateUrl="~/AdminPanel/Account/ACC_Income/ACC_IncomeAddEdit.aspx" runat="server"></asp:HyperLink>
                                     <div class="btn-group" runat="server" id="Div_ExportOption" visible="false">

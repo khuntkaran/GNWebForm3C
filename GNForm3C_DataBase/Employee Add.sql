@@ -138,6 +138,13 @@ CREATE PROCEDURE [dbo].[PR_EMP_EmployeeDetail_Delete]
 AS
 
 SET NOCOUNT ON;
+DECLARE @EmployeeName VARCHAR(100),
+            @EmployeeTypeID INT,
+            @Remarks varchar(max),
+            @UserID INT,
+            @Created DATETIME,
+            @Modified DATETIME;
+
 
 DECLARE	@StartTime	datetime
 DECLARE	@EndTime	datetime
@@ -146,10 +153,17 @@ SET		@StartTime = [dbo].[GetServerDateTime]();
 BEGIN TRY
 BEGIN TRAN
 
+ SELECT @EmployeeName = EmployeeName, @EmployeeTypeID = EmployeeTypeID, 
+               @Remarks = Remarks, @UserID = UserID, @Created = Created, 
+               @Modified = Modified
+        FROM [dbo].[EMP_EmployeeDetail]
+        WHERE EmployeeID = @EmployeeID;
+
 DELETE FROM [dbo].[EMP_EmployeeDetail]
 WHERE [dbo].[EMP_EmployeeDetail].[EmployeeID] = @EmployeeID
 
-
+ -- Log the delete operation
+        EXEC PR_LOG_EMP_EmployeeDetail_Operation @EmployeeID= @EmployeeID, @EmployeeName= @EmployeeName,@EmployeeTypeID= @EmployeeTypeID,@Remarks= @Remarks,@UserID= @UserID,@Created= @Created, @Modified=@Modified, @Operation='D';
 COMMIT TRAN
 END TRY
 
@@ -209,6 +223,10 @@ VALUES
 
 SET @EmployeeID = SCOPE_IDENTITY()
 
+-- Log the delete operation
+        EXEC PR_LOG_EMP_EmployeeDetail_Operation @EmployeeID= @EmployeeID, @EmployeeName= @EmployeeName,@EmployeeTypeID= @EmployeeTypeID,@Remarks= @Remarks,@UserID= @UserID,@Created= @Created, @Modified=@Modified, @Operation='I';
+
+
 COMMIT TRAN
 END TRY
 
@@ -256,6 +274,10 @@ SET
 		[Created] = @Created,
 		[Modified] = @Modified
 WHERE [dbo].[EMP_EmployeeDetail].[EmployeeID] = @EmployeeID 
+
+
+-- Log the delete operation
+        EXEC PR_LOG_EMP_EmployeeDetail_Operation @EmployeeID= @EmployeeID, @EmployeeName= @EmployeeName,@EmployeeTypeID= @EmployeeTypeID,@Remarks= @Remarks,@UserID= @UserID,@Created= @Created, @Modified=@Modified, @Operation='U';
 
 COMMIT TRAN
 END TRY
@@ -427,3 +449,41 @@ END
 GO
 
 -- [dbo].[PR_EMP_GetEmployeeNames] @PrefixText = 'haa' , @EmployeeTypeID =2
+
+
+
+
+-- log table
+
+CREATE TABLE LOG_EMP_EmployeeDetail (
+    LogID INT PRIMARY KEY IDENTITY(1,1),    -- Auto-incremented log ID
+    EmployeeID INT,                         -- Foreign key to the original EmployeeID
+    EmployeeName VARCHAR(100),              -- Copy of EmployeeName
+    EmployeeTypeID INT,                     -- Copy of EmployeeTypeID
+    Remarks varchar(max),                           -- Copy of Remarks
+    UserID INT,                             -- Copy of UserID
+    Created DATETIME,                       -- Copy of Created date
+    Modified DATETIME,                      -- Copy of Modified date
+    Operation VARCHAR(50),                  -- Type of operation (INSERT, UPDATE, DELETE)
+    LogTimestamp DATETIME DEFAULT GETDATE() -- Timestamp when the operation was logged
+);
+GO
+
+
+CREATE PROCEDURE PR_LOG_EMP_EmployeeDetail_Operation
+    @EmployeeID INT,
+    @EmployeeName VARCHAR(100),
+    @EmployeeTypeID INT,
+    @Remarks varchar(max),
+    @UserID INT,
+    @Created DATETIME,
+    @Modified DATETIME,
+    @Operation VARCHAR(50)
+AS
+BEGIN
+    INSERT INTO LOG_EMP_EmployeeDetail (EmployeeID, EmployeeName, EmployeeTypeID, Remarks, UserID, Created, Modified, Operation)
+    VALUES (@EmployeeID, @EmployeeName, @EmployeeTypeID, @Remarks, @UserID, @Created, @Modified, @Operation);
+END;
+GO
+
+select  * from LOG_EMP_EmployeeDetail

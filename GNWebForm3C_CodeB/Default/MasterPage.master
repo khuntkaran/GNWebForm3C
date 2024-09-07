@@ -349,6 +349,11 @@
                                 </a>
                                 <ul class="sub-menu" style="display: none;">
                                     <li class="nav-item  ">
+                                        <a href='<%=ResolveClientUrl("~/AdminPanel/Account/ACC_Chart/ACC_ChartIncomeExpenseByFinYearHospital.aspx") %>' class="nav-link ">
+                                            <span class="title">Account Chart</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item  ">
                                         <a href='<%=ResolveClientUrl("~/AdminPanel/Account/ACC_Expense/ExpInm_LedgerList.aspx") %>' class="nav-link ">
                                             <span class="title">Account Ledger</span>
                                         </a>
