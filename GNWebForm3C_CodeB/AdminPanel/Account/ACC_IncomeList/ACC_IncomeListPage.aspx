@@ -54,11 +54,14 @@
                                     <!-- Nested Repeater for Hospitals, Financial Years, and Incomes -->
                                     <asp:Repeater ID="rptHospitals" runat="server" OnItemCommand="rptHospitals_ItemCommand">
                                         <HeaderTemplate>
-                                            <table class="table table-bordered table-striped ">
+                                            <table class="table table-bordered table-advanced table-striped">
                                                 <thead>
-                                                    <tr>
-                                                        <th style="width: 5%;">Action</th>
+                                                    <tr class="TRDark">
+                                                        <th style="width: 5%;" class="text-center">Action</th>
                                                         <th>Hospital</th>
+                                                        <th>PrintName</th>
+                                                        <th>PrintLine1</th>
+                                                        <th>Remarks</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -66,26 +69,32 @@
 
                                         <ItemTemplate>
                                             <tr>
-                                                <td>
-                                                    <asp:Button ID="btnShowFinYears" runat="server" ClientIDMode="Static" Text="+" CommandName="LoadFinYears" CommandArgument='<%# Eval("HospitalID") %>' />
+                                                <td class="text-center">
+                                                    <asp:Button ID="btnShowFinYears" runat="server" CssClass="btn btn-transparent rounded btn-xs btn-outline green-jungle active tooltips rounded-button" ClientIDMode="Static" Text="+" CommandName="LoadFinYears" CommandArgument='<%# Eval("HospitalID") %>' />
                                                 </td>
                                                 <td><%# Eval("Hospital") %></td>
+                                                <td><%# Eval("PrintName") %></td>
+                                                <td><%# Eval("PrintLine1") %></td>
+                                                <td><%# Eval("Remarks") %></td>
                                                 <asp:HiddenField ID="hdnHospitalID" runat="server" Value='<%# Eval("HospitalID") %>' />
                                             </tr>
                                             <asp:Panel ID="pnlFinYears" runat="server" Visible="false">
                                                 <!-- Financial Year Repeater -->
                                                 <tr id="" display="none">
                                                     <td></td>
-                                                    <td colspan="">
+                                                    <td colspan="4">
                                                         <div>
                                                             <asp:Repeater ID="rptFinYears" runat="server" OnItemCommand="rptFinYears_ItemCommand">
                                                                 <HeaderTemplate>
                                                                     <table class="table table-bordered table-striped">
                                                                         <thead>
-                                                                            <tr>
-                                                                                <th style="width: 5%;">Action</th>
+                                                                            <tr class="TRDark">
+                                                                                <th style="width: 5%;" class="text-center">Action</th>
 
                                                                                 <th>Financial Year</th>
+                                                                                <th>FromDate</th>
+                                                                                <th>ToDate</th>
+                                                                                <th>Remarks</th>
                                                                             </tr>
                                                                         </thead>
                                                                         <tbody>
@@ -94,9 +103,12 @@
                                                                 <ItemTemplate>
                                                                     <tr>
                                                                         <td>
-                                                                            <asp:Button ID="btnShowIncomes" runat="server" Text="+" CommandName="LoadIncomes" CommandArgument='<%# Eval("FinYearID") %>' />
+                                                                            <asp:Button ID="btnShowIncomes" runat="server" class="text-center" CssClass="btn btn-transparent rounded btn-xs btn-outline green-jungle active tooltips rounded-button" Text="+" CommandName="LoadIncomes" CommandArgument='<%# Eval("FinYearID") %>' />
                                                                         </td>
                                                                         <td><%# Eval("FinYearName") %></td>
+                                                                        <td><%# Eval("FromDate",GNForm3C.CV.DefaultDateFormatForGrid) %></td>
+                                                                        <td><%# Eval("ToDate",GNForm3C.CV.DefaultDateFormatForGrid) %></td>
+                                                                        <td><%# Eval("Remarks") %></td>
 
                                                                     </tr>
 
@@ -104,14 +116,15 @@
                                                                         <!-- Income Repeater -->
                                                                         <tr>
                                                                             <td></td>
-                                                                            <td colspan="">
+                                                                            <td colspan="4">
                                                                                 <asp:Repeater ID="rptIncomes" runat="server">
                                                                                     <HeaderTemplate>
-                                                                                        <table class="table table-bordered table-striped">
+                                                                                        <table class="table table-bordered table-advanced table-striped table-hover">
                                                                                             <thead>
-                                                                                                <tr>
+                                                                                                <tr class="TRDark">
+                                                                                                    <th class="text-center">Sr.</th>
                                                                                                     <th>Income Type</th>
-                                                                                                    <th>Amount</th>
+                                                                                                    <th class="text-right">Amount</th>
                                                                                                     <th>Date</th>
                                                                                                     <th>Note</th>
                                                                                                 </tr>
@@ -121,8 +134,9 @@
 
                                                                                     <ItemTemplate>
                                                                                         <tr>
+                                                                                            <td class="text-center"><%# Container.ItemIndex+1 %></td>
                                                                                             <td><%# Eval("IncomeType") %></td>
-                                                                                            <td><%# Eval("Amount",GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint) %></td>
+                                                                                            <td class="text-right"><%# Eval("Amount",GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint) %></td>
                                                                                             <td><%# Eval("IncomeDate",GNForm3C.CV.DefaultDateFormatForGrid) %></td>
                                                                                             <td><%# Eval("Note") %></td>
                                                                                         </tr>
@@ -131,6 +145,8 @@
                                                                                     <FooterTemplate>
                                                                                         </tbody>
                                                                                 </table>
+                                                                                   
+                                                                                   
                                                                                     </FooterTemplate>
                                                                                 </asp:Repeater>
                                                                             </td>
@@ -141,6 +157,8 @@
                                                                 <FooterTemplate>
                                                                     </tbody>
                                                                 </table>
+                                                               
+                                                               
                                                                 </FooterTemplate>
                                                             </asp:Repeater>
                                                         </div>
@@ -152,6 +170,8 @@
                                         <FooterTemplate>
                                             </tbody>
                                             </table>
+                                       
+                                       
                                         </FooterTemplate>
                                     </asp:Repeater>
                                 </div>
@@ -170,7 +190,7 @@
 
 <asp:Content ID="Content5" ContentPlaceHolderID="cphScripts" runat="Server">
     <script type="text/javascript">
-        
 
-    </script>
+
+</script>
 </asp:Content>

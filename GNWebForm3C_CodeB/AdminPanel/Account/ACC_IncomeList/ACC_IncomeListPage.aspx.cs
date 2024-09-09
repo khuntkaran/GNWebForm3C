@@ -44,10 +44,12 @@ public partial class AdminPanel_Account_ACC_IncomeList_ACC_IncomeListPage : Syst
                 {
                     panelFinYears.Visible = false;
                     btnShowFinYears.Text = "+";
+                    btnShowFinYears.CssClass = "btn btn-transparent rounded btn-xs btn-outline green-jungle active tooltips rounded-button"; // Set background to green
                 }
                 else
                 {
                     btnShowFinYears.Text = "-";
+                    btnShowFinYears.CssClass = "btn btn-transparent rounded btn-xs btn-outline red active tooltips rounded-button"; // Apply green button class
 
                     int hospitalID = Convert.ToInt32(e.CommandArgument);
 
@@ -85,11 +87,13 @@ public partial class AdminPanel_Account_ACC_IncomeList_ACC_IncomeListPage : Syst
                 {
                     panelIncomes.Visible = false;
                     btnShowIncomes.Text = "+";
+                    btnShowIncomes.CssClass = "btn btn-transparent rounded btn-xs btn-outline green-jungle active tooltips rounded-button"; // Set background to green
 
                 }
                 else
                 {
                     btnShowIncomes.Text = "-";
+                    btnShowIncomes.CssClass = "btn btn-transparent rounded btn-xs btn-outline red active tooltips rounded-button"; // Apply green button class
 
                     int finYearID = Convert.ToInt32(e.CommandArgument);
 
