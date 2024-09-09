@@ -24,48 +24,6 @@ public partial class AdminPanel_Account_ACC_IncomeList_ACC_IncomeListPage : Syst
         rptHospitals.DataBind();
     }
 
-    protected void rptHospitals_ItemDataBound(object sender, RepeaterItemEventArgs e)
-    {
-        if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
-        {
-            // Get the current hospital ID
-            int hospitalID = Convert.ToInt32(DataBinder.Eval(e.Item.DataItem, "HospitalID"));
-
-            // Find the nested repeater for Financial Years
-            Repeater rptFinYears = (Repeater)e.Item.FindControl("rptFinYears");
-
-            // Fetch Financial Years for the selected HospitalID
-            DataTable dtFinYears = ExecuteProcedure(hospitalID, null);
-
-            // Bind the Financial Years data to the nested repeater
-            rptFinYears.DataSource = dtFinYears;
-            rptFinYears.DataBind();
-        }
-    }
-
-    protected void rptFinYears_ItemDataBound(object sender, RepeaterItemEventArgs e)
-    {
-        if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
-        {
-            // Get the current financial year ID
-            int finYearID = Convert.ToInt32(DataBinder.Eval(e.Item.DataItem, "FinYearID"));
-
-            // Find the parent hospital repeater item to get HospitalID
-            RepeaterItem parentItem = (RepeaterItem)((Repeater)sender).NamingContainer;
-            int hospitalID = Convert.ToInt32(DataBinder.Eval(parentItem.DataItem, "HospitalID"));
-
-            // Find the nested repeater for Income
-            Repeater rptIncomes = (Repeater)e.Item.FindControl("rptIncomes");
-
-            // Fetch Incomes for the selected HospitalID and FinYearID
-            DataTable dtIncomes = ExecuteProcedure(hospitalID, finYearID);
-
-            // Bind the Income data to the nested repeater
-            rptIncomes.DataSource = dtIncomes;
-            rptIncomes.DataBind();
-        }
-    }
-
     // Executes the stored procedure and returns the results
     private DataTable ExecuteProcedure(int? hospitalID, int? finYearID)
     {
@@ -96,5 +54,46 @@ public partial class AdminPanel_Account_ACC_IncomeList_ACC_IncomeListPage : Syst
         }
 
         return dtResults;
+    }
+
+    protected void rptHospitals_ItemCommand(object source, RepeaterCommandEventArgs e)
+    {
+        if (e.CommandName == "LoadFinYears")
+        {
+            int hospitalID = Convert.ToInt32(e.CommandArgument);
+
+            // Find the nested repeater for Financial Years
+            Repeater rptFinYears = (Repeater)e.Item.FindControl("rptFinYears");
+
+            // Fetch Financial Years for the selected HospitalID
+            DataTable dtFinYears = ExecuteProcedure(hospitalID, null);
+
+            // Bind the Financial Years data to the nested repeater
+            rptFinYears.DataSource = dtFinYears;
+            rptFinYears.DataBind();
+        }
+    }
+
+    protected void rptFinYears_ItemCommand(object sender, RepeaterCommandEventArgs e)
+    {
+        if (e.CommandName == "LoadIncomes")
+        {
+            int finYearID = Convert.ToInt32(e.CommandArgument);
+
+            // Find the parent RepeaterItem of this financial year (to get HospitalID)
+            RepeaterItem parentItem = (RepeaterItem)((Repeater)sender).NamingContainer;
+            HiddenField hdnHospitalID = (HiddenField)parentItem.FindControl("hdnHospitalID");
+            int hospitalID = Convert.ToInt32(hdnHospitalID.Value);
+
+            // Find the nested repeater for Income
+            Repeater rptIncomes = (Repeater)e.Item.FindControl("rptIncomes");
+
+            // Fetch Incomes for the selected HospitalID and FinYearID
+            DataTable dtIncomes = ExecuteProcedure(hospitalID, finYearID);
+
+            // Bind the Income data to the nested repeater
+            rptIncomes.DataSource = dtIncomes;
+            rptIncomes.DataBind();
+        }
     }
 }

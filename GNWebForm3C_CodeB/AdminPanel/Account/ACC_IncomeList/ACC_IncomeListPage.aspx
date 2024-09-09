@@ -24,15 +24,13 @@
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="cphPageContent" runat="Server">
     <!-- Nested Repeater for Hospitals, Financial Years, and Incomes -->
-    <asp:Repeater ID="rptHospitals" runat="server" OnItemDataBound="rptHospitals_ItemDataBound">
+    <asp:Repeater ID="rptHospitals" runat="server" OnItemCommand="rptHospitals_ItemCommand">
         <HeaderTemplate>
             <table class="table table-striped">
                 <thead>
                     <tr>
                         <th>Hospital</th>
-                        <th>Print Name</th>
-                        <th>Print Line 1</th>
-                        <th>Remarks</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -41,23 +39,22 @@
         <ItemTemplate>
             <tr>
                 <td><%# Eval("Hospital") %></td>
-                <td><%# Eval("PrintName") %></td>
-                <td><%# Eval("PrintLine1") %></td>
-                <td><%# Eval("Remarks") %></td>
+                <asp:HiddenField ID="hdnHospitalID" runat="server" Value='<%# Eval("HospitalID") %>' />
+                <td>
+                    <asp:Button ID="btnShowFinYears" runat="server" Text="+" CommandName="LoadFinYears" CommandArgument='<%# Eval("HospitalID") %>' />
+                </td>
             </tr>
 
             <!-- Financial Year Repeater -->
-            <asp:Repeater ID="rptFinYears" runat="server" OnItemDataBound="rptFinYears_ItemDataBound">
+            <asp:Repeater ID="rptFinYears" runat="server" OnItemCommand="rptFinYears_ItemCommand">
                 <HeaderTemplate>
                     <tr>
-                        <td colspan="4">
+                        <td colspan="2">
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
                                         <th>Financial Year</th>
-                                        <th>From Date</th>
-                                        <th>To Date</th>
-                                        <th>Remarks</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -66,16 +63,16 @@
                 <ItemTemplate>
                     <tr>
                         <td><%# Eval("FinYearName") %></td>
-                        <td><%# Eval("FromDate") %></td>
-                        <td><%# Eval("ToDate") %></td>
-                        <td><%# Eval("Remarks") %></td>
+                        <td>
+                            <asp:Button ID="btnShowIncomes" runat="server" Text="+" CommandName="LoadIncomes" CommandArgument='<%# Eval("FinYearID") %>' />
+                        </td>
                     </tr>
 
                     <!-- Income Repeater -->
                     <asp:Repeater ID="rptIncomes" runat="server">
                         <HeaderTemplate>
                             <tr>
-                                <td colspan="4">
+                                <td colspan="2">
                                     <table class="table">
                                         <thead>
                                             <tr>
@@ -102,10 +99,8 @@
                                     </table>
                                 </td>
                             </tr>
-                       
                         </FooterTemplate>
                     </asp:Repeater>
-
                 </ItemTemplate>
 
                 <FooterTemplate>
@@ -113,7 +108,6 @@
                             </table>
                         </td>
                     </tr>
-               
                 </FooterTemplate>
             </asp:Repeater>
         </ItemTemplate>
@@ -121,7 +115,6 @@
         <FooterTemplate>
             </tbody>
             </table>
-       
         </FooterTemplate>
     </asp:Repeater>
 </asp:Content>
