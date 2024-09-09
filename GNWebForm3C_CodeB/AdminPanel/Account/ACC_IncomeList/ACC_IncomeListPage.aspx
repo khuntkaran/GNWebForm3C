@@ -54,7 +54,7 @@
                                     <!-- Nested Repeater for Hospitals, Financial Years, and Incomes -->
                                     <asp:Repeater ID="rptHospitals" runat="server" OnItemCommand="rptHospitals_ItemCommand">
                                         <HeaderTemplate>
-                                            <table class="table table-bordered  ">
+                                            <table class="table table-bordered table-striped ">
                                                 <thead>
                                                     <tr>
                                                         <th style="width: 5%;">Action</th>
@@ -80,7 +80,7 @@
                                                         <div>
                                                             <asp:Repeater ID="rptFinYears" runat="server" OnItemCommand="rptFinYears_ItemCommand">
                                                                 <HeaderTemplate>
-                                                                    <table class="table table-bordered">
+                                                                    <table class="table table-bordered table-striped">
                                                                         <thead>
                                                                             <tr>
                                                                                 <th style="width: 5%;">Action</th>
@@ -107,7 +107,7 @@
                                                                             <td colspan="">
                                                                                 <asp:Repeater ID="rptIncomes" runat="server">
                                                                                     <HeaderTemplate>
-                                                                                        <table class="table table-bordered">
+                                                                                        <table class="table table-bordered table-striped">
                                                                                             <thead>
                                                                                                 <tr>
                                                                                                     <th>Income Type</th>
@@ -122,8 +122,8 @@
                                                                                     <ItemTemplate>
                                                                                         <tr>
                                                                                             <td><%# Eval("IncomeType") %></td>
-                                                                                            <td><%# Eval("Amount") %></td>
-                                                                                            <td><%# Eval("IncomeDate") %></td>
+                                                                                            <td><%# Eval("Amount",GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint) %></td>
+                                                                                            <td><%# Eval("IncomeDate",GNForm3C.CV.DefaultDateFormatForGrid) %></td>
                                                                                             <td><%# Eval("Note") %></td>
                                                                                         </tr>
                                                                                     </ItemTemplate>
@@ -170,25 +170,7 @@
 
 <asp:Content ID="Content5" ContentPlaceHolderID="cphScripts" runat="Server">
     <script type="text/javascript">
-        function toggleButton(btnId, targetDivId) {
-            console.log(btnId.value)
-            console.log(targetDivId)
-            var targetDiv = targetDivId;
-            var btn = btnId;
-
-            //if (!targetDiv || !btn) {
-            //    console.error("Element not found for either button or div");
-            //    return;
-            //}
-
-            if (btn.value == "+") {
-                //document.getElementById(targetDivId).style.display = "block";
-                btn.value = "-";  // Change + to -
-            } else {
-                // document.getElementById(targetDivId).style.display = "none";
-                btn.value = "+";  // Change - back to +
-            }
-        }
+        
 
     </script>
 </asp:Content>

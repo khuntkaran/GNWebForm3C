@@ -30,23 +30,24 @@ public partial class AdminPanel_Account_ACC_IncomeList_ACC_IncomeListPage : Syst
         rptHospitals.DataBind();
     }
 
-
-
     protected void rptHospitals_ItemCommand(object source, RepeaterCommandEventArgs e)
     {
         if (e.CommandName == "LoadFinYears")
         {
 
             Panel panelFinYears = (Panel)e.Item.FindControl("pnlFinYears");
+            Button finyearbutton = (Button)e.Item.FindControl("btnShowFinYears");
 
             if (panelFinYears != null)
             {
                 if (panelFinYears.Visible)
                 {
                     panelFinYears.Visible = false;
+                    finyearbutton.Text = "+";
                 }
                 else
                 {
+                    finyearbutton.Text = "-";
                     int hospitalID = Convert.ToInt32(e.CommandArgument);
 
                     // Find the nested repeater for Financial Years
@@ -75,16 +76,18 @@ public partial class AdminPanel_Account_ACC_IncomeList_ACC_IncomeListPage : Syst
         if (e.CommandName == "LoadIncomes")
         {
             Panel panelIncomes = (Panel)e.Item.FindControl("pnlIncomes");
+            Button btnincome = (Button)e.Item.FindControl("btnShowIncomes");
 
             if (panelIncomes != null)
             {
                 if (panelIncomes.Visible)
                 {
                     panelIncomes.Visible = false;
+                    btnincome.Text = "+";
                 }
                 else
                 {
-
+                    btnincome.Text = "-";
                     int finYearID = Convert.ToInt32(e.CommandArgument);
 
                     // Find the parent RepeaterItem of this financial year (to get HospitalID)
