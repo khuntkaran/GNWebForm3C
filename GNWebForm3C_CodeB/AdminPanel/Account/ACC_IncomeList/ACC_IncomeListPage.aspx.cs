@@ -36,18 +36,19 @@ public partial class AdminPanel_Account_ACC_IncomeList_ACC_IncomeListPage : Syst
         {
 
             Panel panelFinYears = (Panel)e.Item.FindControl("pnlFinYears");
-            Button finyearbutton = (Button)e.Item.FindControl("btnShowFinYears");
+            Button btnShowFinYears = (Button)e.Item.FindControl("btnShowFinYears");
 
             if (panelFinYears != null)
             {
                 if (panelFinYears.Visible)
                 {
                     panelFinYears.Visible = false;
-                    finyearbutton.Text = "+";
+                    btnShowFinYears.Text = "+";
                 }
                 else
                 {
-                    finyearbutton.Text = "-";
+                    btnShowFinYears.Text = "-";
+
                     int hospitalID = Convert.ToInt32(e.CommandArgument);
 
                     // Find the nested repeater for Financial Years
@@ -76,18 +77,20 @@ public partial class AdminPanel_Account_ACC_IncomeList_ACC_IncomeListPage : Syst
         if (e.CommandName == "LoadIncomes")
         {
             Panel panelIncomes = (Panel)e.Item.FindControl("pnlIncomes");
-            Button btnincome = (Button)e.Item.FindControl("btnShowIncomes");
+            Button btnShowIncomes = (Button)e.Item.FindControl("btnShowIncomes");
 
             if (panelIncomes != null)
             {
                 if (panelIncomes.Visible)
                 {
                     panelIncomes.Visible = false;
-                    btnincome.Text = "+";
+                    btnShowIncomes.Text = "+";
+
                 }
                 else
                 {
-                    btnincome.Text = "-";
+                    btnShowIncomes.Text = "-";
+
                     int finYearID = Convert.ToInt32(e.CommandArgument);
 
                     // Find the parent RepeaterItem of this financial year (to get HospitalID)
