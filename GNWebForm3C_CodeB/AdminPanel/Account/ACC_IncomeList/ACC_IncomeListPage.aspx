@@ -1,0 +1,139 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default/MasterPage.master" AutoEventWireup="true" CodeFile="ACC_IncomeListPage.aspx.cs" Inherits="AdminPanel_Account_ACC_IncomeList_ACC_IncomeListPage" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="cphPageHeader" runat="Server">
+    <asp:Label ID="lblPageHeader_XXXXX" runat="server" Text="Income List"></asp:Label>
+    <small>
+        <asp:Label ID="lblPageHeaderInfo_XXXXX" runat="server" Text="Account"></asp:Label></small>
+    <span class="pull-right">
+        <small>
+            <asp:HyperLink ID="hlShowHelp" SkinID="hlShowHelp" runat="server"></asp:HyperLink>
+        </small>
+    </span>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="cphBreadcrumb" runat="Server">
+    <li>
+        <i class="fa fa-home"></i>
+        <asp:HyperLink ID="hlHome" runat="server" NavigateUrl="~/AdminPanel/Default.aspx" Text="Home"></asp:HyperLink>
+        <i class="fa fa-angle-right"></i>
+    </li>
+    <li class="active">
+        <asp:Label ID="lblBreadCrumbLast" runat="server" Text="Income List"></asp:Label>
+    </li>
+</asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="cphPageContent" runat="Server">
+    <!-- Nested Repeater for Hospitals, Financial Years, and Incomes -->
+    <asp:Repeater ID="rptHospitals" runat="server" OnItemDataBound="rptHospitals_ItemDataBound">
+        <HeaderTemplate>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Hospital</th>
+                        <th>Print Name</th>
+                        <th>Print Line 1</th>
+                        <th>Remarks</th>
+                    </tr>
+                </thead>
+                <tbody>
+        </HeaderTemplate>
+
+        <ItemTemplate>
+            <tr>
+                <td><%# Eval("Hospital") %></td>
+                <td><%# Eval("PrintName") %></td>
+                <td><%# Eval("PrintLine1") %></td>
+                <td><%# Eval("Remarks") %></td>
+            </tr>
+
+            <!-- Financial Year Repeater -->
+            <asp:Repeater ID="rptFinYears" runat="server" OnItemDataBound="rptFinYears_ItemDataBound">
+                <HeaderTemplate>
+                    <tr>
+                        <td colspan="4">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Financial Year</th>
+                                        <th>From Date</th>
+                                        <th>To Date</th>
+                                        <th>Remarks</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                </HeaderTemplate>
+
+                <ItemTemplate>
+                    <tr>
+                        <td><%# Eval("FinYearName") %></td>
+                        <td><%# Eval("FromDate") %></td>
+                        <td><%# Eval("ToDate") %></td>
+                        <td><%# Eval("Remarks") %></td>
+                    </tr>
+
+                    <!-- Income Repeater -->
+                    <asp:Repeater ID="rptIncomes" runat="server">
+                        <HeaderTemplate>
+                            <tr>
+                                <td colspan="4">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Income Type</th>
+                                                <th>Amount</th>
+                                                <th>Date</th>
+                                                <th>Note</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                        </HeaderTemplate>
+
+                        <ItemTemplate>
+                            <tr>
+                                <td><%# Eval("IncomeType") %></td>
+                                <td><%# Eval("Amount") %></td>
+                                <td><%# Eval("IncomeDate") %></td>
+                                <td><%# Eval("Note") %></td>
+                            </tr>
+                        </ItemTemplate>
+
+                        <FooterTemplate>
+                            </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                       
+                        </FooterTemplate>
+                    </asp:Repeater>
+
+                </ItemTemplate>
+
+                <FooterTemplate>
+                    </tbody>
+                            </table>
+                        </td>
+                    </tr>
+               
+                </FooterTemplate>
+            </asp:Repeater>
+        </ItemTemplate>
+
+        <FooterTemplate>
+            </tbody>
+            </table>
+       
+        </FooterTemplate>
+    </asp:Repeater>
+</asp:Content>
+
+<asp:Content ID="Content5" ContentPlaceHolderID="cphScripts" runat="Server">
+    <%-- <script>
+
+     $(window).keydown(function (e) {
+         GNWebKeyEvents(e.keyCode, '<%=hlAddNew.ClientID%>', '<%=btnSearch.ClientID%>');
+     });
+
+     SearchGridUI('<%=btnSearch.ClientID%>', 'sample_1', 1);
+     </script>--%>
+</asp:Content>
+
