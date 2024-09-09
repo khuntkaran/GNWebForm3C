@@ -9,7 +9,7 @@ using System.Web;
 /// 
 namespace GNForm3C.BAL
 {
-    public class ACC_IncomeListBAL : ACC_IncomeBALBase
+    public class ACC_IncomeListBAL : ACC_IncomeListBALBase
     {
         public ACC_IncomeListBAL()
         {
@@ -17,5 +17,7 @@ namespace GNForm3C.BAL
             // TODO: Add constructor logic here
             //
         }
+
+       
     }
 }

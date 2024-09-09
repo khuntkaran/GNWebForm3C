@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GNForm3C.BAL;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Web.UI;
@@ -17,44 +18,15 @@ public partial class AdminPanel_Account_ACC_IncomeList_ACC_IncomeListPage : Syst
     private void LoadHospitals()
     {
         // Call the stored procedure without parameters to get all hospitals
-        DataTable dtHospitals = ExecuteProcedure(null, null);
+        ACC_IncomeListBAL aCC_IncomeListBAL = new ACC_IncomeListBAL();
+        DataTable dtHospitals = aCC_IncomeListBAL.ExecuteProcedure(null, null);
 
         // Bind the hospital data to the repeater
         rptHospitals.DataSource = dtHospitals;
         rptHospitals.DataBind();
     }
 
-    // Executes the stored procedure and returns the results
-    private DataTable ExecuteProcedure(int? hospitalID, int? finYearID)
-    {
-        DataTable dtResults = new DataTable();
-
-        using (SqlConnection conn = new SqlConnection("data source=KARAN\\SQLEXPRESS;initial catalog=GNForm3C; Integrated Security =True;TrustServerCertificate=True;"))
-        {
-            using (SqlCommand cmd = new SqlCommand("PR_ACC_IncomeList_SelectPage2", conn))
-            {
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                // Add parameters for HospitalID and FinYearID
-                if (hospitalID.HasValue)
-                    cmd.Parameters.AddWithValue("@HospitalID", hospitalID);
-                else
-                    cmd.Parameters.AddWithValue("@HospitalID", DBNull.Value);
-
-                if (finYearID.HasValue)
-                    cmd.Parameters.AddWithValue("@FinYearID", finYearID);
-                else
-                    cmd.Parameters.AddWithValue("@FinYearID", DBNull.Value);
-
-                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
-                {
-                    da.Fill(dtResults);
-                }
-            }
-        }
-
-        return dtResults;
-    }
+    
 
     protected void rptHospitals_ItemCommand(object source, RepeaterCommandEventArgs e)
     {
@@ -66,7 +38,8 @@ public partial class AdminPanel_Account_ACC_IncomeList_ACC_IncomeListPage : Syst
             Repeater rptFinYears = (Repeater)e.Item.FindControl("rptFinYears");
 
             // Fetch Financial Years for the selected HospitalID
-            DataTable dtFinYears = ExecuteProcedure(hospitalID, null);
+            ACC_IncomeListBAL aCC_IncomeListBAL = new ACC_IncomeListBAL();
+            DataTable dtFinYears = aCC_IncomeListBAL.ExecuteProcedure(hospitalID, null);
 
             // Bind the Financial Years data to the nested repeater
             rptFinYears.DataSource = dtFinYears;
@@ -89,7 +62,8 @@ public partial class AdminPanel_Account_ACC_IncomeList_ACC_IncomeListPage : Syst
             Repeater rptIncomes = (Repeater)e.Item.FindControl("rptIncomes");
 
             // Fetch Incomes for the selected HospitalID and FinYearID
-            DataTable dtIncomes = ExecuteProcedure(hospitalID, finYearID);
+            ACC_IncomeListBAL aCC_IncomeListBAL = new ACC_IncomeListBAL();
+            DataTable dtIncomes = aCC_IncomeListBAL.ExecuteProcedure(hospitalID, finYearID);
 
             // Bind the Income data to the nested repeater
             rptIncomes.DataSource = dtIncomes;

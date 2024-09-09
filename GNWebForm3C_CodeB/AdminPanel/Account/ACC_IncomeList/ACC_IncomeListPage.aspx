@@ -23,100 +23,148 @@
     </li>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="cphPageContent" runat="Server">
-    <!-- Nested Repeater for Hospitals, Financial Years, and Incomes -->
-    <asp:Repeater ID="rptHospitals" runat="server" OnItemCommand="rptHospitals_ItemCommand">
-        <HeaderTemplate>
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Hospital</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-        </HeaderTemplate>
+      <!--Help Text-->
+  <ucHelp:ShowHelp ID="ucHelp" runat="server" />
+  <!--Help Text End-->
+  <asp:ScriptManager ID="sm" runat="server">
+  </asp:ScriptManager>
 
-        <ItemTemplate>
-            <tr>
-                <td><%# Eval("Hospital") %></td>
-                <asp:HiddenField ID="hdnHospitalID" runat="server" Value='<%# Eval("HospitalID") %>' />
-                <td>
-                    <asp:Button ID="btnShowFinYears" runat="server" Text="+" CommandName="LoadFinYears" CommandArgument='<%# Eval("HospitalID") %>' />
-                </td>
-            </tr>
+    <%-- List --%>
+    <asp:UpdatePanel ID="upList" runat="server" UpdateMode="Conditional">
+        <ContentTemplate>
+            <div class="row">
+                <div class="col-md-12">
+                    <ucMessage:ShowMessage ID="ucMessage" runat="server" ViewStateMode="Disabled" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                    <div class="portlet light">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                <asp:Label SkinID="lblSearchResultHeaderIcon" runat="server"></asp:Label>
+                                <asp:Label ID="lblSearchResultHeader" SkinID="lblSearchResultHeaderText" runat="server"></asp:Label>
+                                <label class="control-label">&nbsp;</label>
+                                
+                            </div>
 
-            <!-- Financial Year Repeater -->
-            <asp:Repeater ID="rptFinYears" runat="server" OnItemCommand="rptFinYears_ItemCommand">
-                <HeaderTemplate>
-                    <tr>
-                        <td colspan="2">
-                            <table class="table table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th>Financial Year</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                </HeaderTemplate>
+                        </div>
+                        <div class="portlet-body">
+                            <div class="row" runat="server" id="Div_SearchResult" >
+                                <div class="col-md-12">
+                                    <!-- Nested Repeater for Hospitals, Financial Years, and Incomes -->
+                                    <asp:Repeater ID="rptHospitals" runat="server" OnItemCommand="rptHospitals_ItemCommand">
+                                        <HeaderTemplate>
+                                            <table class="table table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Hospital</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                        </HeaderTemplate>
 
-                <ItemTemplate>
-                    <tr>
-                        <td><%# Eval("FinYearName") %></td>
-                        <td>
-                            <asp:Button ID="btnShowIncomes" runat="server" Text="+" CommandName="LoadIncomes" CommandArgument='<%# Eval("FinYearID") %>' />
-                        </td>
-                    </tr>
-
-                    <!-- Income Repeater -->
-                    <asp:Repeater ID="rptIncomes" runat="server">
-                        <HeaderTemplate>
-                            <tr>
-                                <td colspan="2">
-                                    <table class="table">
-                                        <thead>
+                                        <ItemTemplate>
                                             <tr>
-                                                <th>Income Type</th>
-                                                <th>Amount</th>
-                                                <th>Date</th>
-                                                <th>Note</th>
+                                                <td><%# Eval("Hospital") %></td>
+                                                <asp:HiddenField ID="hdnHospitalID" runat="server" Value='<%# Eval("HospitalID") %>' />
+                                                <td>
+                                                    <asp:Button ID="btnShowFinYears" runat="server" Text="+" CommandName="LoadFinYears" CommandArgument='<%# Eval("HospitalID") %>' />
+                                                </td>
                                             </tr>
-                                        </thead>
-                                        <tbody>
-                        </HeaderTemplate>
 
-                        <ItemTemplate>
-                            <tr>
-                                <td><%# Eval("IncomeType") %></td>
-                                <td><%# Eval("Amount") %></td>
-                                <td><%# Eval("IncomeDate") %></td>
-                                <td><%# Eval("Note") %></td>
-                            </tr>
-                        </ItemTemplate>
+                                            <!-- Financial Year Repeater -->
+                                            <asp:Repeater ID="rptFinYears" runat="server" OnItemCommand="rptFinYears_ItemCommand">
+                                                <HeaderTemplate>
+                                                    <tr>
+                                                        <td colspan="2">
+                                                            <table class="table table-bordered">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Financial Year</th>
+                                                                        <th>Action</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                </HeaderTemplate>
 
-                        <FooterTemplate>
-                            </tbody>
-                                    </table>
-                                </td>
-                            </tr>
-                        </FooterTemplate>
-                    </asp:Repeater>
-                </ItemTemplate>
+                                                <ItemTemplate>
+                                                    <tr>
+                                                        <td><%# Eval("FinYearName") %></td>
+                                                        <td>
+                                                            <asp:Button ID="btnShowIncomes" runat="server" Text="+" CommandName="LoadIncomes" CommandArgument='<%# Eval("FinYearID") %>' />
+                                                        </td>
+                                                    </tr>
 
-                <FooterTemplate>
-                    </tbody>
-                            </table>
-                        </td>
-                    </tr>
-                </FooterTemplate>
-            </asp:Repeater>
-        </ItemTemplate>
+                                                    <!-- Income Repeater -->
+                                                    <asp:Repeater ID="rptIncomes" runat="server">
+                                                        <HeaderTemplate>
+                                                            <tr>
+                                                                <td colspan="2">
+                                                                    <table class="table">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th>Income Type</th>
+                                                                                <th>Amount</th>
+                                                                                <th>Date</th>
+                                                                                <th>Note</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                        </HeaderTemplate>
 
-        <FooterTemplate>
-            </tbody>
-            </table>
-        </FooterTemplate>
-    </asp:Repeater>
+                                                        <ItemTemplate>
+                                                            <tr>
+                                                                <td><%# Eval("IncomeType") %></td>
+                                                                <td><%# Eval("Amount") %></td>
+                                                                <td><%# Eval("IncomeDate") %></td>
+                                                                <td><%# Eval("Note") %></td>
+                                                            </tr>
+                                                        </ItemTemplate>
+
+                                                        <FooterTemplate>
+                                                            </tbody>
+                                 </table>
+                             </td>
+                         </tr>
+                    
+                                                        </FooterTemplate>
+                                                    </asp:Repeater>
+                                                </ItemTemplate>
+
+                                                <FooterTemplate>
+                                                    </tbody>
+                         </table>
+                     </td>
+                 </tr>
+            
+                                                </FooterTemplate>
+                                            </asp:Repeater>
+                                        </ItemTemplate>
+
+                                        <FooterTemplate>
+                                            </tbody>
+         </table>
+    
+                                        </FooterTemplate>
+                                    </asp:Repeater>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END EXAMPLE TABLE PORTLET-->
+                </div>
+            </div>
+        </ContentTemplate>
+        <Triggers>
+            
+        </Triggers>
+    </asp:UpdatePanel>
+    <%-- END List --%>
 </asp:Content>
 
 <asp:Content ID="Content5" ContentPlaceHolderID="cphScripts" runat="Server">

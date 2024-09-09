@@ -9,7 +9,7 @@ using System.Web;
 /// 
 namespace GNForm3C.DAL
 {
-    public class ACC_IncomeListDAL : ACC_IncomeDALBase
+    public class ACC_IncomeListDAL : ACC_IncomeListDALBase
     {
         public ACC_IncomeListDAL()
         {
@@ -17,5 +17,7 @@ namespace GNForm3C.DAL
             // TODO: Add constructor logic here
             //
         }
+
+        
     }
 }
