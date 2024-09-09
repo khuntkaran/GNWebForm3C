@@ -54,7 +54,7 @@
                                     <!-- Nested Repeater for Hospitals, Financial Years, and Incomes -->
                                     <asp:Repeater ID="rptHospitals" runat="server" OnItemCommand="rptHospitals_ItemCommand">
                                         <HeaderTemplate>
-                                            <table class="table table-striped">
+                                            <table class="table table-bordered  ">
                                                 <thead>
                                                     <tr>
                                                         <th style="width: 5%;">Action</th>
@@ -67,82 +67,86 @@
                                         <ItemTemplate>
                                             <tr>
                                                 <td>
-                                                    <asp:Button ID="btnShowFinYears" runat="server" ClientIDMode="Static" Text="+" CommandName="LoadFinYears" CommandArgument='<%# Eval("HospitalID") %>' OnClientClick="toggleButton(this); return false;" />
+                                                    <asp:Button ID="btnShowFinYears" runat="server" ClientIDMode="Static" Text="+" CommandName="LoadFinYears" CommandArgument='<%# Eval("HospitalID") %>' />
                                                 </td>
                                                 <td><%# Eval("Hospital") %></td>
                                                 <asp:HiddenField ID="hdnHospitalID" runat="server" Value='<%# Eval("HospitalID") %>' />
                                             </tr>
+                                            <asp:Panel ID="pnlFinYears" runat="server" Visible="false">
+                                                <!-- Financial Year Repeater -->
+                                                <tr id="" display="none">
+                                                    <td></td>
+                                                    <td colspan="">
+                                                        <div>
+                                                            <asp:Repeater ID="rptFinYears" runat="server" OnItemCommand="rptFinYears_ItemCommand">
+                                                                <HeaderTemplate>
+                                                                    <table class="table table-bordered">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th style="width: 5%;">Action</th>
 
-                                            <!-- Financial Year Repeater -->
-                                            <tr>
-                                                <td colspan="2">
-                                                    <div id="divFinYears_<%# Eval("HospitalID") %>">
-                                                        <asp:Repeater ID="rptFinYears" runat="server" OnItemCommand="rptFinYears_ItemCommand">
-                                                            <HeaderTemplate>
-                                                                <table class="table table-bordered">
-                                                                    <thead>
+                                                                                <th>Financial Year</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                </HeaderTemplate>
+
+                                                                <ItemTemplate>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <asp:Button ID="btnShowIncomes" runat="server" Text="+" CommandName="LoadIncomes" CommandArgument='<%# Eval("FinYearID") %>' />
+                                                                        </td>
+                                                                        <td><%# Eval("FinYearName") %></td>
+
+                                                                    </tr>
+
+                                                                    <asp:Panel ID="pnlIncomes" runat="server" Visible="false">
+                                                                        <!-- Income Repeater -->
                                                                         <tr>
-                                                                            <th style="width: 5%;">Action</th>
+                                                                            <td></td>
+                                                                            <td colspan="">
+                                                                                <asp:Repeater ID="rptIncomes" runat="server">
+                                                                                    <HeaderTemplate>
+                                                                                        <table class="table table-bordered">
+                                                                                            <thead>
+                                                                                                <tr>
+                                                                                                    <th>Income Type</th>
+                                                                                                    <th>Amount</th>
+                                                                                                    <th>Date</th>
+                                                                                                    <th>Note</th>
+                                                                                                </tr>
+                                                                                            </thead>
+                                                                                            <tbody>
+                                                                                    </HeaderTemplate>
 
-                                                                            <th>Financial Year</th>
-                                                                        </tr>
-                                                                    </thead>
-                                                                    <tbody>
-                                                            </HeaderTemplate>
-
-                                                            <ItemTemplate>
-                                                                <tr>
-                                                                    <td>
-                                                                        <asp:Button ID="btnShowIncomes" runat="server" Text="+" CommandName="LoadIncomes" CommandArgument='<%# Eval("FinYearID") %>' />
-                                                                    </td>
-                                                                    <td><%# Eval("FinYearName") %></td>
-
-                                                                </tr>
-
-                                                                <!-- Income Repeater -->
-                                                                <tr>
-                                                                    <td colspan="2">
-                                                                        <asp:Repeater ID="rptIncomes" runat="server">
-                                                                            <HeaderTemplate>
-                                                                                <table class="table">
-                                                                                    <thead>
+                                                                                    <ItemTemplate>
                                                                                         <tr>
-                                                                                            <th>Income Type</th>
-                                                                                            <th>Amount</th>
-                                                                                            <th>Date</th>
-                                                                                            <th>Note</th>
+                                                                                            <td><%# Eval("IncomeType") %></td>
+                                                                                            <td><%# Eval("Amount") %></td>
+                                                                                            <td><%# Eval("IncomeDate") %></td>
+                                                                                            <td><%# Eval("Note") %></td>
                                                                                         </tr>
-                                                                                    </thead>
-                                                                                    <tbody>
-                                                                            </HeaderTemplate>
+                                                                                    </ItemTemplate>
 
-                                                                            <ItemTemplate>
-                                                                                <tr>
-                                                                                    <td><%# Eval("IncomeType") %></td>
-                                                                                    <td><%# Eval("Amount") %></td>
-                                                                                    <td><%# Eval("IncomeDate") %></td>
-                                                                                    <td><%# Eval("Note") %></td>
-                                                                                </tr>
-                                                                            </ItemTemplate>
-
-                                                                            <FooterTemplate>
-                                                                                </tbody>
+                                                                                    <FooterTemplate>
+                                                                                        </tbody>
                                                                                 </table>
-                                                                            </FooterTemplate>
-                                                                        </asp:Repeater>
-                                                                    </td>
-                                                                </tr>
-                                                            </ItemTemplate>
+                                                                                    </FooterTemplate>
+                                                                                </asp:Repeater>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </asp:Panel>
+                                                                </ItemTemplate>
 
-                                                            <FooterTemplate>
-                                                                </tbody>
+                                                                <FooterTemplate>
+                                                                    </tbody>
                                                                 </table>
-                                                            </FooterTemplate>
-                                                        </asp:Repeater>
-                                                    </div>
-                                                </td>
-                                            </tr>
-
+                                                                </FooterTemplate>
+                                                            </asp:Repeater>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </asp:Panel>
                                         </ItemTemplate>
 
                                         <FooterTemplate>
@@ -167,8 +171,8 @@
 <asp:Content ID="Content5" ContentPlaceHolderID="cphScripts" runat="Server">
     <script type="text/javascript">
         function toggleButton(btnId, targetDivId) {
-            console.log("btn " + btnId.value)
-            console.log("div" + targetDivId)
+            console.log(btnId.value)
+            console.log(targetDivId)
             var targetDiv = targetDivId;
             var btn = btnId;
 
@@ -177,11 +181,11 @@
             //    return;
             //}
 
-            if (targetDivId.style.display === "none") {
-                targetDivId.style.display = "block";
+            if (btn.value == "+") {
+                //document.getElementById(targetDivId).style.display = "block";
                 btn.value = "-";  // Change + to -
             } else {
-                targetDivId.style.display = "none";
+                // document.getElementById(targetDivId).style.display = "none";
                 btn.value = "+";  // Change - back to +
             }
         }
